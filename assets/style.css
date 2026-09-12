@@ -335,11 +335,112 @@ tbody tr:nth-child(even) {
   background: var(--tint);
 }
 
+/* Phase strip — the six deliveries at a glance */
+.phases {
+  list-style: none;
+  margin: 1.25rem 0 1rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.phases li {
+  margin: 0;
+  padding: 0.7rem 0.85rem;
+  background: var(--tint);
+  border-left: 3px solid var(--gold);
+  border-radius: 3px;
+}
+
+.phase-no {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.phase-what {
+  display: block;
+  font-weight: 600;
+  color: var(--navy-deep);
+  line-height: 1.4;
+}
+
+.phase-weight {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Compact week list */
+.weeks {
+  list-style: none;
+  margin: 1.25rem 0 1rem;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.weeks li {
+  margin: 0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.75rem;
+}
+
+.weeks .wk {
+  flex: 0 0 4.25rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.weeks .topic {
+  flex: 1 1 13rem;
+  min-width: 0;
+}
+
+/* "Being written" marker on placeholder pages */
+.wip {
+  margin: 1.25rem 0 1.5rem;
+  padding: 0.85rem 1.1rem;
+  background: var(--gold-soft);
+  border-left: 4px solid var(--gold);
+  font-size: 0.95rem;
+  color: var(--navy-deep);
+}
+
+.wip p {
+  margin: 0;
+}
+
+.wip p + p {
+  margin-top: 0.5rem;
+}
+
 /* ---------- Narrow screens ---------- */
+
+@media (max-width: 46rem) {
+  .phases {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
 @media (max-width: 30rem) {
   body {
     font-size: 16px;
+  }
+  .phases {
+    grid-template-columns: 1fr;
+  }
+  .weeks .wk {
+    flex-basis: 100%;
   }
   .site-header h1 {
     font-size: 1.5rem;
