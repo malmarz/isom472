@@ -20,7 +20,7 @@
 <main>
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../../">ISOM 472</a> &rsaquo; <a href="../">Reference</a> &rsaquo; Your repository
+      <a href="../../">ISOM 472</a> &rsaquo; Your repository
     </nav>
 
     <p class="lead">
@@ -28,7 +28,8 @@
       It is not where finished work is filed at the end. It is where the work is done,
       and it is what is read when the work is graded. This page describes its shape:
       how branches and commits are named, what a pull request must contain, what a
-      review is, which tags are graded, and which file goes where.
+      review is, where story IDs come from, which tags are graded, and which file
+      goes where.
     </p>
 
     <h2>What the repository is</h2>
@@ -47,10 +48,8 @@
 
     <div class="callout">
       <p>
-        <strong>Activity that is not visible in the repository did not happen.</strong>
-        Work invisible in the repository did not happen. Every student commits under
-        their own account. The plain rule: if your activity cannot be seen in the
-        repository, you did not participate.
+        Every student commits under their own account. <strong>If your activity
+        cannot be seen in the repository, you did not participate.</strong>
       </p>
     </div>
 
@@ -74,15 +73,15 @@
       </p>
     </div>
 
-    <h3>Five words, and the loop they make</h3>
+    <h3>Six words, and the loop they make</h3>
     <p>
-      These five words are used on every page of this course and in every class.
+      These six words are used on every page of this course and in every class.
       They mean exactly this and nothing looser.
     </p>
 
     <div class="table-wrap">
       <table>
-        <caption>The five words, as defined in class.</caption>
+        <caption>The six words, as defined in class.</caption>
         <thead>
           <tr>
             <th scope="col">Word</th>
@@ -90,6 +89,10 @@
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <th scope="row">Repository</th>
+            <td>One per team; everything the team produces lives in it.</td>
+          </tr>
           <tr>
             <th scope="row">Branch</th>
             <td>A line of work that does not disturb anyone else's.</td>
@@ -115,9 +118,11 @@
     </div>
 
     <p>
-      The loop, every time, in this order:
+      The repository is where the loop runs. The loop itself, every time, in this
+      order:
       branch &rsaquo; commit &rsaquo; pull request &rsaquo; review &rsaquo; merge.
-      The next five sections are those five words, in that order.
+      The sections below take those words in that order, with merge at the end of
+      the review section.
     </p>
 
     <p class="small">
@@ -148,9 +153,54 @@
     </ol>
 
     <p>
-      Rule 1 is the next section. Rules 2 and 3 are what the review and merge sections
-      are about. Who the Client Lead is, and what the other roles own, is on the
-      <a href="../../roles/">roles page</a>.
+      Rule 1 is what the branches section below is about. Rules 2 and 3 are what the
+      review and merge sections are about. Who the Client Lead is, and what the other
+      roles own, is on the <a href="../../roles/">roles page</a>.
+    </p>
+
+    <h2>The board: one issue per story</h2>
+
+    <p>
+      The board is the repository's issue list. There is no second place to look and
+      no separate tool. One story is one GitHub issue in the team repository, and the
+      backlog is those issues in order.
+    </p>
+    <p>
+      <strong>The story ID is <code>S-</code> plus the issue number.</strong> Issue
+      #14 is story S-14. GitHub gives the number when the issue is opened, so there is
+      nothing to maintain and no two stories can carry the same ID.
+    </p>
+    <p>The issue title starts with the ID, then the story:</p>
+
+<pre><code>S-14 As a sales clerk I want a duplicate order refused so that the client is not billed twice</code></pre>
+
+    <ul>
+      <li>
+        <strong>The Client Lead owns the order.</strong> The backlog is the issues,
+        ordered, and that order is the Client Lead's call.
+      </li>
+      <li>
+        <strong>The split is the assignee.</strong> Whoever holds a story this sprint
+        is the person assigned to its issue. There is no other record of who is on
+        what.
+      </li>
+      <li>
+        <strong>Bugs are issues too</strong>, carrying a <code>bug</code> label, filed
+        by the Quality Lead with steps to reproduce and tracked to a disposition.
+      </li>
+    </ul>
+
+    <p>The number then carries through everything else on this page:</p>
+
+<pre><code>Issue #14        S-14, the story
+branch           s-14-duplicate-order-check
+commit           feat(orders): add duplicate-order check  [S-14]
+pull request     Closes #14</code></pre>
+
+    <p>
+      <code>Closes #14</code> in the pull request is the link back: when the pull
+      request is merged, GitHub closes the issue. That is how the work traces back to
+      the board, and it is why the branch and the commit carry the ID.
     </p>
 
     <h2>Branches</h2>
@@ -178,7 +228,7 @@
       </p>
       <p>
         Story ID first, then what the work is. Both are readable in the branch list
-        and both trace back to a card on the board.
+        and both trace back to an issue on the board.
       </p>
     </div>
 
@@ -247,7 +297,8 @@
         <strong>What changed</strong>, in two or three lines of plain words.
       </li>
       <li>
-        <strong>The story it closes</strong>, named by its ID.
+        <strong>The issue it closes</strong>, written as <code>Closes #14</code>, so
+        the story closes on the board when the pull request is merged.
       </li>
       <li>
         <strong>How to check it</strong> &mdash; what the reviewer opens, what they do,
@@ -285,7 +336,7 @@ What changed
 - A second order for the same customer in the same month is now refused.
 - The message names the earlier order and the date it was placed.
 
-Closes S-14.
+Closes #14.
 
 How to check this
 1. Open the orders screen and place an order for any customer.
@@ -371,7 +422,7 @@ case where the earlier order was cancelled</code></pre>
       in these words:
     </p>
 
-<pre><code>Tag the current commit on main as phase-2 and push the tag.</code></pre>
+<pre><code>Tag the current commit on main as phase-1 and push the tag.</code></pre>
 
     <p class="callout outcome">
       <strong>You should see</strong> the tag listed on the repository's tags page on
@@ -407,6 +458,8 @@ case where the earlier order was cancelled</code></pre>
 │   └── delivery-notes/
 │       ├── phase-1.md
 │       └── … through phase-6.md
+├── supabase/
+│   └── migrations/                   one SQL file per change to the tables
 ├── prototype/                        the HTML prototype and the screen list
 └── (your application code)</code></pre>
 
@@ -452,6 +505,11 @@ case where the earlier order was cancelled</code></pre>
             <td>Phase Lead</td>
           </tr>
           <tr>
+            <th scope="row"><code>supabase/migrations/</code></th>
+            <td>The SQL that creates and changes the tables, one file per change. Antigravity writes the migration file, the Data Lead runs the same SQL in the Supabase SQL editor, and the file is committed &mdash; so the repository and the database say the same thing.</td>
+            <td>Data Lead</td>
+          </tr>
+          <tr>
             <th scope="row"><code>prototype/</code></th>
             <td>The HTML prototype and the screen list.</td>
             <td>Design Lead</td>
@@ -482,7 +540,7 @@ case where the earlier order was cancelled</code></pre>
       did what. The repository answers it, and nothing else does.
     </p>
     <ul>
-      <li>Every story is labelled with its owner, and the branch names it.</li>
+      <li>Every story is an issue assigned to its owner, and the branch names it.</li>
       <li>Every commit carries the name of the account that made it.</li>
       <li>Every pull request declares AI use: the tool, its output, your changes.</li>
       <li>Every merge carries the name of the teammate who reviewed it.</li>
@@ -494,33 +552,25 @@ case where the earlier order was cancelled</code></pre>
       costs one extra line.
     </p>
     <p>
-      None of this is about suspicion. A team where every member's work is visible is a
-      team where nobody has to argue about contribution in the final week of the
-      semester, because the argument was settled commit by commit.
-    </p>
-    <p>
       One last thing, so it is not misunderstood: misconduct in this course is
       <strong>the inability to explain your own system, not the use of a tool</strong>.
       Use whatever helps you. Declare it, review each other's work, and be able to
       explain what is in the repository with your name on it.
     </p>
 
-    <h3>Related pages</h3>
-    <ul class="links">
-      <li><a href="../publishing/">Publishing &mdash; getting the repository onto your laptop, and the proposal onto a public page</a></li>
-      <li><a href="../../setup/">Setup guide &mdash; accounts, software, and how the team repository is created</a></li>
-      <li><a href="../../roles/">Roles &mdash; who owns what, and the Phase Lead rotation</a></li>
-      <li><a href="../../deliverables/">Deliverables &mdash; what each phase is and when it is tagged</a></li>
-      <li><a href="../../templates/proposal.html">The proposal template</a></li>
-      <li><a href="../../templates/interface-contract.html">The interface contract card</a></li>
-      <li><a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits &mdash; required reading, one page</a></li>
-    </ul>
-
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
+    <p><a href="../../">ISOM 472</a> &middot;
+      <a href="../../setup/">Setup</a> &middot;
+      <a href="../../deliverables/">Deliverables</a> &middot;
+      <strong>Repository</strong> &middot;
+      <a href="../../reference/publishing/">Publishing</a> &middot;
+      <a href="../../roles/">Roles</a> &middot;
+      <a href="../../templates/proposal.html">Proposal</a> &middot;
+      <a href="../../templates/interface-contract.html">Contract card</a></p>
     <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
   </div>
 </footer>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Publishing from your repository &mdash; ISOM 472</title>
-<meta name="description" content="How to move work between your laptop and the team repository with GitHub Desktop, and how to publish the team's proposal as a page with a public address.">
+<meta name="description" content="How to get the team repository onto your laptop with GitHub Desktop, how to move work through a branch, a pull request, a review and a merge, and how to publish the team's proposal as a page with a public address.">
 <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
@@ -13,31 +13,62 @@
   <div class="wrap">
     <p class="eyebrow">ISOM 472 &middot; Fall 2026/2027</p>
     <h1>Publishing from your repository</h1>
-    <p class="tagline">Move work into the team repository, then publish the proposal at its own address.</p>
+    <p class="tagline">Get the repository onto your laptop, move work through a branch and a pull request, and publish the proposal at its own address.</p>
   </div>
 </header>
 
 <main>
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../../">ISOM 472</a> &rsaquo; <a href="../">Reference</a> &rsaquo; Publishing
+      <a href="../../">ISOM 472</a> &rsaquo; Publishing
     </nav>
 
     <p class="lead">
-      This page has two parts. The first is the everyday loop for moving a
-      change from your laptop into the team repository with GitHub Desktop:
-      clone, change, commit, push. The second is a one-time setup that gives
-      your team's proposal a public web address.
+      This page has three parts. The first gets the team repository onto your
+      laptop. The second is the loop every change goes through for the rest of
+      the semester &mdash; branch, commit, pull request, review, merge. The
+      third publishes the team's proposal at a public web address. Each step
+      says what you should see when it has worked.
     </p>
 
-    <h2>Part 1 &mdash; The GitHub Desktop loop</h2>
+    <div class="callout">
+      <p>
+        <strong>Nothing goes straight onto <code>main</code>.</strong> Every
+        change, from the proposal onwards, travels on its own branch and is
+        merged by a teammate who read it. Part 2 is that loop, and it starts on
+        day one.
+      </p>
+    </div>
+
+    <h2>Part 1 &mdash; Getting the repository onto your laptop</h2>
     <p>
-      This assumes GitHub Desktop is already installed and signed in to your
-      own GitHub account, from the <a href="../../setup/">setup guide</a>, and
-      that the instructor has already created your team's repository. Every
-      student uses this same loop for everything the team produces &mdash;
-      code, the prototype, the ledger, notes &mdash; all in the same
+      This assumes GitHub Desktop and Antigravity are installed and you are
+      signed in to your own GitHub account, from the
+      <a href="../../setup/">setup guide</a>, and that the instructor has
+      created your team's repository. Everything the team produces &mdash;
+      code, the prototype, the ledger, the notes &mdash; lives in that one
       repository.
+    </p>
+
+    <h3>Accept the invitation first</h3>
+    <p>
+      When the instructor creates the team repository, GitHub emails an
+      invitation to the address on your GitHub account. Open it and accept it.
+      Until you do, the repository does not belong to you on GitHub and will
+      not appear in GitHub Desktop's list of repositories to clone.
+    </p>
+    <ol>
+      <li>
+        Open the invitation email and click the button that accepts it. If you
+        cannot find the email, sign in to
+        <a href="https://github.com/">github.com</a> &mdash; the invitation
+        also appears there, at the top of the page.
+      </li>
+      <li>Accept it.</li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> the team repository open on github.com
+      under your own signed-in account, with its files listed.
     </p>
 
     <h3>Clone the team repository</h3>
@@ -59,70 +90,301 @@
       </li>
     </ol>
     <p class="callout outcome">
-      <strong>You should see</strong> GitHub Desktop finish downloading and
-      show your team's repository, with its files visible in the folder you
-      chose.
+      <strong>You should see</strong> the team repository listed under
+      <strong>GitHub.com</strong> in the Clone dialog, and then, after
+      cloning, GitHub Desktop showing that repository with its files in the
+      folder you chose. If it is not in the list, the invitation has not been
+      accepted &mdash; go back a step.
     </p>
 
-    <h3>Change a file</h3>
+    <h3>Open the same folder in Antigravity</h3>
+    <p>
+      GitHub Desktop moves the work. Antigravity is where you build it. Both
+      point at the one folder GitHub Desktop just cloned &mdash; not a copy of
+      it, and not a second download.
+    </p>
     <ol>
+      <li>Open Antigravity.</li>
       <li>
-        In GitHub Desktop, open the <strong>Repository</strong> menu and
-        choose <strong>Show in Explorer</strong> (Windows) or
-        <strong>Show in Finder</strong> (macOS). This opens the cloned
-        folder.
+        Choose <strong>File</strong> &rsaquo; <strong>Open Folder</strong>.
       </li>
       <li>
-        Open any file in that folder, make a small change, and save it.
+        Select the folder GitHub Desktop cloned into, and open it.
       </li>
     </ol>
     <p class="callout outcome">
-      <strong>You should see</strong> the file saved with your change, still
-      inside the folder GitHub Desktop cloned &mdash; not a copy saved
-      somewhere else.
+      <strong>You should see</strong> the repository's files in Antigravity's
+      file list, with the same names you see in GitHub Desktop. From here on,
+      a file you save in Antigravity appears under
+      <strong>Changes</strong> in GitHub Desktop within a second or two.
     </p>
 
-    <h3>See the change in GitHub Desktop</h3>
-    <ol>
-      <li>Switch back to GitHub Desktop.</li>
-      <li>Open the <strong>Changes</strong> tab on the left.</li>
-    </ol>
-    <p class="callout outcome">
-      <strong>You should see</strong> the file you edited listed under
-      Changes, checked, with the changed lines shown in the panel on the
-      right.
+    <h3>The email your commits carry</h3>
+    <p>
+      Every commit carries a name and an email address, and GitHub matches that
+      email to an account. <strong>The email GitHub Desktop commits with must
+      be an email address on your GitHub account.</strong> If it is not,
+      github.com shows the commit as plain grey text with no avatar and no
+      link to you, and the work is not attributed to you at all. Check this
+      before your first commit, not after twenty of them.
     </p>
-
-    <h3>Commit</h3>
     <ol>
       <li>
-        In the box at the bottom left, type a one-line summary of what you
-        changed &mdash; for example <code>Add literature review section</code>,
-        not <code>update</code> or <code>changes</code>.
+        Open GitHub Desktop's settings &mdash; <strong>File</strong> &rsaquo;
+        <strong>Options</strong> on Windows, <strong>GitHub Desktop</strong>
+        &rsaquo; <strong>Settings</strong> on macOS, named
+        <strong>Preferences</strong> in older versions.
       </li>
-      <li>Click <strong>Commit to main</strong>.</li>
+      <li>Choose the <strong>Git</strong> tab.</li>
+      <li>
+        Read the <strong>Email</strong> field. It must be an address listed on
+        your GitHub account. If it is not, replace it with one that is.
+      </li>
+      <li>
+        To see which addresses count, open
+        <a href="https://github.com/settings/emails">https://github.com/settings/emails</a>
+        while signed in to GitHub.
+      </li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong>, after your first push, your avatar and
+      your GitHub username beside the commit on github.com, and your username
+      linking to your profile. Grey text with no avatar means the email does
+      not match &mdash; fix the Email field before you commit again.
+    </p>
+    <p>
+      Your commits, your pull requests and your reviews are the record of what
+      you personally did in this course, and they are the only record that
+      exists. An unattributed commit is work nobody can trace to you.
+    </p>
+
+    <h2>Part 2 &mdash; The loop: branch, commit, pull request, review, merge</h2>
+    <p>
+      Every change goes through these nine steps, including the proposal in
+      Phase&nbsp;1. The rules behind them &mdash; one branch per story, what a
+      commit message contains, what a pull request must say, and what a review
+      means &mdash; are on the
+      <a href="../repository/">repository page</a>. This page is the buttons.
+    </p>
+
+    <h3>1. Start a branch</h3>
+    <p>
+      One branch per story. The branch is made from <code>main</code>, so check
+      what you are branching from before you make it.
+    </p>
+    <ol>
+      <li>
+        In GitHub Desktop, look at the <strong>Current Branch</strong> button
+        at the top. It should say <strong>main</strong>. If it does not, click
+        it and switch to <strong>main</strong>.
+      </li>
+      <li>
+        Click <strong>Current Branch</strong>, then
+        <strong>New Branch</strong>.
+      </li>
+      <li>
+        Name it <code>&lt;story-id&gt;-&lt;short-name&gt;</code> &mdash; lower
+        case, hyphens between words, no spaces and no capitals. For example
+        <code>s-14-duplicate-order-check</code>.
+      </li>
+      <li>Click <strong>Create Branch</strong>.</li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> the <strong>Current Branch</strong>
+      button now showing your new branch name instead of <strong>main</strong>,
+      and the <strong>Changes</strong> tab empty.
+    </p>
+
+    <h3>2. Make the change</h3>
+    <ol>
+      <li>
+        Work in Antigravity on the folder you opened in Part 1, or open the
+        folder directly &mdash; in GitHub Desktop, the
+        <strong>Repository</strong> menu, then
+        <strong>Show in Explorer</strong> (Windows) or
+        <strong>Show in Finder</strong> (macOS).
+      </li>
+      <li>Make the change and save it.</li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> the file listed under
+      <strong>Changes</strong> in GitHub Desktop, checked, with the changed
+      lines shown in the panel on the right. If it is not listed, you edited a
+      copy saved somewhere else &mdash; on the Desktop or in Downloads &mdash;
+      rather than the file inside the cloned folder.
+    </p>
+
+    <h3>3. Commit to the branch</h3>
+    <ol>
+      <li>
+        In the box at the bottom left, write the summary line. It carries a
+        type, a scope, what changed, and the story ID &mdash; for example:
+        <pre><code>docs(proposal): add section 2, what happens today</code></pre>
+      </li>
+      <li>
+        Check the commit button underneath. It reads <strong>Commit to</strong>
+        followed by a branch name, and that name must be your branch &mdash;
+        not <code>main</code>.
+      </li>
+      <li>Click it.</li>
     </ol>
     <p class="callout outcome">
       <strong>You should see</strong> the Changes list empty out, and your
-      commit appear at the top of the <strong>History</strong> tab.
+      commit at the top of the <strong>History</strong> tab with your avatar
+      beside it.
     </p>
     <p>
-      Full rules for what a commit message should contain are on the
-      <a href="../repository/">repository page</a> &mdash; read them before
-      your team's first real commit.
+      The full rules for a commit message &mdash; the types, the scope, and
+      where the story ID goes &mdash; are on the
+      <a href="../repository/">repository page</a>. Read them before your
+      team's first commit. Commit often, in small pieces, rather than once at
+      the end of the week.
     </p>
 
-    <h3>Push</h3>
+    <h3>4. Publish the branch</h3>
+    <p>
+      The branch exists only on your laptop until you publish it. Nobody can
+      review what they cannot see.
+    </p>
     <ol>
       <li>
-        Click <strong>Push origin</strong> near the top of the GitHub
-        Desktop window.
+        Click the button near the top of the GitHub Desktop window. The first
+        time it reads <strong>Publish branch</strong>; every time after that,
+        on the same branch, it reads <strong>Push origin</strong>.
       </li>
     </ol>
     <p class="callout outcome">
-      <strong>You should see</strong> the button change to
-      <strong>Fetch origin</strong>. Your commit is now on GitHub, and your
-      teammates can see it.
+      <strong>You should see</strong> the button settle on
+      <strong>Fetch origin</strong>, and the branch appear in the branch list
+      on github.com.
+    </p>
+
+    <h3>5. Open a pull request</h3>
+    <ol>
+      <li>
+        In GitHub Desktop, click <strong>Create Pull Request</strong> &mdash;
+        it appears after publishing, and is also in the
+        <strong>Branch</strong> menu. It opens github.com in your browser.
+      </li>
+      <li>
+        Write the title in the same form as a commit message, carrying the
+        story ID.
+      </li>
+      <li>
+        Fill in the body. The repository ships with a pull request template, so
+        the headings are already in the box when it opens &mdash; write under
+        each one rather than deleting them.
+      </li>
+      <li>Click <strong>Create pull request</strong>.</li>
+    </ol>
+    <p>
+      The body must say what changed, which story it closes, and how to check
+      it &mdash; what the reviewer opens, what they do, and what they should
+      see. It must also carry the <code>AI-Assisted:</code> declaration, on
+      every pull request with no exceptions. The required block, the worked
+      example and the form of the declaration are on the
+      <a href="../repository/">repository page</a>.
+    </p>
+    <p class="callout outcome">
+      <strong>You should see</strong> the pull request open on github.com with
+      its own number, your title, your body under the template's headings, and
+      your branch named as the source.
+    </p>
+
+    <h3>6. Ask a teammate to review</h3>
+    <ol>
+      <li>
+        On the pull request page, find <strong>Reviewers</strong> on the right.
+      </li>
+      <li>
+        Click it and choose one teammate. Not yourself &mdash; GitHub will not
+        offer you your own name.
+      </li>
+      <li>Tell them, so they know it is waiting.</li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> your teammate's name under
+      <strong>Reviewers</strong>, and the pull request saying a review is
+      required before it can be merged.
+    </p>
+
+    <h3>7. The review &mdash; done by the teammate, not the author</h3>
+    <p>
+      These steps are for the reviewer, on github.com. The author does not do
+      them.
+    </p>
+    <ol>
+      <li>Open the pull request and click <strong>Files changed</strong>.</li>
+      <li>
+        Read what changed. Then do what the "how to check it" section says:
+        open it, run it, see what happens.
+      </li>
+      <li>Click <strong>Review changes</strong>, at the top right.</li>
+      <li>
+        In the box, write what you opened, what you did, what you saw, and what
+        you did not check. The last part matters as much as the rest.
+      </li>
+      <li>
+        Choose <strong>Approve</strong>, then
+        <strong>Submit review</strong>.
+      </li>
+    </ol>
+    <div class="callout">
+      <p>
+        <strong>A review that says only "looks good" is not a review.</strong>
+        Nothing was opened, nothing was run, and nothing was claimed &mdash;
+        and the reviewer's name is on it either way. A worked example of a real
+        review is on the <a href="../repository/">repository page</a>.
+      </p>
+    </div>
+    <p class="callout outcome">
+      <strong>You should see</strong> the pull request show
+      <strong>Approved</strong> with the reviewer's name and their written
+      review on the conversation tab.
+    </p>
+
+    <h3>8. Merge &mdash; the reviewer merges, never the author</h3>
+    <p>
+      <strong>Nobody merges their own pull request.</strong> The teammate who
+      reviewed it is the one who merges it. If you wrote it, you are finished
+      at step 6.
+    </p>
+    <ol>
+      <li>
+        The reviewer clicks <strong>Merge pull request</strong>, then
+        <strong>Confirm merge</strong>.
+      </li>
+      <li>
+        On the screen that follows, the reviewer clicks
+        <strong>Delete branch</strong>. The work is on <code>main</code> now;
+        the branch has nothing left to hold.
+      </li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> the pull request marked
+      <strong>Merged</strong>, the change present in the repository's files on
+      <code>main</code>, and the branch gone from the branch list.
+    </p>
+
+    <h3>9. Come back to main</h3>
+    <p>
+      Your laptop does not know about the merge until you fetch it. Do this
+      before starting the next story, or you will branch from work that is
+      already out of date.
+    </p>
+    <ol>
+      <li>
+        In GitHub Desktop, click <strong>Current Branch</strong> and switch to
+        <strong>main</strong>.
+      </li>
+      <li>Click <strong>Fetch origin</strong>.</li>
+      <li>Click <strong>Pull origin</strong> when it appears.</li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> the merged work in the
+      <strong>History</strong> tab while on <strong>main</strong>, and the
+      Changes list empty. You are ready to start step&nbsp;1 again for the next
+      story.
     </p>
 
     <h3>When it goes wrong</h3>
@@ -130,72 +392,75 @@
       <p><strong>What actually goes wrong, and what to do:</strong></p>
       <ul>
         <li>
-          <strong>You pushed to the wrong place.</strong> Check the
-          repository name at the top of the GitHub Desktop window before you
-          push &mdash; it is easy to have more than one repository cloned and
-          lose track of which one is open.
+          <strong>You committed while still on <code>main</code> instead of
+          your branch.</strong> You can tell because the commit button named
+          <code>main</code> rather than a branch name, and because your commit
+          is in the History tab while <strong>Current Branch</strong> says
+          <strong>main</strong>. Do not try to unpick it and do not push
+          anything else on top. Tell the instructor what happened and leave it
+          alone until it has been sorted out.
         </li>
         <li>
-          <strong>The button says "Fetch origin" instead of "Push origin".</strong>
-          A teammate pushed before you did. Click <strong>Fetch origin</strong>,
-          then <strong>Pull origin</strong> to bring their commit down, and
-          only then push yours.
+          <strong>The Create Pull Request button does nothing, or GitHub
+          Desktop asks you to publish first.</strong> The branch was never
+          published. Go back to step 4, click
+          <strong>Publish branch</strong>, then try again.
         </li>
         <li>
-          <strong>Your change is not listed under Changes.</strong> You
-          edited a copy of the file saved somewhere else &mdash; check that
-          the file you opened was inside the folder GitHub Desktop cloned,
-          not a duplicate on the Desktop or in Downloads.
+          <strong>You cannot approve your own pull request.</strong> That is
+          the rule, not a fault, and GitHub enforces it. Do not open a second
+          account, and do not ask a teammate to approve without reading. Ask
+          someone to actually review it.
+        </li>
+        <li>
+          <strong>The branch list keeps growing.</strong> Merged branches are
+          not being deleted. Whoever merges deletes the branch on the same
+          screen, in the same minute &mdash; a list of forty dead branches
+          hides the three that are live.
         </li>
       </ul>
     </div>
 
-    <h2>Part 2 &mdash; Giving the proposal a public address</h2>
+    <h2>Part 3 &mdash; Giving the proposal a public address</h2>
     <p>
       The proposal is delivered twice. <code>docs/proposal.md</code> in the
-      repository is the document that gets graded. The same content,
-      published as a page from your team's own repository, is delivered a
-      second time &mdash; presented from its live address and checked only as
-      reachable, not judged on how it looks.
+      repository is the document that is judged. The same content, published as
+      a page from your team's own repository, is delivered a second time
+      &mdash; presented from its live address and checked only as reachable,
+      not judged on how it looks.
     </p>
 
-    <h3>Turn on GitHub Pages for the team repository</h3>
-    <ol>
-      <li>On github.com, open the team repository.</li>
-      <li>
-        Click <strong>Settings</strong>, then <strong>Pages</strong> in the
-        left sidebar.
-      </li>
-      <li>
-        Under <strong>Build and deployment</strong>, set
-        <strong>Source</strong> to <strong>Deploy from a branch</strong>.
-      </li>
-      <li>
-        Set <strong>Branch</strong> to <strong>main</strong> and the folder
-        to <strong>/ (root)</strong>.
-      </li>
-      <li>Click <strong>Save</strong>.</li>
-    </ol>
-    <p class="callout outcome">
-      <strong>You should see</strong> the Source section show
-      <strong>Deploy from a branch</strong>, <strong>main</strong>, and
-      <strong>/ (root)</strong> &mdash; the settings you just chose, saved.
-    </p>
+    <div class="callout">
+      <p>
+        <strong>GitHub Pages is already switched on for your team
+        repository.</strong> The instructor sets it up when the repository is
+        created, publishing from <code>main</code> at the repository root.
+        There is nothing for the team to configure and no setting to change.
+        Add the file, get it onto <code>main</code>, and the address works.
+      </p>
+    </div>
+
     <p>
-      Set this once and never change it. The repository's bare address is
-      reserved for the team's running system later in the course, which is
-      why the proposal page sits under <code>/docs/</code>.
+      The address for the proposal page is
+      <code>https://&lt;owner&gt;.github.io/&lt;repo&gt;/docs/</code>, where
+      <code>&lt;owner&gt;</code> and <code>&lt;repo&gt;</code> are the two
+      parts of your repository's address on github.com. The bare repository
+      address &mdash; the one without <code>/docs/</code> &mdash; is kept for
+      the team's running system later in the course, which is why the proposal
+      page sits under <code>/docs/</code>.
     </p>
 
-    <h3>Create docs/index.html</h3>
+    <h3>Create docs/index.html on a branch</h3>
     <p>
-      In the team's folder on your laptop, open the <code>docs</code> folder
-      and create a file named <code>index.html</code> inside it. Put your
-      proposal content in it. Start from this skeleton and replace the text
-      with your eight proposal sections. It is not graded on how it looks
-      &mdash; no stylesheet or script is needed.
+      Start with step&nbsp;1 of Part 2: make a branch. It has no story ID, so
+      name it for the work &mdash; <code>proposal-public-page</code>. Then, in
+      the team's folder on your laptop, open the <code>docs</code> folder and
+      create a file named <code>index.html</code> inside it. Put your proposal
+      content in it. Start from this skeleton and replace the text with your
+      eight proposal sections. It is not graded on how it looks &mdash; no
+      stylesheet or script is needed.
     </p>
-    <pre><code>&lt;!DOCTYPE html&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
 &lt;meta charset="utf-8"&gt;
@@ -219,37 +484,36 @@ adding headings and paragraphs until all eight sections are here.&lt;/p&gt;
       heading and your text, unstyled.
     </p>
 
-    <h3>Commit and push it</h3>
+    <h3>Get it onto main through the loop</h3>
     <p>
-      Use the same loop from Part 1: the file is listed under Changes in
-      GitHub Desktop, write a one-line commit summary, click
-      <strong>Commit to main</strong>, then click <strong>Push origin</strong>.
+      The page is served from <code>main</code>, and the only way onto
+      <code>main</code> is the loop in Part 2. The proposal is not an
+      exception to it.
     </p>
-    <p class="callout outcome">
-      <strong>You should see</strong> the History tab show your commit, and
-      the button change to <strong>Fetch origin</strong>, same as any other
-      push.
-    </p>
-
-    <h3>Read the live address</h3>
     <ol>
-      <li>Wait a minute or two &mdash; the first build takes time.</li>
-      <li>Reload the Settings &rsaquo; Pages screen.</li>
+      <li>Commit the new file to your branch (step&nbsp;3).</li>
+      <li>Publish the branch (step&nbsp;4).</li>
       <li>
-        Read the address shown there and add <code>docs/</code> to the end:
-        <code>https://&lt;owner&gt;.github.io/&lt;repo&gt;/docs/</code>
+        Open a pull request, with the <code>AI-Assisted:</code> line filled in
+        like any other (step&nbsp;5).
+      </li>
+      <li>Ask a teammate to review it (steps&nbsp;6 and&nbsp;7).</li>
+      <li>
+        The reviewer merges it and deletes the branch (step&nbsp;8).
       </li>
     </ol>
     <p class="callout outcome">
-      <strong>You should see</strong> a live address listed on the Pages
-      settings screen.
+      <strong>You should see</strong> <code>docs/index.html</code> listed in
+      the repository's files on github.com while looking at
+      <code>main</code> &mdash; not only on your branch.
     </p>
 
-    <h3>Check it</h3>
+    <h3>Check the address</h3>
     <ol>
+      <li>Wait a minute or two after the merge. The build takes time.</li>
       <li>
-        Open <code>https://&lt;owner&gt;.github.io/&lt;repo&gt;/docs/</code> in a
-        browser.
+        Open <code>https://&lt;owner&gt;.github.io/&lt;repo&gt;/docs/</code> in
+        a browser.
       </li>
       <li>
         Check it again from a phone, off the campus network &mdash; on phone
@@ -267,35 +531,35 @@ adding headings and paragraphs until all eight sections are here.&lt;/p&gt;
       <p><strong>What actually goes wrong, and what to do:</strong></p>
       <ul>
         <li>
-          <strong>The address returns a 404 for the first minute or two
-          after the first push.</strong> That is normal. Wait, then reload.
-        </li>
-        <li>
-          <strong>The folder was left at <code>/docs</code> instead of
-          <code>/ (root)</code>.</strong> The proposal page then lands at the
-          bare repository address instead of under <code>/docs/</code>. Go
-          back to Settings &rsaquo; Pages and set the folder to
-          <code>/ (root)</code>.
+          <strong>The address returns a 404 for the first minute or two after
+          the merge.</strong> That is normal. Wait, then reload.
         </li>
         <li>
           <strong>The file is named something other than
           <code>index.html</code>.</strong> Rename it &mdash; GitHub Pages
-          only serves <code>index.html</code> automatically.
+          serves <code>index.html</code> from a folder and nothing else.
+          <code>Index.html</code>, <code>index.htm</code> and
+          <code>proposal.html</code> all fail.
         </li>
         <li>
-          <strong>The address still shows nothing new.</strong> The change
-          was committed but never pushed &mdash; check that GitHub Desktop
-          says <strong>Fetch origin</strong>, not <strong>Push origin</strong>,
-          before you assume it is live.
+          <strong>The work was merged but the page was checked too
+          early.</strong> Give it another minute and reload. A hard reload
+          helps if the browser is showing you the 404 it cached a moment ago.
+        </li>
+        <li>
+          <strong>The address still shows nothing.</strong> The file is on the
+          branch but was never merged. The page is built from
+          <code>main</code>, so an open pull request publishes nothing. Check
+          on github.com that the pull request says <strong>Merged</strong>.
         </li>
       </ul>
     </div>
 
     <div class="callout">
       <p>
-        The team repository is public, so anything committed to it can be
-        read by anyone. Never put a password, a key, or a client's private
-        data in it.
+        The team repository is public, so anything committed to it can be read
+        by anyone. Never put a password, a key, or a client's private data in
+        it.
       </p>
     </div>
 
@@ -304,17 +568,34 @@ adding headings and paragraphs until all eight sections are here.&lt;/p&gt;
       page reachable at its address. One without the other is not delivered.
     </p>
 
+    <ul class="links">
+      <li><a href="../repository/">The repository &mdash; the rules behind this loop</a></li>
+      <li><a href="../../templates/proposal.html">The project proposal &mdash; the required shape</a></li>
+      <li><a href="../../deliverables/">Deliverables</a></li>
+      <li><a href="../../roles/">Team roles</a></li>
+      <li><a href="../../setup/">Setup guide</a></li>
+    </ul>
+
     <p class="verified">
       Written 12&nbsp;September&nbsp;2026. GitHub and GitHub Desktop change
-      their screens from time to time. If what you see does not match this
-      description, follow the screen in front of you, finish the step, and
-      tell the instructor what changed so this page can be corrected.
+      their screens and rename their buttons from time to time. If what you see
+      does not match this description, follow the screen in front of you,
+      finish the step, and tell the instructor what changed so this page can be
+      corrected.
     </p>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
+    <p><a href="../../">ISOM 472</a> &middot;
+      <a href="../../setup/">Setup</a> &middot;
+      <a href="../../deliverables/">Deliverables</a> &middot;
+      <a href="../../reference/repository/">Repository</a> &middot;
+      <strong>Publishing</strong> &middot;
+      <a href="../../roles/">Roles</a> &middot;
+      <a href="../../templates/proposal.html">Proposal</a> &middot;
+      <a href="../../templates/interface-contract.html">Contract card</a></p>
     <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
   </div>
 </footer>

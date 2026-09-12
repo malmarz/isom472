@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Setup Guide — ISOM 472</title>
-<meta name="description" content="ISOM 472 setup guide: install Antigravity and GitHub Desktop on Windows or macOS, create the KU, GitHub and Supabase accounts, and arrive at the setup session ready to work.">
+<meta name="description" content="ISOM 472 setup guide: install Antigravity and GitHub Desktop on Windows or macOS, create the KU and GitHub accounts, and arrive at the setup session ready to work.">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -25,7 +25,8 @@
 
     <p class="lead">
       The software and the accounts on this page must be ready before
-      <strong>the setup session in our next class, 08:00, in Room 1001</strong>.
+      <strong>the setup session, the second class of week 1, 08:00, in
+      Room 1001</strong>.
       Exact dates are announced in class and on the course site. The
       session confirms that the software runs on your own laptop, so it has to be
       installed when you arrive.
@@ -42,9 +43,11 @@
     <p>
       There are three parts: software to install, accounts to create, and the
       roles the team divides between its members. Work through them in order.
-      The first two are done at home, before the session. The third is settled
-      with your team and sent to the instructor during the session itself. Each
-      step says what you should see when it has worked.
+      The software, your KU account and your GitHub account are done at home,
+      before the session. The team's shared Supabase account is not: teams are
+      formed at the session, so that account comes after it. The roles are
+      settled with your team and sent to the instructor during the session
+      itself. Each step says what you should see when it has worked.
     </p>
 
     <h2>Part 1 — Software to install</h2>
@@ -105,14 +108,9 @@
 
     <h3>Macs with an Intel processor</h3>
     <p>
-      Google's documentation states that Antigravity supports Apple Silicon only,
-      while its download page offers an Intel build and lists "Apple Silicon or
-      Intel". These two Google pages contradict each other, and the contradiction
-      is unresolved.
-    </p>
-    <p>
-      If your Mac is Intel, download the Intel build and try it. If it does not
-      install or does not open, stop and bring the laptop to the setup session.
+      Google's own pages disagree about whether Intel Macs are supported.
+      Download the Intel build and try it. If it does not install or does not
+      open, stop and bring the laptop to the setup session.
     </p>
 
     <h3>GitHub Desktop</h3>
@@ -149,9 +147,8 @@
           <tr>
             <th scope="row">Memory and disk</th>
             <td>
-              No figure is published on Google's pages. As a practical margin from
-              this course, and not from Google, keep a few gigabytes of free disk
-              space before you start.
+              No figure is published on Google's pages. Keep a few gigabytes of
+              free disk space before you start.
             </td>
           </tr>
         </tbody>
@@ -167,6 +164,12 @@
       Three accounts are involved, and they do not all work the same way. Read the
       difference carefully: one is issued to you, one is individual, and one is
       shared by the whole team.
+    </p>
+    <p>
+      They are also not all created at the same time. <strong>Create your KU and
+      GitHub accounts at home, before the session.</strong> The shared Supabase
+      account and its project come once the team exists, which is at the session
+      itself.
     </p>
 
     <div class="table-wrap">
@@ -192,7 +195,7 @@
           </tr>
           <tr>
             <th scope="row">Supabase</th>
-            <td><strong>One per team, shared</strong></td>
+            <td><strong>One per team, shared</strong>, created once the team exists</td>
             <td>The team's database and its sign-ins</td>
           </tr>
         </tbody>
@@ -205,6 +208,7 @@
       Antigravity. It is the only Google account needed for this course. Do not
       create a personal Gmail account for it.
     </p>
+    <p><strong>Sign in to Antigravity:</strong></p>
     <ol>
       <li>Open Antigravity.</li>
       <li>Choose <strong>Continue with Google</strong>.</li>
@@ -215,6 +219,25 @@
       panel. Close it. On the evening before the session, open it once more and
       confirm it is still signed in.
     </p>
+    <p><strong>Sign in to Gemini Enterprise:</strong></p>
+    <ol>
+      <li>Open a browser and go to the Gemini Enterprise address.</li>
+      <li>Choose <strong>Sign in</strong> and use the same KU account.</li>
+    </ol>
+    <div class="callout bad">
+      <p>
+        <strong>TODO: address.</strong> For the instructor &mdash; the Gemini
+        Enterprise sign-in address is not settled anywhere in the course
+        materials, so it is left blank here rather than guessed. Fill it in
+        before this page is handed out, and say it in class.
+      </p>
+    </div>
+    <p class="callout outcome">
+      <strong>You should see</strong> Gemini Enterprise open in the browser with an
+      empty prompt box ready for a first message, and your KU account shown as the
+      signed-in account. Nothing has to be installed for this one &mdash; it runs
+      in the browser.
+    </p>
 
     <h3>GitHub — one account each</h3>
     <p>
@@ -222,9 +245,11 @@
       <a href="https://github.com/signup">https://github.com/signup</a>.
     </p>
     <p>
-      When the account exists, <strong>write down your GitHub username</strong> —
-      the username, not the email address. Your username is what identifies your
-      work in the team repository for the whole semester, so bring it with you.
+      When the account exists, <strong>write down your GitHub username</strong>
+      &mdash; the username, not the email address. Your username is what identifies
+      your work in the team repository for the whole semester. Bring it to the
+      session: it goes on the team roster workbook, and that is what the instructor
+      uses to create the repository.
     </p>
     <p class="callout outcome">
       <strong>You should see</strong> your username at the top of
@@ -232,17 +257,46 @@
       account signed in inside GitHub Desktop.
     </p>
 
-    <h3>Supabase — one account per team</h3>
+    <h3>Supabase &mdash; one account per team</h3>
     <p>
       Supabase is the database. <strong>Each team creates a single Supabase
-      account and shares it.</strong> This is not one account per student. Decide
-      within the team who creates it, then make sure every member can sign in to
-      it.
+      account and shares it.</strong> This is not one account per student. Because
+      the team does not exist until the setup session, this account is made after
+      it, not at home with the other two. Create it once the team is formed, and
+      before the week the schema is needed.
+    </p>
+    <p>
+      Decide within the team who creates it, and make sure every member knows
+      whose email address it uses. That one inbox receives the verification codes,
+      so signing in depends on that person being reachable. Every member must be
+      able to sign in to the account.
     </p>
     <p>
       Sign up at
       <a href="https://supabase.com/dashboard/sign-up">https://supabase.com/dashboard/sign-up</a>.
       It is free, it works in Kuwait, and it does not ask for a card.
+    </p>
+    <p>
+      Then create <strong>one project</strong> inside that shared account &mdash;
+      one project for the team, not one each. Supabase asks for a project name, a
+      region and a database password. Choose the region nearest Kuwait. Set the
+      database password when you create the project and keep it somewhere the
+      whole team can reach it, because it is not shown again afterwards.
+    </p>
+    <div class="callout bad">
+      <p>
+        <strong>The database password never goes in the repository.</strong> The
+        team repository is public. A password committed to it is public from the
+        moment it is pushed, and deleting it later does not take it out of the
+        history. Keep it outside the repository &mdash; see
+        <a href="../reference/repository/">what belongs in the repository</a>.
+      </p>
+    </div>
+    <p class="callout outcome">
+      <strong>You should see</strong> the project dashboard, with the project name
+      at the top and the table editor, SQL editor and authentication sections
+      listed down the side. Every member should be able to sign in and reach this
+      same dashboard.
     </p>
 
     <h3>The team repository</h3>
@@ -268,9 +322,20 @@
       </li>
       <li>The instructor creates the team repository and gives the team access.</li>
       <li>
+        <strong>Each member accepts the emailed invitation.</strong> GitHub sends
+        an invitation to the address on your GitHub account. Open it and accept
+        it. Check the spam folder if it does not arrive. Until you accept, the
+        repository will not appear for you.
+      </li>
+      <li>
         All work for the rest of the semester happens in that repository.
       </li>
     </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> the repository listed in your GitHub account
+      when signed in, and listed again in GitHub Desktop when you choose to clone a
+      repository.
+    </p>
     <p>
       Download the workbook here:
       <a href="../forms/isom472-team-roster.xlsx">isom472-team-roster.xlsx</a>.
@@ -294,107 +359,29 @@
       </p>
     </div>
 
-    <h2>Part 3 — Team roles</h2>
+    <h2>Part 3 &mdash; Team roles</h2>
     <p>
-      Every team divides the same work between its members. Each role owns one
-      part of the system and produces one artifact, so at any point in the
-      semester it is clear who is answerable for what. Settle the roles with your
-      team at the setup session and record them in the roster workbook.
-    </p>
-
-    <h3>Standing roles</h3>
-    <p>
-      A team of four takes the first four roles. A fifth member takes a combined
-      Quality and FinOps Lead. At six, that combined role splits into a FinOps
-      Lead and a Quality Lead.
-    </p>
-
-    <div class="table-wrap">
-      <table>
-        <caption>The standing roles, what each one owns, and the artifact it produces.</caption>
-        <thead>
-          <tr>
-            <th scope="col">Role</th>
-            <th scope="col">Owns</th>
-            <th scope="col">Artifact</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Client Lead</th>
-            <td>The client relationship and what the system must do</td>
-            <td>The backlog: user stories with acceptance criteria</td>
-          </tr>
-          <tr>
-            <th scope="row">Design Lead</th>
-            <td>What it looks like and how it flows</td>
-            <td>The HTML prototype and screen list</td>
-          </tr>
-          <tr>
-            <th scope="row">Data Lead</th>
-            <td>The data and its structure</td>
-            <td>The schema and seed data in Supabase</td>
-          </tr>
-          <tr>
-            <th scope="row">Build Lead</th>
-            <td>That it actually runs</td>
-            <td>The deployed system at its public address, plus release notes</td>
-          </tr>
-          <tr>
-            <th scope="row">FinOps Lead</th>
-            <td>What the AI work costs, and what changed as a result</td>
-            <td>The Sprint FinOps Ledger</td>
-          </tr>
-          <tr>
-            <th scope="row">Quality Lead</th>
-            <td>Finding defects in the running application</td>
-            <td>Bug issues with steps to reproduce, tracked to a disposition</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>The Phase Lead — the rotating role</h3>
-    <p>
-      Alongside the standing role each member keeps all semester, one named
-      person leads each phase. There are six phases, so a team of six has
-      everyone lead once, a team of five means one member leads twice, and a team
-      of four means two members do.
+      Settle three things with your team at the setup session: who is in the team,
+      the standing role each member holds for the semester, and the whole Phase
+      Lead rotation &mdash; all six phases, decided at once, not one at a time.
+      All of it goes on the roster workbook, and the team's Phase 1 Lead emails
+      the completed workbook to <strong>mo.almarzouq@ku.edu.kw</strong> before
+      leaving the session. One email per team.
     </p>
     <p>
-      The Phase Lead runs the phase: keeps the board current, makes sure the
-      delivery lands on time, and is the instructor's point of contact for that
-      phase. The artifact is the phase delivery note. In a team of four, the
-      Phase Lead also keeps that phase's ledger and files that phase's bug
-      tickets, so both responsibilities rotate with the lead.
+      What each role owns, and how the roles divide in a team of four, five or
+      six, is on the <a href="../roles/">team roles page</a>. Two rules hold
+      whatever your role: every member delivers at least two named stories end to
+      end each sprint, and every member reviews teammates' pull requests &mdash;
+      nobody approves their own.
     </p>
-    <p>
-      Decide the whole rotation at the setup session, not one phase at a time.
-      The roster workbook asks for all six.
-    </p>
-
-    <h3>What holds for everyone</h3>
-    <p>
-      Some rules apply regardless of role. Two of them matter from the first
-      day; the full list is on the <a href="../roles/">team roles page</a>.
-    </p>
-    <ul>
-      <li>
-        <strong>Every member delivers at least two named stories end to end
-        each sprint.</strong> A role is what you own, not the only thing you do.
-      </li>
-      <li>
-        <strong>Every member reviews teammates' pull requests.</strong> Nobody
-        approves their own.
-      </li>
-    </ul>
 
     <h2>What to bring</h2>
     <ul>
       <li>Your laptop, <strong>charged</strong>, and its charger. Room 1001 does not have enough outlets for everyone.</li>
       <li>Antigravity and GitHub Desktop already installed.</li>
-      <li>Sign-in details for all three accounts, reachable <strong>from the laptop you bring</strong> — not saved only on a phone, and not a password that would have to be reset during the session.</li>
-      <li>Your GitHub username, written down.</li>
+      <li>Sign-in details for your KU and GitHub accounts, reachable <strong>from the laptop you bring</strong> &mdash; not saved only on a phone, and not a password that would have to be reset during the session.</li>
+      <li>Your GitHub username, written down. It goes on the roster workbook.</li>
       <li>A few gigabytes of free disk space.</li>
     </ul>
 
@@ -444,11 +431,6 @@
         <strong>Pair with a teammate</strong> for that session and get your own
         machine working afterwards.
       </li>
-      <li>
-        <strong>Take the browser-based route.</strong> Every part of this course
-        can be done in a browser, with no installed software at all. It is a full
-        route through the course, not a reduced one.
-      </li>
     </ol>
     <p>
       The one thing to avoid is arriving at the session having tried nothing.
@@ -466,6 +448,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <p><a href="../">ISOM 472 course site</a></p>
+    <p><a href="../">ISOM 472</a> &middot;
+      <strong>Setup</strong> &middot;
+      <a href="../deliverables/">Deliverables</a> &middot;
+      <a href="../reference/repository/">Repository</a> &middot;
+      <a href="../reference/publishing/">Publishing</a> &middot;
+      <a href="../roles/">Roles</a> &middot;
+      <a href="../templates/proposal.html">Proposal</a> &middot;
+      <a href="../templates/interface-contract.html">Contract card</a></p>
     <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
   </div>
 </footer>

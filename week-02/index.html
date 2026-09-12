@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Week 2 &mdash; ISOM 472</title>
+<meta name="description" content="ISOM 472 week 2: finding a business problem worth solving, working with AI, the repository vocabulary and rules, and the Phase 1 delivery at the end of the week.">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -23,57 +24,299 @@
     </nav>
 
     <p class="lead">
-      For each session this week: what happens in the room, the slides, what is
-      due, the readings, and the templates the session points you at.
+      This week you find your client, frame their problem, and write the proposal
+      that Phase 1 turns on. Everything in the first class is in service of the
+      second, where Phase 1 is delivered.
     </p>
 
-    <div class="wip">
-      <p><strong>Being written.</strong> The session detail and the reading list are added in a later pass. The slides and templates below are final.</p>
+    <h2>Before the first class</h2>
+    <p>
+      Nothing new. Finish anything left over from week 1: the tools installed and
+      signed in, your accounts created, and your GitHub username on the roster
+      workbook. See the <a href="../setup/">setup guide</a>.
+    </p>
+
+    <h2>The first class</h2>
+    <p>
+      Three blocks, in this order. These concepts are quizzed &mdash; not the
+      tools, the ideas underneath them &mdash; and you are asked about them
+      individually.
+    </p>
+
+    <h3>Finding a project</h3>
+    <ul>
+      <li>
+        <strong>A business problem, not a solution.</strong> "We will build an
+        app" is not a problem.
+      </li>
+      <li>
+        <strong>Where projects come from.</strong> Someone you already know who
+        runs something: a family business, a society, a clinic, a department
+        &mdash; someone who will still answer the phone late in the semester.
+        Proximity beats ambition.
+      </li>
+      <li>
+        <strong>The four questions to ask a client.</strong> What happens today,
+        step by step? What goes wrong, and how often? What do you do when it goes
+        wrong? Who else touches this besides you? Ask all four before proposing
+        anything at all.
+      </li>
+      <li>
+        <strong>Do not lead the witness.</strong> A question that suggests its own
+        answer gets a polite yes and teaches you nothing.
+      </li>
+      <li>
+        <strong>What an accepted proposal contains,</strong> and
+        <strong>what gets rejected</strong> &mdash; the five ways a proposal comes
+        back.
+      </li>
+      <li>
+        <strong>What you must tell your client.</strong> That this is a coursework
+        prototype built by students, that it is publicly visible at a public
+        address, and that it is unsupported after the final week of the semester.
+        Say it in the first meeting, not after the semester ends.
+      </li>
+    </ul>
+
+    <div class="callout bad">
+      <p>
+        <strong>A solution.</strong> "We will build an ordering app for a bakery."
+        Nothing here can be wrong, so nothing here can be checked.
+      </p>
+    </div>
+    <div class="callout good">
+      <p>
+        <strong>A problem.</strong> "Orders arrive on WhatsApp, nobody records
+        them, and about four a week are lost." It names what happens today, what
+        goes wrong, and how often.
+      </p>
     </div>
 
-    <h2>First session</h2>
+    <h3>Working with AI</h3>
+    <ul>
+      <li>
+        <strong>Why you must hold the concepts.</strong> You cannot phrase an
+        instruction for a concept you do not have, and you cannot judge an answer
+        you do not understand. Quotas also run out, usually mid-phase, and part
+        of this work is yours to do by hand.
+      </li>
+      <li>
+        <strong>Prompting, in three moves.</strong> Give it the context it cannot
+        see &mdash; the file, the schema, the error. Say what "done" looks like
+        before it starts. Ask for the plan before the code.
+      </li>
+      <li>
+        <strong>How to verify.</strong> Run it on the real path, not the happy
+        path. Feed it bad input: empty, wrong type, a duplicate. Read it, and be
+        able to say what each part does. The failure mode is not code that
+        breaks; it is code that looks right and is confidently wrong.
+      </li>
+      <li>
+        <strong>You own what you ship.</strong> The agent wrote it; you are
+        answerable for it, including the parts you did not type. Misconduct here
+        is the inability to explain your own system, not the use of a tool.
+      </li>
+    </ul>
+    <p>Every pull request carries a declaration, in one of these two forms:</p>
+<pre><code>AI-Assisted: &lt;tool> / &lt;what it produced> / &lt;what you changed>
 
-    <h3>What happens</h3>
-    <p><span class="pending">being written</span></p>
+AI-Assisted: none</code></pre>
+    <p>
+      Both are fully legitimate. <strong>Not declaring is the offence.</strong>
+    </p>
+
+    <h3>The repository</h3>
+    <ul>
+      <li>
+        <strong>Six words.</strong> A <strong>repository</strong> is the team's
+        folder plus its entire history. A <strong>branch</strong> is a line of
+        work that does not disturb anyone else's. A <strong>commit</strong> is a
+        saved point carrying your name and a message. A
+        <strong>pull request</strong> says "here is my work, please look at it
+        before it becomes real". A <strong>review</strong> is a teammate reading
+        it and saying what they checked. A <strong>merge</strong> makes it part of
+        the real thing. Branch &rsaquo; commit &rsaquo; pull request &rsaquo;
+        review &rsaquo; merge is the whole working method of this course.
+      </li>
+      <li>
+        <strong>Three rules, and only three.</strong> One branch per story, named
+        after the task. Nobody merges their own work &mdash; a teammate reads it
+        and says what they checked. The Client Lead accepts: a story is not done
+        because the person who built it says so.
+      </li>
+      <li>
+        <strong>The commit form</strong> &mdash; a type, a scope, what changed,
+        and the story ID, so the work traces back to the board.
+      </li>
+    </ul>
+<pre><code>feat(orders): add duplicate-order check  [S-14]</code></pre>
+    <p>
+      One repository per team, used through GitHub Desktop: buttons, not typed
+      commands. Work that is invisible in the repository did not happen, and
+      every student commits under their own account.
+    </p>
 
     <h3>Slides</h3>
     <ul class="links">
       <li><a href="../slides/week-02-finding-a-project-and-working-with-ai.html">Finding a project, working with AI</a></li>
     </ul>
 
-    <h3>What is due</h3>
-    <p><span class="pending">being written</span></p>
+    <h2>Before the second class</h2>
+    <ul>
+      <li>
+        <strong>Hold your first client meeting.</strong> Read the interview
+        article below before it, not after it.
+      </li>
+      <li>
+        <strong>Draft <code>docs/proposal.md</code></strong> in your team
+        repository, in the eight required sections and nothing else. The required
+        shape is on <a href="../templates/proposal.html">the project proposal
+        page</a>, with a worked example that would be accepted and three versions
+        that would be returned.
+      </li>
+      <li>
+        <strong>Publish the same content as a page from your repository,</strong>
+        so it is reachable at its own address. You present from that address. It
+        is checked as done or not done, and it is not graded on how it looks
+        &mdash; spend this week talking to your client, not making it pretty. The
+        steps are on
+        <a href="../reference/publishing/">publishing from your repository</a>.
+      </li>
+    </ul>
+    <div class="callout">
+      <p>
+        <strong>Bring your laptop.</strong> The class opens with your repository
+        on screen.
+      </p>
+    </div>
 
-    <h3>Readings</h3>
-    <p><span class="pending">being written</span></p>
-
-    <h3>Templates</h3>
+    <h2>The second class</h2>
+    <p>
+      The Phase 1 delivery. The class opens by walking branch &rsaquo; commit
+      &rsaquo; pull request together on screen, with your own repository in front
+      of you. Then each team presents its proposal from the live public address
+      and takes questions from the room.
+    </p>
+    <p>
+      Proposals are reviewed in front of everyone. Every team hears the other
+      teams' problems, which is the point of running it that way.
+    </p>
     <ul class="links">
-      <li><a href="../templates/proposal.html">The project proposal</a> &mdash; the required shape.</li>
+      <li><a href="../reference/repository/">Your repository</a> &mdash; the rules and the layout.</li>
+      <li><a href="../reference/publishing/">Publishing from your repository</a> &mdash; the mechanics.</li>
     </ul>
 
-    <h2>Second session</h2>
+    <h2>Due this week</h2>
+    <p><strong>Phase 1 &mdash; a formed team, a verified environment, and a proposal the instructor accepts. 5 marks.</strong></p>
+    <ul>
+      <li>A <strong>formed team</strong>, with roles recorded on the roster workbook.</li>
+      <li>A <strong>verified environment</strong> &mdash; the tools installed and signed in.</li>
+      <li>
+        A <strong>proposal the instructor accepts</strong>, in the required shape
+        &mdash; as <code>docs/proposal.md</code>, <strong>and</strong> published
+        as a page from your repository.
+      </li>
+      <li>Rejected proposals come back within <strong>three calendar days</strong>.</li>
+      <li>
+        The <strong>first</strong> resubmission carries <strong>no penalty</strong>;
+        a <strong>second</strong> caps that component at <strong>half</strong>.
+      </li>
+      <li>
+        <strong>No team passes the end of week 3 without an accepted
+        proposal.</strong> At that point a project is assigned from a standing
+        list, that component scores zero, and the rest of Phase 1 is unaffected.
+      </li>
+    </ul>
+    <p>
+      A rejection in week 2 is the course working as designed. See the
+      <a href="../deliverables/">deliverables page</a> for the exact dates.
+    </p>
 
-    <h3>What happens</h3>
-    <p><span class="pending">being written</span></p>
+    <h2>Read</h2>
+    <p>
+      About <strong>two hours</strong> of required reading this week &mdash; the
+      heaviest of the term, and deliberately front-loaded so the later weeks are
+      build time.
+    </p>
 
-    <h3>Slides</h3>
-    <p><span class="pending">being written</span></p>
+    <div class="table-wrap">
+      <table>
+        <caption>Required reading for week 2.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Reading</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>NN/g &mdash; <a href="https://www.nngroup.com/articles/user-interviews/">User Interviews 101</a></td>
+            <td>15 min</td>
+          </tr>
+          <tr>
+            <td><a href="../templates/proposal.html">The required proposal shape</a></td>
+            <td>10 min</td>
+          </tr>
+          <tr>
+            <td>Gemini API &mdash; <a href="https://ai.google.dev/gemini-api/docs/prompting-strategies">Prompt design strategies</a></td>
+            <td>25 min</td>
+          </tr>
+          <tr>
+            <td>Antigravity Docs &mdash; <a href="https://antigravity.google/docs/artifacts">Artifacts</a></td>
+            <td>12 min</td>
+          </tr>
+          <tr>
+            <td>GitHub &mdash; <a href="https://docs.github.com/en/get-started/using-git/about-git">About Git</a></td>
+            <td>20 min</td>
+          </tr>
+          <tr>
+            <td>GitHub &mdash; <a href="https://docs.github.com/en/get-started/using-github/github-flow">GitHub flow</a></td>
+            <td>12 min</td>
+          </tr>
+          <tr>
+            <td>GitHub &mdash; <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">About pull requests</a></td>
+            <td>15 min</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits 1.0.0</a></td>
+            <td>10 min</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-    <h3>What is due</h3>
-    <p>The Phase 1 delivery. See <a href="../deliverables/">deliverables</a>.</p>
+    <ul>
+      <li>
+        Read <em>User Interviews 101</em> <strong>before</strong> your first
+        client meeting, not after it.
+      </li>
+      <li>
+        Read the concepts in <em>About Git</em> and ignore the typed commands
+        &mdash; this course uses GitHub Desktop.
+      </li>
+    </ul>
 
-    <h3>Readings</h3>
-    <p><span class="pending">being written</span></p>
-
-    <h3>Templates</h3>
-    <p><span class="pending">being written</span></p>
+    <h2>Use</h2>
+    <ul class="links">
+      <li><a href="../templates/proposal.html">The project proposal</a> &mdash; the required shape.</li>
+      <li><a href="../reference/publishing/">Publishing from your repository</a> &mdash; how the page gets an address.</li>
+      <li><a href="../reference/repository/">Your repository</a> &mdash; the rules and the layout.</li>
+      <li><a href="../deliverables/">Deliverables</a> &mdash; the exact dates.</li>
+    </ul>
 
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
+    <p><a href="../">ISOM 472</a> &middot;
+      <a href="../setup/">Setup</a> &middot;
+      <a href="../deliverables/">Deliverables</a> &middot;
+      <a href="../reference/repository/">Repository</a> &middot;
+      <a href="../reference/publishing/">Publishing</a> &middot;
+      <a href="../roles/">Roles</a> &middot;
+      <a href="../templates/proposal.html">Proposal</a> &middot;
+      <a href="../templates/interface-contract.html">Contract card</a></p>
     <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
   </div>
 </footer>

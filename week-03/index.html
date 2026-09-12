@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Week 3 &mdash; ISOM 472</title>
+<meta name="description" content="ISOM 472 week 3: sprints, user stories, acceptance criteria and interface contracts; then tables, keys, row-level security and token economics.">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -23,59 +24,441 @@
     </nav>
 
     <p class="lead">
-      For each session this week: what happens in the room, the slides, what is
-      due, the readings, and the templates the session points you at.
+      You have been saying &ldquo;sprint&rdquo; for two weeks. This week it gets a
+      definition, along with the backlog, the user story, and what it means to call
+      something finished. The second class puts the data and the cost underneath all
+      of it. Bring your laptop to the second class.
     </p>
 
-    <div class="wip">
-      <p><strong>Being written.</strong> The session detail and the reading list are added in a later pass. The slides and templates below are final.</p>
+    <h2>Before the first class</h2>
+    <ul>
+      <li>
+        Do the first-class readings listed below. They carry the vocabulary the class
+        uses from the first minute.
+      </li>
+      <li>
+        Bring your team's problem statement. The class turns it into a backlog.
+      </li>
+      <li>Nothing new to install.</li>
+    </ul>
+
+    <h2>The first class</h2>
+    <p>
+      Two things: what a sprint is, and how five or six people build at the same time
+      without colliding. Both come back as Phase 2, and you are asked about them
+      individually.
+    </p>
+
+    <h3>Sprints, and what &ldquo;done&rdquo; means</h3>
+    <p>
+      A sprint is a fixed block of work. In this course it is two weeks, and it ends at
+      a delivery session where you show what runs. Then the next one starts,
+      immediately. <strong>The date does not move.</strong> Scope flexes.
+    </p>
+    <p>
+      The <strong>backlog</strong> is the ordered list of everything not yet built.
+      Ordered, not just listed &mdash; the order is a decision, and the Client Lead owns
+      it. A list is not a backlog. If nobody can say what is next, nothing has been
+      decided.
+    </p>
+    <p>
+      A <strong>user story</strong> is one unit of work, described from the point of
+      view of whoever benefits. It has to be small enough for one person to finish
+      inside one sprint. If it is not, it is not a story yet &mdash; split it. It is not
+      a task list and not a screen description. The shape is three lines:
+    </p>
+    <pre><code>As a shop owner
+I want to see the orders that arrived today and are not yet recorded
+So that nothing is lost before closing</code></pre>
+    <p>
+      Who benefits, what they want, why it matters. The third line is the one teams skip
+      and the one that survives.
+    </p>
+    <p>
+      <strong>Acceptance criteria</strong> are written before the work starts, and they
+      must be checkable by someone who did not do the work. If nobody else can check it,
+      it is not acceptance criteria. They are not a description of the feature. They are
+      the test that ends the argument about whether it is done.
+    </p>
+    <div class="callout bad">
+      <p>
+        <strong>Not checkable.</strong> &ldquo;The orders page works well and is easy to
+        use.&rdquo; Nobody can pass or fail this.
+      </p>
     </div>
+    <div class="callout good">
+      <p>
+        <strong>Checkable.</strong> &ldquo;Given an order with no customer name, when it
+        is saved, the page shows an error and no order is created.&rdquo;
+      </p>
+    </div>
+    <p>Done has four conditions, and you need all four:</p>
+    <ol>
+      <li><strong>Built</strong> &mdash; it runs.</li>
+      <li><strong>Reviewed</strong> by a teammate, who says what they checked.</li>
+      <li><strong>Accepted</strong> by the Client Lead.</li>
+      <li><strong>Visible working</strong> &mdash; not on your laptop.</li>
+    </ol>
+    <p>
+      Miss any one of the four and the story is not done. There is no partial done. What
+      is not finished does not disappear either &mdash; it goes back to the backlog, and
+      the Client Lead decides where.
+    </p>
 
-    <h2>First session</h2>
+    <h3>From a problem to a backlog</h3>
+    <p>Four steps, in that order:</p>
+    <ol>
+      <li><strong>Persona</strong> &mdash; who this is for.</li>
+      <li><strong>Epic</strong> &mdash; a large chunk of value.</li>
+      <li><strong>Story</strong> &mdash; one unit of work.</li>
+      <li><strong>Acceptance criteria</strong> &mdash; how you know it is done.</li>
+    </ol>
+    <p>
+      Two personas per project is enough. Five is procrastination. A persona is who the
+      system is for, not a biography: a name, what they are trying to do, and what gets
+      in the way.
+    </p>
 
-    <h3>What happens</h3>
-    <p><span class="pending">being written</span></p>
+    <h3>The contracts between you</h3>
+    <p>Here is what goes wrong without an agreement.</p>
+    <div class="callout">
+      <p>
+        One member builds the screen, expecting <code>customerName</code>. One member
+        builds the data behind it, returning <code>customer_full_name</code>. Both finish
+        on time. Neither half works. Two days to find it, ten minutes to fix it, and it
+        happens to somebody every single term.
+      </p>
+    </div>
+    <p>
+      An <strong>interface contract</strong> is what one member promises another, in
+      writing, before either starts. If A builds the screen and B builds the data behind
+      it, they agree the shape of what passes between them first. Then neither has to
+      wait for the other.
+    </p>
+    <p>A contract fixes four things and deliberately leaves one open.</p>
+    <ul>
+      <li><strong>Fixed:</strong> the name &middot; the fields &middot; what is required &middot; what comes back when it fails.</li>
+      <li><strong>Left open:</strong> how either side builds it. That is nobody else's business. A contract that dictates implementation is not a contract.</li>
+    </ul>
+    <p>The order you work in:</p>
+    <ol>
+      <li><strong>User story</strong> &mdash; what someone needs, in their words.</li>
+      <li><strong>Acceptance criteria</strong> &mdash; how you will know it is done.</li>
+      <li><strong>Schema</strong> &mdash; the nouns in the stories become tables.</li>
+      <li><strong>Contracts</strong> &mdash; for the boundaries the schema does not settle.</li>
+      <li><strong>Screens and code</strong> &mdash; both consume everything above.</li>
+    </ol>
+    <p>
+      Schema before screens. Nobody starts at step 5. The schema is itself a contract
+      &mdash; the biggest one.
+    </p>
+    <p>
+      A contract is written at the start of a sprint, when stories are assigned, and
+      always before either person builds. It is written by the two whose work meets,
+      together, not by one and handed over. <strong>The contract is a file in the
+      repository. It arrives in a pull request, and the other party's review is the
+      agreement.</strong>
+    </p>
+    <p>
+      One contract per boundary, not one per pair. A boundary is a thing that passes, not
+      a relationship. Expect three to six in a sprint. If you cannot name who consumes
+      it, you do not need a contract for it.
+    </p>
+    <p>
+      This is the whole reason the split works. Without contracts the work serialises and
+      one person becomes the bottleneck. <strong>Every student takes at least two named
+      stories per sprint and builds each one end to end</strong>, and that only holds if
+      the boundaries were agreed first.
+    </p>
 
-    <h3>Slides</h3>
     <ul class="links">
-      <li><a href="../slides/week-03-sprints-and-contracts.html">Sprints, and the contracts between you</a></li>
+      <li><a href="../slides/week-03-sprints-and-contracts.html">Slides &mdash; Sprints, and the contracts between you</a></li>
     </ul>
 
-    <h3>What is due</h3>
-    <p><span class="pending">being written</span></p>
-
-    <h3>Readings</h3>
-    <p><span class="pending">being written</span></p>
-
-    <h3>Templates</h3>
-    <ul class="links">
-      <li><a href="../templates/interface-contract.html">The interface contract card</a> &mdash; the required shape.</li>
+    <h2>Before the second class</h2>
+    <ul>
+      <li>Nothing new to install.</li>
+      <li>
+        <strong>Bring your laptop.</strong> Part of the class is done with laptops open.
+      </li>
+      <li>Do the second-class readings below.</li>
     </ul>
 
-    <h2>Second session</h2>
+    <h2>The second class</h2>
+    <p>
+      Two things: the data underneath the system, and what the agent's work actually
+      costs. You should leave with your own schema drawn.
+    </p>
 
-    <h3>What happens</h3>
-    <p><span class="pending">being written</span></p>
+    <h3>Tables, rows, columns, keys</h3>
+    <p>
+      A <strong>table</strong> is one kind of thing &mdash; orders, customers, products.
+      A <strong>row</strong> is one of them. A <strong>column</strong> is one fact about
+      it: the total, the date.
+    </p>
+    <p>
+      A <strong>primary key</strong> is how you name one row unambiguously. Never two
+      rows with the same one. Usually just <code>id</code>. Without it you cannot say
+      <em>this</em> order, only &ldquo;an order that looks like this&rdquo;.
+    </p>
+    <p>
+      A <strong>foreign key</strong> is how one table points at another. The
+      <code>order_items</code> table holds an <code>order_id</code>. That is the entire
+      mechanism &mdash; a column holding another table's key, nothing more clever.
+    </p>
+    <p>
+      <strong>One-to-many</strong> is the relationship that follows: an order has many
+      items, an item belongs to one order. Two tables, and the arrow points one way. It
+      is the only relationship most of your projects will need. Learn it properly rather
+      than learning four badly.
+    </p>
+    <div class="callout bad">
+      <p>
+        <strong>If a column would hold a list, it is a second table.</strong>
+        <code>item1, item2, item3</code> is a design fault, not a shortcut. What happens
+        with a fourth? What happens when you search? Build an <code>order_items</code>
+        table instead: one row per item, each pointing at its order.
+      </p>
+    </div>
+    <p>
+      Decide the schema before you fill in the screens. A screen is cheap to change. Data
+      already in a table is not.
+    </p>
 
-    <h3>Slides</h3>
+    <h3>Who is allowed to read what</h3>
+    <p>
+      Your <strong>anon key</strong> sits in the page, where anyone can read it. That is
+      normal and it is by design. It is safe only because of what comes next.
+    </p>
+    <p>
+      <strong>Row-level security decides who may read and write. Per table. Every
+      table.</strong> With it off, anyone who opens your page can read everything, change
+      it, and delete it &mdash; including your client's real data, from a browser, with
+      no account.
+    </p>
+    <div class="callout bad">
+      <p>
+        <strong>Nobody will remind you.</strong> The agent will write a working table and
+        not mention this. It is not wrong; it answered the question you asked. Checking it
+        is the Data Lead's job, every sprint. &ldquo;It worked when we tested it&rdquo; is
+        exactly what an unprotected table looks like.
+      </p>
+    </div>
+    <p>
+      <strong>Never real data.</strong> No real customer information in the repository,
+      and none in a prompt, ever. Invent test data instead. The agent is very good at
+      generating fifty realistic fake orders &mdash; ask it for those.
+    </p>
+
+    <h3>What the work costs</h3>
+    <p>
+      A token is roughly four characters of text. Everything the model reads is counted,
+      and everything it writes is counted. You pay for the reading, not just the answer:
+      the file you attached counts, and the folder you pointed at counts.
+    </p>
+    <p>
+      <strong>Cost follows the work, not the prompts.</strong> One long agentic run can
+      cost far more than twenty short questions. What is consumed is how much the agent
+      does, not how much you type. &ldquo;I only sent three messages&rdquo; explains
+      nothing.
+    </p>
+    <p>What you can see differs by tool:</p>
+    <ul>
+      <li>
+        <strong>Antigravity</strong> shows your own remaining limits, refreshing on
+        roughly a five-hour cycle.
+      </li>
+      <li>
+        <strong>Gemini Enterprise</strong> shows an end user nothing at all &mdash; the
+        usage dashboard is administrator-only. Nobody is withholding a number from you;
+        for the browser tool there is no per-user number to read.
+      </li>
+    </ul>
+    <p>
+      So plan where the work belongs. Planning and writing go in Gemini Enterprise, in
+      the browser. Building goes in Antigravity, on your machine. Thinking done in the
+      browser is thinking the IDE does not have to pay for.
+    </p>
+    <p>
+      <strong>Context is the lever.</strong> Cost scales with how much the model has to
+      read. Two named files beats &ldquo;look at the whole folder&rdquo;. Say what done
+      looks like before it starts, so it does not go exploring. The cheaper version is
+      usually the better version, because a narrow question gets a narrow answer you can
+      actually check.
+    </p>
+    <p>When the quota runs out, in this order:</p>
+    <ol>
+      <li><strong>Narrow the ask</strong> &mdash; one file, one story, one question.</li>
+      <li><strong>Move the thinking</strong> to the browser, and keep the machine for building.</li>
+      <li><strong>Your own key</strong> &mdash; the personal fallback.</li>
+      <li><strong>By hand</strong>, and wait for the refresh.</li>
+    </ol>
+    <p>
+      The last rung is not a failure. Part of this work is yours to do by hand, and a team
+      that cannot do it is a team that stops.
+    </p>
+    <div class="callout">
+      <p>
+        <strong>Bring your laptop to this class.</strong> The personal key fallback
+        &mdash; AI Studio or OpenRouter &mdash; is set up live, in the room, laptops open.
+        It is not homework. It is free and needs no payment card, and the key never goes
+        in the repository. Once it works, record it in the ledger.
+      </p>
+    </div>
+    <p class="callout outcome">
+      <strong>You should leave this class</strong> with your own schema drawn.
+    </p>
+
     <ul class="links">
-      <li><a href="../slides/week-03-data-schema-and-tokens.html">The data underneath it, and what the work costs</a></li>
+      <li><a href="../slides/week-03-data-schema-and-tokens.html">Slides &mdash; The data underneath it, and what the work costs</a></li>
     </ul>
 
-    <h3>What is due</h3>
-    <p><span class="pending">being written</span></p>
+    <h2>Due this week</h2>
+    <p>
+      Nothing is delivered in week 3. One thing still ends here:
+      <strong>no team passes the end of this week without an accepted proposal.</strong>
+      If yours is not accepted by then, the instructor assigns a project from a standing
+      list and the proposal component scores zero. See
+      <a href="../deliverables/">deliverables</a> for the dates and for what happens next.
+    </p>
+    <p>Three things are due before the end of week 4, as part of Phase 2:</p>
+    <ol>
+      <li><strong>Draw the schema</strong>, with keys marked.</li>
+      <li><strong>Turn row-level security on</strong>, on every table.</li>
+      <li><strong>Write the token plan.</strong></li>
+    </ol>
+    <p>Your token plan must say five things:</p>
+    <ul>
+      <li><strong>Where each kind of work happens</strong> &mdash; planned in the browser, built on the machine.</li>
+      <li><strong>Which model for which task</strong>, and why that one.</li>
+      <li><strong>The tactics</strong> your team will use to keep a run narrow.</li>
+      <li><strong>What you will watch</strong>, and what you have no way of seeing.</li>
+      <li><strong>What you do when the quota runs out</strong> &mdash; decided before it does.</li>
+    </ul>
+    <p>
+      Short and specific beats long and general. Phase 2 is worth 10 marks; the full
+      checklist and the date are on <a href="../deliverables/">deliverables</a>.
+    </p>
 
-    <h3>Readings</h3>
-    <p><span class="pending">being written</span></p>
+    <h2>Read</h2>
 
-    <h3>Templates</h3>
-    <p><span class="pending">being written</span></p>
+    <h3>For the first class</h3>
+    <div class="table-wrap">
+      <table>
+        <caption>Required reading before the first class: sprints, stories and contracts.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Reading</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://learn.microsoft.com/en-us/devops/plan/what-is-agile-development">Microsoft Learn &mdash; <em>What is Agile development?</em></a></td>
+            <td>12 min</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.atlassian.com/agile/scrum/sprint-planning">Atlassian &mdash; <em>Sprint planning</em></a></td>
+            <td>15 min</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.atlassian.com/agile/project-management/definition-of-done">Atlassian &mdash; <em>Definition of Done</em></a></td>
+            <td>10 min</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.gov.uk/service-manual/agile-delivery/writing-user-stories">GOV.UK &mdash; <em>Writing user stories</em></a></td>
+            <td>15 min</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.atlassian.com/agile/project-management/user-stories">Atlassian &mdash; <em>User stories with examples and a template</em></a></td>
+            <td>12 min</td>
+          </tr>
+          <tr>
+            <td><a href="../templates/interface-contract.html">The interface contract card</a> &mdash; the required shape</td>
+            <td>10 min</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">
+      The GOV.UK page is deliberately plain English. If it lands, the Atlassian one is a
+      second angle rather than new material.
+    </p>
+
+    <h3>For the second class</h3>
+    <div class="table-wrap">
+      <table>
+        <caption>Required reading before the second class: the database, and tokens.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Reading</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://supabase.com/docs/guides/database/tables">Supabase &mdash; <em>Tables and Data</em></a></td>
+            <td>20 min</td>
+          </tr>
+          <tr>
+            <td><a href="https://supabase.com/docs/guides/database/postgres/row-level-security">Supabase &mdash; <em>Row Level Security</em></a></td>
+            <td>25 min</td>
+          </tr>
+          <tr>
+            <td><a href="https://ai.google.dev/gemini-api/docs/tokens">Gemini API &mdash; <em>Understand and count tokens</em></a></td>
+            <td>15 min</td>
+          </tr>
+          <tr>
+            <td><a href="https://antigravity.google/docs/models">Antigravity Docs &mdash; <em>Models</em></a></td>
+            <td>10 min</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <p>
+        <strong>The Row Level Security page is the most important single reading of the
+        week.</strong> Read it slowly, and test the examples.
+      </p>
+    </div>
+    <p class="small">
+      On the tokens page, read the concept section and skip the code samples. The
+      Antigravity page is the only first-party usage signal you can actually see.
+    </p>
+
+    <h2>Use</h2>
+    <ul class="links">
+      <li><a href="../templates/interface-contract.html">The interface contract card</a> &mdash; the required shape, with worked examples.</li>
+      <li><a href="../roles/">Team roles</a> &mdash; who owns the backlog, the schema, and the ledger.</li>
+      <li><a href="../reference/repository/">Your repository</a> &mdash; where contracts, schema and the plan live.</li>
+      <li><a href="../deliverables/">Deliverables</a> &mdash; the dates, the weights, and the Phase 2 checklist.</li>
+    </ul>
+
+    <div class="verified">
+      <p>
+        Two claims on this page were checked against first-party sources on
+        12&nbsp;September&nbsp;2026: that Antigravity's limits refresh on roughly a
+        five-hour cycle and are consumed by the work the agent performs rather than the
+        number of prompts typed, and that Gemini Enterprise shows an end user no usage
+        data because its dashboard is administrator-only. Both products change often. If
+        what you see differs from this description, follow the product and report what
+        changed.
+      </p>
+    </div>
 
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
+    <p><a href="../">ISOM 472</a> &middot;
+      <a href="../setup/">Setup</a> &middot;
+      <a href="../deliverables/">Deliverables</a> &middot;
+      <a href="../reference/repository/">Repository</a> &middot;
+      <a href="../reference/publishing/">Publishing</a> &middot;
+      <a href="../roles/">Roles</a> &middot;
+      <a href="../templates/proposal.html">Proposal</a> &middot;
+      <a href="../templates/interface-contract.html">Contract card</a></p>
     <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
   </div>
 </footer>

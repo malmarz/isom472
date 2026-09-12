@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Week 4 &mdash; ISOM 472</title>
+<meta name="description" content="ISOM 472 week 4: the agent sandbox, indirect prompt injection, and the three checks you run on your own machine; then the Phase 2 delivery to the whole class.">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -23,55 +24,281 @@
     </nav>
 
     <p class="lead">
-      For each session this week: what happens in the room, the slides, what is
-      due, the readings, and the templates the session points you at.
+      One topic in the first class: why the tool you build with is allowed to touch some
+      things and not others, and why that is your problem rather than the vendor's. You
+      then run three checks on your own machine. The second class is the Phase 2
+      delivery.
     </p>
 
-    <div class="wip">
-      <p><strong>Being written.</strong> The session detail and the reading list are added in a later pass. The slides below are final.</p>
-    </div>
-
-    <h2>First session</h2>
-
-    <h3>What happens</h3>
-    <p><span class="pending">being written</span></p>
-
-    <h3>Slides</h3>
-    <ul class="links">
-      <li><a href="../slides/week-04-agent-safety-and-the-sandbox.html">Agent safety and the sandbox</a></li>
+    <h2>Before the first class</h2>
+    <ul>
+      <li>
+        <strong>Bring your laptop.</strong> The sandbox checks are run in the room, on
+        your own machine.
+      </li>
+      <li>Do the two required readings below.</li>
+      <li>Nothing new to install.</li>
     </ul>
 
-    <h3>What is due</h3>
-    <p><span class="pending">being written</span></p>
+    <h2>The first class</h2>
+    <p>
+      Agent safety and the sandbox, then team work for the rest of the period.
+    </p>
 
-    <h3>Readings</h3>
-    <p><span class="pending">being written</span></p>
+    <h3>Why a boundary exists</h3>
+    <p>
+      Gemini Enterprise lives in a browser. It cannot reach a file on your machine.
+      Antigravity runs on your laptop: it reads and writes your files, and it drives
+      GitHub and the database. It can take those steps without asking you first.
+      <strong>A tool that acts needs a boundary. A chat window does not.</strong>
+    </p>
+    <p>The agent is constantly reading text nobody on your team wrote:</p>
+    <ul>
+      <li>A <strong>README</strong> in a repository you cloned.</li>
+      <li>An <strong>issue</strong> or a comment someone else wrote.</li>
+      <li>A <strong>web page</strong> you pointed it at.</li>
+      <li>A <strong>data file</strong> you did not create.</li>
+    </ul>
+    <p>
+      None of that came from you, and all of it arrives as words the agent reads.
+      <strong>Untrusted text can become instructions</strong>, and the agent cannot
+      always tell the difference.
+    </p>
+    <p>
+      That is <strong>indirect prompt injection</strong>: instructions hidden inside
+      content the agent reads, which it may follow as if you had typed them. You never
+      see the instruction. You see the result. It is called indirect because the attacker
+      never talks to you &mdash; they write something and wait for an agent to read it.
+    </p>
 
-    <h3>Templates</h3>
-    <p><span class="pending">being written</span></p>
+    <h3>One documented case, read as a shape</h3>
+    <p>
+      In a published and patched advisory against another agentic editor, injected content
+      caused the agent to write a configuration file, that file was then executed
+      automatically, and the result was remote code execution on the developer's machine.
+    </p>
+    <p>Read the shape, not the product:</p>
+    <ul>
+      <li>Nothing was <strong>broken into</strong>. The agent did what it was told.</li>
+      <li>The instruction arrived in <strong>content</strong>, not from the user.</li>
+      <li>The damage came from a step that ran <strong>without a human</strong>.</li>
+    </ul>
+    <p>
+      That vendor patched that one. The shape it belongs to is not a bug that gets patched
+      once.
+    </p>
+    <p>And this is what is sitting on your laptop while you work:</p>
+    <ul>
+      <li><strong>SSH keys</strong> &mdash; your access to every repository you can push to.</li>
+      <li><strong>Environment files</strong> &mdash; database passwords and API keys, in plain text.</li>
+      <li><strong>Cloud tokens</strong> &mdash; signed-in sessions for services that hold real data.</li>
+      <li><strong>Your coursework</strong> &mdash; every other course you are taking, on the same disk.</li>
+    </ul>
 
-    <h2>Second session</h2>
+    <h3>What the sandbox does</h3>
+    <ul>
+      <li>Sandboxed commands write only to <strong>project, temp and build-cache</strong> paths.</li>
+      <li>Anything <strong>not mounted</strong> is invisible from inside.</li>
+      <li>System directories such as <code>/usr</code> and <code>/etc</code> are <strong>read-only</strong>.</li>
+      <li><code>~/.ssh</code> and <code>.env</code> are blocked by name.</li>
+      <li>Network access is limited to <strong>approved domains</strong>.</li>
+    </ul>
+    <div class="callout bad">
+      <p>
+        <strong>Windows, said plainly.</strong> The Windows sandbox mechanism is not
+        documented. Treat it as unverified. The macOS and Linux mechanisms are documented;
+        do not assume Windows behaves the same way. If you are on Windows, verify more,
+        not less.
+      </p>
+    </div>
+    <p>
+      The sandbox limits what a command can reach. It does not judge whether the
+      instruction was a good idea.
+    </p>
 
-    <h3>What happens</h3>
-    <p><span class="pending">being written</span></p>
+    <h3>The approval prompt is the feature</h3>
+    <p>
+      The prompt appears exactly when an action crosses the boundary. It is the one moment
+      a person is in the loop. Clicking through it without reading is the whole defence,
+      discarded. The modal is not friction in your way &mdash; it is the design working.
+    </p>
+    <p>
+      <strong>Approval fatigue is the real risk.</strong> The twentieth prompt of the
+      morning gets the same click as the first, and by then you are approving a category
+      rather than an action. Slow down when the prompt names something outside your
+      project.
+    </p>
+    <p>
+      The agent acting without asking does not move ownership. <strong>You still own what
+      shipped.</strong> That is why every pull request declares AI use: the tool, what it
+      produced, and what you changed &mdash; or <code>AI-Assisted: none</code>, which is
+      equally legitimate. Not declaring is the offence. The declaration is not a
+      confession; it is the record of who checked what, and it is the only one that exists.
+    </p>
 
-    <h3>Slides</h3>
-    <p><span class="pending">being written</span></p>
+    <h3>In the room: three checks on your own machine</h3>
+    <p>Verify the boundary. Do not trust it.</p>
+    <ol>
+      <li><strong>Write inside your workspace</strong> &mdash; expect it to succeed.</li>
+      <li><strong>Read something outside it</strong> &mdash; expect a refusal or a prompt.</li>
+      <li><strong>Trigger one crossing action</strong> &mdash; read the modal, and describe what it says.</li>
+    </ol>
+    <p>Then report what you saw:</p>
+    <ul>
+      <li>
+        A refusal you <strong>expected and did not get</strong> is a
+        <strong>finding</strong>. Tell the instructor.
+      </li>
+      <li>
+        A refusal you <strong>did not expect</strong> is normal. Read the path in the
+        message.
+      </li>
+      <li>
+        <strong>Do not disable the sandbox</strong> to make an error go away.
+      </li>
+    </ul>
+    <div class="callout good">
+      <p>
+        <strong>Nobody is graded on their machine misbehaving.</strong> You are on record
+        for what you shipped, not for what your laptop did during a check.
+      </p>
+    </div>
 
-    <h3>What is due</h3>
-    <p>The Phase 2 delivery. See <a href="../deliverables/">deliverables</a>.</p>
+    <ul class="links">
+      <li><a href="../slides/week-04-agent-safety-and-the-sandbox.html">Slides &mdash; Agent safety and the sandbox</a></li>
+    </ul>
 
-    <h3>Readings</h3>
-    <p><span class="pending">being written</span></p>
+    <h2>Before the second class</h2>
+    <ul>
+      <li>
+        Finish Phase 2 and <strong>tag it in the repository</strong>. The tag is what gets
+        graded.
+      </li>
+      <li>
+        Have your system reachable at its <strong>public address</strong>. You present
+        from that address, not from a laptop.
+      </li>
+      <li>
+        <strong>Prepare your own questions</strong> for the other teams. Arriving without
+        them is itself a failure of the session.
+      </li>
+    </ul>
 
-    <h3>Templates</h3>
-    <p><span class="pending">being written</span></p>
+    <h2>The second class</h2>
+    <p>
+      The Phase 2 delivery. There are no slides for this session and it is not a queue of
+      private meetings: all teams are in the room, each team presents, and the rest of the
+      class is the audience and the question pool. You take questions from the room, and
+      you ask them. Every delivery is presented from a public address.
+    </p>
+
+    <h2>Due this week</h2>
+    <p>
+      <strong>Phase 2 &mdash; stories, contracts, the split, the environment, and your
+      token plan. 10 marks.</strong> The delivery contains:
+    </p>
+    <ul>
+      <li>A <strong>backlog</strong> at or above the floor, ordered, with acceptance criteria.</li>
+      <li><strong>Interface contracts</strong> for every boundary between members.</li>
+      <li><strong>The split</strong> &mdash; who holds which named stories this sprint.</li>
+      <li>The <strong>schema</strong>, with keys marked and row-level security enabled on every table.</li>
+      <li>A <strong>verified environment</strong>, working for every member.</li>
+      <li>The <strong>token plan</strong>, and the first <strong>ledger</strong> entry.</li>
+    </ul>
+    <p>
+      The phase is <strong>tagged in the repository at its due date, and the tag is what
+      gets graded</strong> &mdash; not a submitted document and not a slide deck. See
+      <a href="../reference/repository/">your repository</a> for the tag names and the
+      rules, and <a href="../deliverables/">deliverables</a> for the date and the floor.
+    </p>
+
+    <h2>Read</h2>
+
+    <h3>Required</h3>
+    <div class="table-wrap">
+      <table>
+        <caption>Required reading before the first class.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Reading</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://antigravity.google/docs/sandbox/">Antigravity Docs &mdash; <em>Terminal Sandbox</em></a></td>
+            <td>15 min</td>
+          </tr>
+          <tr>
+            <td><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">OWASP GenAI &mdash; <em>LLM01:2025 Prompt Injection</em></a></td>
+            <td>20 min</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">
+      For the OWASP page, read the Description and Prevention sections only. Skip the
+      reference list.
+    </p>
+
+    <h3>Optional</h3>
+    <div class="table-wrap">
+      <table>
+        <caption>Optional reading. Not required, and not assessed.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Reading</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://simonwillison.net/2023/Apr/14/worst-that-can-happen/">Simon Willison &mdash; <em>Prompt injection: what's the worst that can happen?</em></a></td>
+            <td>15 min</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">
+      The clearest short argument that there is no complete fix. Read it if you want to
+      argue about this one.
+    </p>
+
+    <h2>Use</h2>
+    <ul class="links">
+      <li><a href="../reference/repository/">Your repository</a> &mdash; the tag names, the layout, and the pull request rules.</li>
+      <li><a href="../deliverables/">Deliverables</a> &mdash; the Phase 2 date, weight and checklist.</li>
+      <li><a href="../roles/">Team roles</a> &mdash; who answers for which part of the delivery.</li>
+      <li><a href="../templates/interface-contract.html">The interface contract card</a> &mdash; the required shape.</li>
+    </ul>
+
+    <div class="verified">
+      <p>
+        The sandbox behaviour described on this page was checked against
+        <a href="https://antigravity.google/docs/sandbox/">Antigravity's own documentation</a>
+        on 12&nbsp;September&nbsp;2026, including the absence of any documented Windows
+        mechanism. The injection case is CVE-2025-54135 in Cursor, scored CVSS 8.6 and
+        fixed in Cursor v1.3.9; the
+        <a href="https://github.com/cursor/cursor/security/advisories/GHSA-4cxx-hrm3-49rm">published advisory</a>
+        was checked on the same date. Antigravity is a preview product and changes often.
+        If what you see differs from this description, follow the product and report what
+        changed.
+      </p>
+    </div>
 
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
+    <p><a href="../">ISOM 472</a> &middot;
+      <a href="../setup/">Setup</a> &middot;
+      <a href="../deliverables/">Deliverables</a> &middot;
+      <a href="../reference/repository/">Repository</a> &middot;
+      <a href="../reference/publishing/">Publishing</a> &middot;
+      <a href="../roles/">Roles</a> &middot;
+      <a href="../templates/proposal.html">Proposal</a> &middot;
+      <a href="../templates/interface-contract.html">Contract card</a></p>
     <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
   </div>
 </footer>

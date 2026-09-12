@@ -34,12 +34,13 @@
 
     <div class="table-wrap">
       <table>
-        <caption>The six phases, what each delivers, its weight, and when it is due.</caption>
+        <caption>The six phases, what each delivers, its weight, the teaching week, and the date it is due.</caption>
         <thead>
           <tr>
             <th scope="col">Phase</th>
             <th scope="col">Delivers</th>
             <th scope="col">Weight</th>
+            <th scope="col">Week</th>
             <th scope="col">Due</th>
           </tr>
         </thead>
@@ -48,36 +49,42 @@
             <th scope="row">1</th>
             <td>Team, environment, and an accepted proposal</td>
             <td>5%</td>
+            <td>Week 2</td>
             <td>Wed 23 Sep 2026</td>
           </tr>
           <tr>
             <th scope="row">2</th>
             <td>Design sprint: stories, contracts, work split, token plan</td>
             <td>10%</td>
+            <td>Week 4</td>
             <td>Wed 7 Oct 2026</td>
           </tr>
           <tr>
             <th scope="row">3</th>
             <td>Sprint 1: the first working increment</td>
             <td>15%</td>
+            <td>Week 6</td>
             <td>Wed 21 Oct 2026</td>
           </tr>
           <tr>
             <th scope="row">4</th>
             <td>Sprint 2: the second working increment</td>
             <td>15%</td>
+            <td>Week 8</td>
             <td>Wed 4 Nov 2026</td>
           </tr>
           <tr>
             <th scope="row">5</th>
             <td>Sprint 3: the third increment</td>
             <td>15%</td>
+            <td>Week 10</td>
             <td>Wed 18 Nov 2026</td>
           </tr>
           <tr>
             <th scope="row">6</th>
             <td>Final sprint and the demo</td>
             <td>40%</td>
+            <td>Sprint week 13; demos week 14</td>
             <td>Sprint Wed 9 Dec 2026; demos Mon 14 Dec 2026 and Wed 16 Dec 2026</td>
           </tr>
         </tbody>
@@ -86,7 +93,7 @@
 
     <h2>What each delivery contains</h2>
 
-    <h3>Phase 1 &mdash; team, environment, and an accepted proposal</h3>
+    <h3 id="phase-1">Phase 1 &mdash; team, environment, and an accepted proposal</h3>
     <ul>
       <li>A <strong>formed team</strong>, with roles recorded on the roster workbook.</li>
       <li>A <strong>verified environment</strong> &mdash; the tools installed and signed in.</li>
@@ -110,7 +117,7 @@
       </p>
     </div>
 
-    <h3>Phase 2 &mdash; design sprint: stories, contracts, work split, token plan</h3>
+    <h3 id="phase-2">Phase 2 &mdash; design sprint: stories, contracts, work split, token plan</h3>
     <ul>
       <li>A <strong>backlog</strong> at or above the floor, ordered, with acceptance criteria.</li>
       <li><strong>Interface contracts</strong> for every boundary between members.</li>
@@ -121,20 +128,69 @@
       <li>Presented to the room, with questions from the room.</li>
     </ul>
 
-    <h3>Phase 3 &mdash; sprint 1: the first working increment</h3>
+    <p><strong>The backlog floor.</strong> Two stories per member per sprint, across four sprints.</p>
+
+    <div class="table-wrap">
+      <table>
+        <caption>The backlog floor by team size.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Team size</th>
+            <th scope="col">Backlog floor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Four</th>
+            <td>32 stories</td>
+          </tr>
+          <tr>
+            <th scope="row">Five</th>
+            <td>40 stories</td>
+          </tr>
+          <tr>
+            <th scope="row">Six</th>
+            <td>48 stories</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <p>
-      The most guided sprint: a working increment off the backlog &middot;
-      reviewed merges &middot; the board matching the git log &middot;
-      a current ledger &middot; the phase tag in the repository.
+      It is a floor, not a scope target. Below it the individual mark has nothing to
+      attach to.
     </p>
 
-    <h3>Phase 4 &mdash; sprint 2: the second working increment</h3>
+    <p><strong>The token plan.</strong> It says five things.</p>
+    <ul>
+      <li>Where each kind of work happens &mdash; planned in the browser, built on the machine.</li>
+      <li>Which model for which task, and why that one.</li>
+      <li>The tactics the team will use to keep a run narrow.</li>
+      <li>What you will watch, and what you have no way of seeing.</li>
+      <li>What you do when the quota runs out, decided before it does.</li>
+    </ul>
+    <p>
+      It lives in the first section of <code>docs/finops-ledger.md</code>, committed like
+      everything else. Short and specific beats long and general.
+    </p>
+
+    <h3 id="phase-3">Phase 3 &mdash; sprint 1: the first working increment</h3>
+    <p>The most guided sprint.</p>
+    <ul>
+      <li>A <strong>working increment</strong> off the backlog.</li>
+      <li><strong>Reviewed merges</strong> &mdash; no one merges their own work unread.</li>
+      <li>The <strong>board matching the git log</strong>.</li>
+      <li>A <strong>current ledger</strong>.</li>
+      <li>The <strong>phase tag</strong> in the repository.</li>
+    </ul>
+
+    <h3 id="phase-4">Phase 4 &mdash; sprint 2: the second working increment</h3>
     <p>As Phase 3. Nothing new is introduced.</p>
 
-    <h3>Phase 5 &mdash; sprint 3: the third increment</h3>
-    <p>As Phase 3, plus the analytics feature specified on the team's own data.</p>
+    <h3 id="phase-5">Phase 5 &mdash; sprint 3: the third increment</h3>
+    <p>As Phase 3, plus the analytics feature specified in week 9, run on the team's own data.</p>
 
-    <h3>Phase 6 &mdash; final sprint and the demo</h3>
+    <h3 id="phase-6">Phase 6 &mdash; final sprint and the demo</h3>
     <p>Two parts, two dates.</p>
     <ul>
       <li>
@@ -149,18 +205,20 @@
     </ul>
 
     <h2>The repository tag and the FinOps ledger</h2>
-    <p>Two things apply to every delivery from Phase 2 onward.</p>
+    <p>Two rules. They start at different phases.</p>
     <ul>
       <li>
         <strong>Every phase is tagged in the repository at its due date, and the tag is
-        what gets graded.</strong> Not a submitted document, not a slide deck &mdash; the
-        repository at that tag. See <a href="../reference/repository/">the repository
-        page</a> for the tag names and the rest of the repository rules.
+        what gets graded.</strong> All six, <code>phase-1</code> through
+        <code>phase-6</code>, from Phase 1 onward. Not a submitted document, not a slide
+        deck &mdash; the repository at that tag. See
+        <a href="../reference/repository/">the repository page</a> for the tag names and
+        the rest of the repository rules.
       </li>
       <li>
-        <strong>The FinOps ledger</strong> is part of every delivery from Phase 2 on. It
-        is graded binary: present, current, and plausible against the git log, or zero.
-        No accuracy target and no arithmetic are published &mdash; there is none.
+        <strong>The FinOps ledger</strong> is part of every delivery from Phase 2 onward.
+        It is graded binary: present, current, and plausible against the git log, or zero.
+        There is no accuracy target and no arithmetic to do.
       </li>
     </ul>
 
@@ -168,9 +226,10 @@
     <p>
       A delivery session is not a queue of private meetings. All teams are in the room.
       Each team presents, and the rest of the class is the audience and the question pool.
-      Teams arrive with their own questions prepared; arriving without them is itself a
-      failure of the session. Every delivery is presented from a public address, not from
-      a laptop.
+      Teams arrive with their own questions prepared &mdash; questions for the teams
+      presenting, about what they built and the choices behind it. Arriving without them
+      is itself a failure of the session. Every delivery is presented from a public
+      address, not from a laptop.
     </p>
 
     <h2>Templates a delivery uses</h2>
@@ -188,6 +247,14 @@
 
 <footer class="site-footer">
   <div class="wrap">
+    <p><a href="../">ISOM 472</a> &middot;
+      <a href="../setup/">Setup</a> &middot;
+      <strong>Deliverables</strong> &middot;
+      <a href="../reference/repository/">Repository</a> &middot;
+      <a href="../reference/publishing/">Publishing</a> &middot;
+      <a href="../roles/">Roles</a> &middot;
+      <a href="../templates/proposal.html">Proposal</a> &middot;
+      <a href="../templates/interface-contract.html">Contract card</a></p>
     <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
   </div>
 </footer>

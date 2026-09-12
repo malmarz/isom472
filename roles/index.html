@@ -95,13 +95,17 @@
       </table>
     </div>
 
-    <p class="small">
-      Two tools, two jobs. Gemini Enterprise runs in the browser, works by
-      copy and paste, and cannot touch your files &mdash; use it for planning,
-      wording and prototypes. Antigravity runs on your machine, reads and
-      writes files, and drives the repository and the database without asking
-      first &mdash; use it for building, and read what it did.
-    </p>
+    <div class="callout">
+      <p>
+        <strong>Two tools, two jobs.</strong> Gemini Enterprise runs in the
+        browser, works by copy and paste, and cannot touch your files &mdash;
+        use it for planning, wording and prototypes. Antigravity runs on your
+        machine, reads and writes files, and drives the repository and the
+        database without asking first inside your project folder, prompting you
+        when an action crosses outside it &mdash; use it for building, and read
+        what it did.
+      </p>
+    </div>
 
     <h2>Client Lead</h2>
 
@@ -290,8 +294,9 @@ rather than adding it. Include the empty state and the error state.</code></pre>
     <p>
       This is file and schema work, so it is Antigravity. It reads your
       migrations and writes new ones, and it will act on the database without
-      asking. Tell it to read the current schema before proposing anything, and
-      read the migration it produces before you run it.
+      asking inside your project folder, prompting you only when an action
+      crosses outside it. Tell it to read the current schema before proposing
+      anything, and read the migration it produces before you run it.
     </p>
     <p>
       Verify three things every time: that every column it names exists and is
@@ -565,15 +570,6 @@ do not assert it &mdash; list it separately as a question for me.</code></pre>
     </p>
 
     <h2>How the roles fit a team of four, five or six</h2>
-    <p>
-      A team of four takes the first four roles. A fifth member takes a
-      combined <strong>Quality and FinOps Lead</strong>, owning both the ledger
-      and the bug issues. At six, that combined role splits into a
-      <strong>FinOps Lead</strong> and a <strong>Quality Lead</strong>. The
-      fifth role arrives whole and splits at six, so a team never carries a
-      role with nothing in it.
-    </p>
-
     <div class="table-wrap">
       <table>
         <caption>How the standing roles are held at each team size.</caption>
@@ -704,22 +700,19 @@ do not assert it &mdash; list it separately as a question for me.</code></pre>
       </li>
     </ul>
 
-    <h3>Where to go next</h3>
-    <ul class="links">
-      <li><a href="../setup/">Setup</a> &mdash; accounts, tools, and the setup session</li>
-      <li><a href="../deliverables/">Deliverables</a> &mdash; what is due, and when</li>
-      <li><a href="../reference/repository/">Repository rules</a> &mdash; branches, pull requests, what gets committed</li>
-      <li><a href="../reference/publishing/">Publishing guide</a> &mdash; getting the system to a public address</li>
-      <li><a href="../templates/proposal.html">Proposal template</a></li>
-      <li><a href="../templates/interface-contract.html">Interface contract card</a></li>
-      <li><a href="../forms/isom472-team-roster.xlsx">Team roster workbook (.xlsx)</a></li>
-    </ul>
-
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
+    <p><a href="../">ISOM 472</a> &middot;
+      <a href="../setup/">Setup</a> &middot;
+      <a href="../deliverables/">Deliverables</a> &middot;
+      <a href="../reference/repository/">Repository</a> &middot;
+      <a href="../reference/publishing/">Publishing</a> &middot;
+      <strong>Roles</strong> &middot;
+      <a href="../templates/proposal.html">Proposal</a> &middot;
+      <a href="../templates/interface-contract.html">Contract card</a></p>
     <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
   </div>
 </footer>
