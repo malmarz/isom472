@@ -514,3 +514,25 @@ tbody tr:nth-child(even) {
     page-break-inside: avoid;
   }
 }
+
+/* ---- Screenshots -------------------------------------------------------- */
+/* Used in the reference guides. Full width of the column, never wider, so the
+   page still works at phone width. */
+
+figure {
+  margin: 1.4rem 0;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+}
+
+figcaption {
+  margin-top: 0.45rem;
+  font-size: 0.88rem;
+  color: #57606a;
+}

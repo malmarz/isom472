@@ -291,6 +291,24 @@
       your branch named as the source.
     </p>
 
+    <div class="callout">
+      <p>
+        <strong>The screenshots below come from a worked example
+        repository</strong>, so the numbers in them differ from the
+        <code>S-14</code> example used in the text &mdash; there the story is
+        <code>S-1</code> and the pull request is <code>#2</code>. The shape is
+        identical. You can open it and read the whole loop for yourself &mdash;
+        one issue, one branch, one pull request, one review, one merge &mdash;
+        at
+        <a href="https://github.com/malmarz/isom472-demo-team">https://github.com/malmarz/isom472-demo-team</a>.
+      </p>
+    </div>
+
+    <figure>
+      <img src="../../assets/img/gh-pull-request.jpg" alt="An open pull request titled &ldquo;Add section 2 of the proposal [S-1] #2&rdquo;, merging the branch s-1-duplicate-order-check into main. The body is written under the template headings: What this changes, The story it closes with &ldquo;Closes #1&rdquo;, AI-Assisted naming the tool and what the author rewrote, and For the reviewer.">
+      <figcaption>The pull request as it opens: the story ID in the title, <code>Closes&nbsp;#1</code>, the <code>AI-Assisted:</code> line, and what the reviewer is asked to check.</figcaption>
+    </figure>
+
     <h3>6. Ask a teammate to review</h3>
     <ol>
       <li>
@@ -319,7 +337,10 @@
         Read what changed. Then do what the "how to check it" section says:
         open it, run it, see what happens.
       </li>
-      <li>Click <strong>Review changes</strong>, at the top right.</li>
+      <li>
+        Click <strong>Submit review</strong>, at the top right &mdash; older
+        screens call this button <em>Review changes</em>.
+      </li>
       <li>
         In the box, write what you opened, what you did, what you saw, and what
         you did not check. The last part matters as much as the rest.
@@ -342,6 +363,16 @@
       <strong>Approved</strong> with the reviewer's name and their written
       review on the conversation tab.
     </p>
+
+    <figure>
+      <img src="../../assets/img/gh-files-changed.jpg" alt="The Files changed tab of the same pull request. One file, docs/proposal.md, is listed, with the removed placeholder lines in red on the left and the new paragraph about orders arriving by phone in green on the right. A green Submit review button sits above the diff.">
+      <figcaption>The reviewer reads the diff on <strong>Files changed</strong>, then clicks <strong>Submit review</strong> to write the review.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../../assets/img/gh-review-approve-disabled.jpg" alt="A &ldquo;Finish your review&rdquo; panel open over the diff, with an empty comment box above three choices. Comment is selected; Approve is greyed out and cannot be chosen, with the note &ldquo;Pull request authors can&rsquo;t approve their own pull requests.&rdquo;">
+      <figcaption>On your own pull request <strong>Approve</strong> is greyed out &mdash; GitHub will not let the author approve it.</figcaption>
+    </figure>
 
     <h3>8. Merge &mdash; the reviewer merges, never the author</h3>
     <p>
@@ -371,6 +402,11 @@
       <strong>Merged</strong>, the change present in the repository's files on
       <code>main</code>, and the branch gone from the branch list.
     </p>
+
+    <figure>
+      <img src="../../assets/img/gh-pull-request-merged.jpg" alt="The same pull request after merging. A purple Merged badge replaces Open, the line beside it reads &ldquo;merged 1 commit into main from s-1-duplicate-order-check&rdquo;, and the Development panel in the sidebar names the story issue the merge closed.">
+      <figcaption>After the merge: the purple <strong>Merged</strong> banner, and the sidebar showing the issue it closed.</figcaption>
+    </figure>
 
     <h3>9. Come back to main</h3>
     <p>
