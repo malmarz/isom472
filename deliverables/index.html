@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Deliverables &mdash; ISOM 472</title>
+<meta name="description" content="ISOM 472 deliverables: the exact date, weight, contents and templates for each of the six phase deliveries, Fall 2026/2027.">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -23,20 +24,17 @@
     </nav>
 
     <p class="lead">
-      This page will hold all six phase deliveries: the exact date each is due,
+      This page holds all six phase deliveries: the exact date each is due,
       its weight, what the delivery must contain, and the templates it uses.
+      This is the only page on the course site where delivery dates appear
+      &mdash; every slide that mentions one points here.
     </p>
-
-    <div class="wip">
-      <p><strong>Being written.</strong> What each delivery must contain is added in a later pass.</p>
-      <p><strong>The exact dates are not on this page yet.</strong> The slides point here for them. Until they are added, the dates are announced in class.</p>
-    </div>
 
     <h2>The six phases</h2>
 
     <div class="table-wrap">
       <table>
-        <caption>The six phases, what each delivers, and its weight. Dates to be added.</caption>
+        <caption>The six phases, what each delivers, its weight, and when it is due.</caption>
         <thead>
           <tr>
             <th scope="col">Phase</th>
@@ -50,49 +48,139 @@
             <th scope="row">1</th>
             <td>Team, environment, and an accepted proposal</td>
             <td>5%</td>
-            <td><span class="pending">date to be added</span></td>
+            <td>Wed 23 Sep 2026</td>
           </tr>
           <tr>
             <th scope="row">2</th>
-            <td>Design sprint: stories, interface contracts, work split, token plan</td>
+            <td>Design sprint: stories, contracts, work split, token plan</td>
             <td>10%</td>
-            <td><span class="pending">date to be added</span></td>
+            <td>Wed 7 Oct 2026</td>
           </tr>
           <tr>
             <th scope="row">3</th>
             <td>Sprint 1: the first working increment</td>
             <td>15%</td>
-            <td><span class="pending">date to be added</span></td>
+            <td>Wed 21 Oct 2026</td>
           </tr>
           <tr>
             <th scope="row">4</th>
             <td>Sprint 2: the second working increment</td>
             <td>15%</td>
-            <td><span class="pending">date to be added</span></td>
+            <td>Wed 4 Nov 2026</td>
           </tr>
           <tr>
             <th scope="row">5</th>
             <td>Sprint 3: the third increment</td>
             <td>15%</td>
-            <td><span class="pending">date to be added</span></td>
+            <td>Wed 18 Nov 2026</td>
           </tr>
           <tr>
             <th scope="row">6</th>
             <td>Final sprint and the demo</td>
             <td>40%</td>
-            <td><span class="pending">date to be added</span></td>
+            <td>Sprint Wed 9 Dec 2026; demos Mon 14 Dec 2026 and Wed 16 Dec 2026</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <h2>What each delivery contains</h2>
-    <p><span class="pending">being written</span></p>
+
+    <h3>Phase 1 &mdash; team, environment, and an accepted proposal</h3>
+    <ul>
+      <li>A <strong>formed team</strong>, with roles recorded on the roster workbook.</li>
+      <li>A <strong>verified environment</strong> &mdash; the tools installed and signed in.</li>
+      <li>
+        A <strong>proposal the instructor accepts</strong>, in the required shape &mdash;
+        as <code>docs/proposal.md</code>, <strong>and</strong> published as a page from
+        the team's repository.
+      </li>
+      <li>Rejected proposals come back within <strong>three calendar days</strong>.</li>
+      <li>
+        The <strong>first</strong> resubmission carries <strong>no penalty</strong>;
+        a <strong>second</strong> caps that component at <strong>half</strong>.
+      </li>
+    </ul>
+    <div class="callout">
+      <p>
+        <strong>No team proceeds past Wed 30 Sep 2026 (the end of week 3) without an
+        accepted proposal.</strong> At that point the instructor assigns a project from
+        a standing list, the proposal component scores zero, and the rest of Phase 1 is
+        unaffected &mdash; the team is not sunk.
+      </p>
+    </div>
+
+    <h3>Phase 2 &mdash; design sprint: stories, contracts, work split, token plan</h3>
+    <ul>
+      <li>A <strong>backlog</strong> at or above the floor, ordered, with acceptance criteria.</li>
+      <li><strong>Interface contracts</strong> for every boundary between members.</li>
+      <li><strong>The split</strong> &mdash; who holds which named stories this sprint.</li>
+      <li>The <strong>schema</strong>, with keys marked and row-level security enabled on every table.</li>
+      <li>A <strong>verified environment</strong>, working for every member.</li>
+      <li>The <strong>token plan</strong>, and the first <strong>ledger</strong> entry.</li>
+      <li>Presented to the room, with questions from the room.</li>
+    </ul>
+
+    <h3>Phase 3 &mdash; sprint 1: the first working increment</h3>
+    <p>
+      The most guided sprint: a working increment off the backlog &middot;
+      reviewed merges &middot; the board matching the git log &middot;
+      a current ledger &middot; the phase tag in the repository.
+    </p>
+
+    <h3>Phase 4 &mdash; sprint 2: the second working increment</h3>
+    <p>As Phase 3. Nothing new is introduced.</p>
+
+    <h3>Phase 5 &mdash; sprint 3: the third increment</h3>
+    <p>As Phase 3, plus the analytics feature specified on the team's own data.</p>
+
+    <h3>Phase 6 &mdash; final sprint and the demo</h3>
+    <p>Two parts, two dates.</p>
+    <ul>
+      <li>
+        The <strong>final sprint</strong>, due Wed 9 Dec 2026: the frozen scope shipped,
+        analytics included, delivered exactly like phases 3 to 5.
+      </li>
+      <li>
+        The <strong>demo</strong>, Mon 14 and Wed 16 Dec 2026: the system shown working,
+        with oral questions to individuals. It is scored by the instructor and by peer
+        assessment, and the detailed rubric is issued before the demo.
+      </li>
+    </ul>
+
+    <h2>The repository tag and the FinOps ledger</h2>
+    <p>Two things apply to every delivery from Phase 2 onward.</p>
+    <ul>
+      <li>
+        <strong>Every phase is tagged in the repository at its due date, and the tag is
+        what gets graded.</strong> Not a submitted document, not a slide deck &mdash; the
+        repository at that tag. See <a href="../reference/repository/">the repository
+        page</a> for the tag names and the rest of the repository rules.
+      </li>
+      <li>
+        <strong>The FinOps ledger</strong> is part of every delivery from Phase 2 on. It
+        is graded binary: present, current, and plausible against the git log, or zero.
+        No accuracy target and no arithmetic are published &mdash; there is none.
+      </li>
+    </ul>
+
+    <h2>How a delivery session works</h2>
+    <p>
+      A delivery session is not a queue of private meetings. All teams are in the room.
+      Each team presents, and the rest of the class is the audience and the question pool.
+      Teams arrive with their own questions prepared; arriving without them is itself a
+      failure of the session. Every delivery is presented from a public address, not from
+      a laptop.
+    </p>
 
     <h2>Templates a delivery uses</h2>
     <ul class="links">
       <li><a href="../templates/proposal.html">The project proposal</a> &mdash; the required shape.</li>
       <li><a href="../templates/interface-contract.html">The interface contract card</a> &mdash; the required shape.</li>
+      <li><a href="../reference/repository/">Your repository</a> &mdash; the rules and the layout.</li>
+      <li><a href="../reference/publishing/">Publishing from your repository</a>.</li>
+      <li><a href="../roles/">Team roles</a>.</li>
+      <li><a href="../forms/isom472-team-roster.xlsx">The team roster workbook</a> (.xlsx).</li>
     </ul>
 
   </div>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your repository &mdash; the rules and the layout &mdash; ISOM 472</title>
+<meta name="description" content="ISOM 472: the shape of the team repository. The three collaboration rules, how branches and commits are named, what a pull request must contain, what a review means, the phase tags that are graded, and the folder layout.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="eyebrow">ISOM 472 &middot; Fall 2026/2027</p>
+    <h1>Your repository</h1>
+    <p class="tagline">The graded object, and the rules that keep six people out of each other's way.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../">ISOM 472</a> &rsaquo; <a href="../">Reference</a> &rsaquo; Your repository
+    </nav>
+
+    <p class="lead">
+      Your team has one repository, and everything in this course happens inside it.
+      It is not where finished work is filed at the end. It is where the work is done,
+      and it is what is read when the work is graded. This page describes its shape:
+      how branches and commits are named, what a pull request must contain, what a
+      review is, which tags are graded, and which file goes where.
+    </p>
+
+    <h2>What the repository is</h2>
+
+    <p>
+      One repository per team, created by the instructor. There is no individual
+      repository. Every member works in the same one, under a personal GitHub
+      account, for the whole semester. Getting access is covered in the
+      <a href="../../setup/">setup guide</a>.
+    </p>
+    <p>
+      Grading reads the repository. Not a submitted document, not a folder of files
+      emailed on the day &mdash; the repository, as it stands at a named moment. That
+      has one consequence worth stating before anything else on this page.
+    </p>
+
+    <div class="callout">
+      <p>
+        <strong>Activity that is not visible in the repository did not happen.</strong>
+        Work invisible in the repository did not happen. Every student commits under
+        their own account. The plain rule: if your activity cannot be seen in the
+        repository, you did not participate.
+      </p>
+    </div>
+
+    <h3>Five words, and the loop they make</h3>
+    <p>
+      These five words are used on every page of this course and in every class.
+      They mean exactly this and nothing looser.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <caption>The five words, as defined in class.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Word</th>
+            <th scope="col">What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Branch</th>
+            <td>A line of work that does not disturb anyone else's.</td>
+          </tr>
+          <tr>
+            <th scope="row">Commit</th>
+            <td>A saved point, carrying your name and a message.</td>
+          </tr>
+          <tr>
+            <th scope="row">Pull request</th>
+            <td>Here is my work. Please look at it before it becomes real.</td>
+          </tr>
+          <tr>
+            <th scope="row">Review</th>
+            <td>A teammate reads it and says what they checked.</td>
+          </tr>
+          <tr>
+            <th scope="row">Merge</th>
+            <td>It becomes part of the real thing.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      The loop, every time, in this order:
+      branch &rsaquo; commit &rsaquo; pull request &rsaquo; review &rsaquo; merge.
+      The next five sections are those five words, in that order.
+    </p>
+
+    <p class="small">
+      This page is about shape and rules. The mechanics &mdash; getting the repository
+      onto your laptop, committing, pushing, and publishing a page from it &mdash; are
+      in the <a href="../publishing/">publishing guide</a>, and are not repeated here.
+    </p>
+
+    <h2>The three rules</h2>
+
+    <p>Three rules govern how work moves through the repository. They are not negotiable per team.</p>
+
+    <ol>
+      <li>
+        <strong>One branch per story, named after the task.</strong>
+        Not one branch per person, and not one branch for the whole sprint.
+      </li>
+      <li>
+        <strong>Nobody merges their own work. A teammate reads it and says what they
+        checked.</strong> This holds for every member, including whoever wrote the story.
+        Approving and merging are the same bar here: on your own pull request you do
+        neither.
+      </li>
+      <li>
+        <strong>The Client Lead accepts.</strong> A story is not done because the
+        person who built it says so.
+      </li>
+    </ol>
+
+    <p>
+      Rule 1 is the next section. Rules 2 and 3 are what the review and merge sections
+      are about. Who the Client Lead is, and what the other roles own, is on the
+      <a href="../../roles/">roles page</a>.
+    </p>
+
+    <h2>Branches</h2>
+
+    <p>
+      A branch is a line of work that does not disturb anyone else's. You open one when
+      you pick up a story, and it closes when the story is merged. One branch, one
+      story, every time.
+    </p>
+    <p>The name has a fixed form, so nobody has to think about it:</p>
+
+<pre><code>&lt;story-id&gt;-&lt;short-name-of-the-task&gt;</code></pre>
+
+    <p>
+      Lower case, hyphens between words, no spaces, no capital letters, and the story
+      ID first. Three or four words after the ID is enough. The point of the name is
+      that a teammate scanning the branch list can tell what is in flight and which
+      story it belongs to, without opening anything.
+    </p>
+
+    <div class="callout good">
+      <p>
+        <code>s-14-duplicate-order-check</code><br>
+        <code>s-27-order-history-screen</code>
+      </p>
+      <p>
+        Story ID first, then what the work is. Both are readable in the branch list
+        and both trace back to a card on the board.
+      </p>
+    </div>
+
+    <div class="callout bad">
+      <p><code>Duplicate Order Check FINAL</code></p>
+      <p>
+        Spaces, capitals, no story ID, and &ldquo;FINAL&rdquo; means nothing to anyone
+        else. Nothing about this name says which story it delivers, so the work cannot
+        be traced back to the board &mdash; which is the one thing the name is for.
+      </p>
+    </div>
+
+    <h2>Commits</h2>
+
+    <p>
+      A commit is a saved point, carrying your name and a message. Commit often and in
+      small pieces. A commit message has a type, a scope, and what changed &mdash;
+      then the story ID, so the work traces back to the board.
+    </p>
+
+    <p>This is the form, and it is the only worked example you need:</p>
+
+<pre><code>feat(orders): add duplicate-order check  [S-14]</code></pre>
+
+    <p>
+      <code>feat</code> is the type. <code>(orders)</code> is the scope &mdash; the part
+      of the system this touches. Then, in plain words, what changed. Then the story ID
+      in brackets.
+    </p>
+    <p>
+      The specification for the type and scope is <strong>Conventional Commits</strong>.
+      It is one short page, and it is a required reading for this course:
+      <a href="https://www.conventionalcommits.org/en/v1.0.0/">https://www.conventionalcommits.org/en/v1.0.0/</a>.
+      Read it once and the form stops being something you have to remember.
+    </p>
+
+    <div class="callout bad">
+      <p><code>fixed stuff</code></p>
+      <p>
+        No type, no scope, no statement of what changed, and no story ID. Six months of
+        these is a repository nobody can read, including the team that wrote it. Teams
+        have been marked down for exactly this message.
+      </p>
+    </div>
+
+    <p>
+      Commit under your own GitHub account, always. Your commits are the record of what
+      you did, and they are the only record that exists.
+    </p>
+
+    <h2>Pull requests</h2>
+
+    <p>
+      A pull request says: here is my work, please look at it before it becomes real.
+      You open one when the branch is ready, and a teammate reads it before anything is
+      merged. Nobody merges their own work.
+    </p>
+
+    <h3>What a pull request must contain</h3>
+    <ul>
+      <li>
+        <strong>A title in the same form as a commit message</strong>, carrying the
+        story ID.
+      </li>
+      <li>
+        <strong>What changed</strong>, in two or three lines of plain words.
+      </li>
+      <li>
+        <strong>The story it closes</strong>, named by its ID.
+      </li>
+      <li>
+        <strong>How to check it</strong> &mdash; what the reviewer opens, what they do,
+        and what they should see. Without this, a reviewer can only read the code and
+        guess what it was supposed to do.
+      </li>
+      <li>
+        <strong>The AI-Assisted line.</strong> On every pull request, with no exceptions.
+      </li>
+    </ul>
+
+    <h3>The AI-assistance declaration</h3>
+    <p>Every pull request declares AI use: the tool, its output, your changes. One line:</p>
+
+<pre><code>AI-Assisted: &lt;tool&gt; / &lt;what it produced&gt; / &lt;what you changed&gt;</code></pre>
+
+    <p>or, when you wrote it yourself:</p>
+
+<pre><code>AI-Assisted: none</code></pre>
+
+    <div class="callout">
+      <p>
+        <strong>Both are fully legitimate. Not declaring is the offence.</strong>
+        AI use is expected across this course. What is mandatory is declaring which was
+        used, not the choice itself. The declaration is not a confession. It is the
+        record of who checked what, and it is the only one that exists.
+      </p>
+    </div>
+
+    <h3>A worked pull request</h3>
+
+<pre><code>feat(orders): add duplicate-order check  [S-14]
+
+What changed
+- A second order for the same customer in the same month is now refused.
+- The message names the earlier order and the date it was placed.
+
+Closes S-14.
+
+How to check this
+1. Open the orders screen and place an order for any customer.
+2. Place a second order for the same customer in the same month.
+3. You should see the second order refused, naming the first order's date.
+4. Place one for the following month. It should go through.
+
+AI-Assisted: Antigravity / generated the check and its message / rewrote the month
+comparison, which compared calendar months rather than the order dates, and added the
+case where the earlier order was cancelled</code></pre>
+
+    <p>
+      Note what the AI-Assisted line does here. It names the tool, says what the tool
+      produced, and says what the author changed and why. A teammate reading that line
+      knows where to look hardest.
+    </p>
+
+    <h2>Review</h2>
+
+    <p>
+      A review is a teammate reading your work and saying what they checked. Every
+      member reviews teammates' pull requests. Nobody approves their own. A review is
+      not a formality before a merge &mdash; it is the merge's only safeguard.
+    </p>
+
+    <div class="callout">
+      <p>
+        <strong>A review that said nothing is a review that did not happen.</strong>
+        Say what you opened, what you did, what you saw, and what you did not check.
+        The last part matters as much as the rest.
+      </p>
+    </div>
+
+    <div class="callout good">
+      <p>
+        &ldquo;I checked this against the acceptance criteria on S-14. I placed two
+        orders for the same customer in the same month and the second was refused,
+        with the first order's date in the message. An order for the next month went
+        through. I did not test a customer with no earlier orders at all. The
+        AI-Assisted line says the cancelled-order case was added, so I opened that part
+        and a cancelled order is excluded from the check. Approving.&rdquo;
+      </p>
+    </div>
+
+    <div class="callout bad">
+      <p>&ldquo;Looks good to me.&rdquo;</p>
+      <p>
+        Nothing was opened, nothing was run, and nothing was claimed. If the check is
+        broken, this reviewer's name is on it and they have no answer. It is also the
+        reason the failure will surface in a delivery session rather than in a pull
+        request, which is the expensive place for it to surface.
+      </p>
+    </div>
+
+    <p>
+      When the reviewer is satisfied, the work is merged: it becomes part of the real
+      thing. Acceptance of the <em>story</em> is separate, and it belongs to the Client
+      Lead. A story is not done because the person who built it says so.
+    </p>
+    <p>
+      <a href="../../templates/interface-contract.html">Interface contracts</a> are
+      agreed the same way. The card arrives in a pull request and the other party's
+      review is the agreement &mdash; a card nobody reviewed is a plan, not a contract.
+    </p>
+
+    <h2>Phase tags</h2>
+
+    <p>
+      Each phase is tagged in the repository at its due date, and
+      <strong>the tag is what gets graded</strong>. Not a submitted document, not a
+      slide deck, not the state of the repository whenever it is next looked at: the
+      repository as it stands at that tag.
+    </p>
+    <p>
+      The tags are named <code>phase-1</code>, <code>phase-2</code>,
+      <code>phase-3</code>, <code>phase-4</code>, <code>phase-5</code> and
+      <code>phase-6</code>. The Phase Lead for that phase creates the tag and pushes it.
+      The due date for each phase is on the
+      <a href="../../deliverables/">deliverables page</a>.
+    </p>
+    <p>
+      Tags are made in Antigravity. Open the team repository there and ask the agent,
+      in these words:
+    </p>
+
+<pre><code>Tag the current commit on main as phase-2 and push the tag.</code></pre>
+
+    <p class="callout outcome">
+      <strong>You should see</strong> the tag listed on the repository's tags page on
+      GitHub, pointing at the commit you meant it to point at. Check this. A tag made
+      and not pushed exists only on one laptop.
+    </p>
+
+    <div class="callout bad">
+      <p>
+        <strong>Work pushed after the tag is not in the tag, and is therefore not
+        graded for that phase.</strong> A branch that was still open, a pull request
+        that had not been reviewed, a file finished an hour later &mdash; none of it is
+        in the tag. Merge before the tag, not after it, and have the Phase Lead tag
+        once everything that counts is on <code>main</code>.
+      </p>
+    </div>
+
+    <h2>The folder layout</h2>
+
+    <p>
+      Your repository has this shape. Create it in the first phase and keep it. Files
+      that are somewhere else are files nobody finds.
+    </p>
+
+<pre><code>your-team-repository/
+├── README.md
+├── docs/
+│   ├── index.html                    the published proposal page
+│   ├── proposal.md                   the judged proposal
+│   ├── finops-ledger.md              one section per sprint
+│   ├── contracts/
+│   │   └── &lt;name_of_what_passes&gt;.md  one file per boundary
+│   └── delivery-notes/
+│       ├── phase-1.md
+│       └── … through phase-6.md
+├── prototype/                        the HTML prototype and the screen list
+└── (your application code)</code></pre>
+
+    <div class="table-wrap">
+      <table>
+        <caption>What each entry is, and who owns it.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Path</th>
+            <th scope="col">What it is</th>
+            <th scope="col">Owner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><code>README.md</code></th>
+            <td>The front page: what the system is, who the client is, and a link to the published proposal.</td>
+            <td>The team</td>
+          </tr>
+          <tr>
+            <th scope="row"><code>docs/proposal.md</code></th>
+            <td>The proposal, judged against the bar in the <a href="../../templates/proposal.html">proposal template</a>; the backlog behind it is the Client Lead's.</td>
+            <td>Client Lead</td>
+          </tr>
+          <tr>
+            <th scope="row"><code>docs/index.html</code></th>
+            <td>The same content published as a page, served at the repository's <code>/docs/</code> address &mdash; see the <a href="../publishing/">publishing guide</a>. The bare repository address is kept for the running system.</td>
+            <td>Client Lead</td>
+          </tr>
+          <tr>
+            <th scope="row"><code>docs/finops-ledger.md</code></th>
+            <td>One section per sprint. It lives in the repository and is committed, never kept elsewhere.</td>
+            <td>FinOps Lead</td>
+          </tr>
+          <tr>
+            <th scope="row"><code>docs/contracts/&lt;name&gt;.md</code></th>
+            <td>One file per boundary, named after the thing that passes, agreed by the other party's review.</td>
+            <td>The two members whose work meets</td>
+          </tr>
+          <tr>
+            <th scope="row"><code>docs/delivery-notes/phase-N.md</code></th>
+            <td>That phase's artifact: what was delivered, who did what, and links to the stories.</td>
+            <td>Phase Lead</td>
+          </tr>
+          <tr>
+            <th scope="row"><code>prototype/</code></th>
+            <td>The HTML prototype and the screen list.</td>
+            <td>Design Lead</td>
+          </tr>
+          <tr>
+            <th scope="row">Your application code</th>
+            <td>The system itself, at the top level of the repository.</td>
+            <td>Every member delivers stories end to end</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p>
+        <strong>Bugs are not files.</strong> Bug reports are
+        <strong>GitHub Issues in this repository</strong>, not documents in
+        <code>docs/</code>. The Quality Lead files them with steps to reproduce and
+        tracks each one to a disposition: fixed, deferred, or not a defect. An issue
+        with no disposition is an open question, and open questions are read as such.
+      </p>
+    </div>
+
+    <h2>Attribution</h2>
+
+    <p>
+      Everything above exists to answer one question at the end of the semester: who
+      did what. The repository answers it, and nothing else does.
+    </p>
+    <ul>
+      <li>Every story is labelled with its owner, and the branch names it.</li>
+      <li>Every commit carries the name of the account that made it.</li>
+      <li>Every pull request declares AI use: the tool, its output, your changes.</li>
+      <li>Every merge carries the name of the teammate who reviewed it.</li>
+    </ul>
+    <p>
+      Help given verbally leaves no evidence. Code pushed under a teammate's name is
+      that teammate's evidence, not yours. If two people genuinely worked together,
+      both names go on the commit &mdash; that is what co-authorship is for, and it
+      costs one extra line.
+    </p>
+    <p>
+      None of this is about suspicion. A team where every member's work is visible is a
+      team where nobody has to argue about contribution in the final week of the
+      semester, because the argument was settled commit by commit.
+    </p>
+    <p>
+      One last thing, so it is not misunderstood: misconduct in this course is
+      <strong>the inability to explain your own system, not the use of a tool</strong>.
+      Use whatever helps you. Declare it, review each other's work, and be able to
+      explain what is in the repository with your name on it.
+    </p>
+
+    <h3>Related pages</h3>
+    <ul class="links">
+      <li><a href="../publishing/">Publishing &mdash; getting the repository onto your laptop, and the proposal onto a public page</a></li>
+      <li><a href="../../setup/">Setup guide &mdash; accounts, software, and how the team repository is created</a></li>
+      <li><a href="../../roles/">Roles &mdash; who owns what, and the Phase Lead rotation</a></li>
+      <li><a href="../../deliverables/">Deliverables &mdash; what each phase is and when it is tagged</a></li>
+      <li><a href="../../templates/proposal.html">The proposal template</a></li>
+      <li><a href="../../templates/interface-contract.html">The interface contract card</a></li>
+      <li><a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits &mdash; required reading, one page</a></li>
+    </ul>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Publishing from your repository &mdash; ISOM 472</title>
+<meta name="description" content="How to move work between your laptop and the team repository with GitHub Desktop, and how to publish the team's proposal as a page with a public address.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="eyebrow">ISOM 472 &middot; Fall 2026/2027</p>
+    <h1>Publishing from your repository</h1>
+    <p class="tagline">Move work into the team repository, then publish the proposal at its own address.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../">ISOM 472</a> &rsaquo; <a href="../">Reference</a> &rsaquo; Publishing
+    </nav>
+
+    <p class="lead">
+      This page has two parts. The first is the everyday loop for moving a
+      change from your laptop into the team repository with GitHub Desktop:
+      clone, change, commit, push. The second is a one-time setup that gives
+      your team's proposal a public web address.
+    </p>
+
+    <h2>Part 1 &mdash; The GitHub Desktop loop</h2>
+    <p>
+      This assumes GitHub Desktop is already installed and signed in to your
+      own GitHub account, from the <a href="../../setup/">setup guide</a>, and
+      that the instructor has already created your team's repository. Every
+      student uses this same loop for everything the team produces &mdash;
+      code, the prototype, the ledger, notes &mdash; all in the same
+      repository.
+    </p>
+
+    <h3>Clone the team repository</h3>
+    <ol>
+      <li>Open GitHub Desktop.</li>
+      <li>
+        Open the <strong>File</strong> menu &mdash; on Windows this is inside
+        the GitHub Desktop window itself; on macOS it is in the menu bar at
+        the top of the screen &mdash; and choose
+        <strong>Clone repository&hellip;</strong>
+      </li>
+      <li>
+        Select the <strong>GitHub.com</strong> tab and find your team's
+        repository in the list.
+      </li>
+      <li>
+        Choose a folder on your laptop for the local path, then click
+        <strong>Clone</strong>.
+      </li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> GitHub Desktop finish downloading and
+      show your team's repository, with its files visible in the folder you
+      chose.
+    </p>
+
+    <h3>Change a file</h3>
+    <ol>
+      <li>
+        In GitHub Desktop, open the <strong>Repository</strong> menu and
+        choose <strong>Show in Explorer</strong> (Windows) or
+        <strong>Show in Finder</strong> (macOS). This opens the cloned
+        folder.
+      </li>
+      <li>
+        Open any file in that folder, make a small change, and save it.
+      </li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> the file saved with your change, still
+      inside the folder GitHub Desktop cloned &mdash; not a copy saved
+      somewhere else.
+    </p>
+
+    <h3>See the change in GitHub Desktop</h3>
+    <ol>
+      <li>Switch back to GitHub Desktop.</li>
+      <li>Open the <strong>Changes</strong> tab on the left.</li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> the file you edited listed under
+      Changes, checked, with the changed lines shown in the panel on the
+      right.
+    </p>
+
+    <h3>Commit</h3>
+    <ol>
+      <li>
+        In the box at the bottom left, type a one-line summary of what you
+        changed &mdash; for example <code>Add literature review section</code>,
+        not <code>update</code> or <code>changes</code>.
+      </li>
+      <li>Click <strong>Commit to main</strong>.</li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> the Changes list empty out, and your
+      commit appear at the top of the <strong>History</strong> tab.
+    </p>
+    <p>
+      Full rules for what a commit message should contain are on the
+      <a href="../repository/">repository page</a> &mdash; read them before
+      your team's first real commit.
+    </p>
+
+    <h3>Push</h3>
+    <ol>
+      <li>
+        Click <strong>Push origin</strong> near the top of the GitHub
+        Desktop window.
+      </li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> the button change to
+      <strong>Fetch origin</strong>. Your commit is now on GitHub, and your
+      teammates can see it.
+    </p>
+
+    <h3>When it goes wrong</h3>
+    <div class="callout bad">
+      <p><strong>What actually goes wrong, and what to do:</strong></p>
+      <ul>
+        <li>
+          <strong>You pushed to the wrong place.</strong> Check the
+          repository name at the top of the GitHub Desktop window before you
+          push &mdash; it is easy to have more than one repository cloned and
+          lose track of which one is open.
+        </li>
+        <li>
+          <strong>The button says "Fetch origin" instead of "Push origin".</strong>
+          A teammate pushed before you did. Click <strong>Fetch origin</strong>,
+          then <strong>Pull origin</strong> to bring their commit down, and
+          only then push yours.
+        </li>
+        <li>
+          <strong>Your change is not listed under Changes.</strong> You
+          edited a copy of the file saved somewhere else &mdash; check that
+          the file you opened was inside the folder GitHub Desktop cloned,
+          not a duplicate on the Desktop or in Downloads.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Part 2 &mdash; Giving the proposal a public address</h2>
+    <p>
+      The proposal is delivered twice. <code>docs/proposal.md</code> in the
+      repository is the document that gets graded. The same content,
+      published as a page from your team's own repository, is delivered a
+      second time &mdash; presented from its live address and checked only as
+      reachable, not judged on how it looks.
+    </p>
+
+    <h3>Turn on GitHub Pages for the team repository</h3>
+    <ol>
+      <li>On github.com, open the team repository.</li>
+      <li>
+        Click <strong>Settings</strong>, then <strong>Pages</strong> in the
+        left sidebar.
+      </li>
+      <li>
+        Under <strong>Build and deployment</strong>, set
+        <strong>Source</strong> to <strong>Deploy from a branch</strong>.
+      </li>
+      <li>
+        Set <strong>Branch</strong> to <strong>main</strong> and the folder
+        to <strong>/ (root)</strong>.
+      </li>
+      <li>Click <strong>Save</strong>.</li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> the Source section show
+      <strong>Deploy from a branch</strong>, <strong>main</strong>, and
+      <strong>/ (root)</strong> &mdash; the settings you just chose, saved.
+    </p>
+    <p>
+      Set this once and never change it. The repository's bare address is
+      reserved for the team's running system later in the course, which is
+      why the proposal page sits under <code>/docs/</code>.
+    </p>
+
+    <h3>Create docs/index.html</h3>
+    <p>
+      In the team's folder on your laptop, open the <code>docs</code> folder
+      and create a file named <code>index.html</code> inside it. Put your
+      proposal content in it. Start from this skeleton and replace the text
+      with your eight proposal sections. It is not graded on how it looks
+      &mdash; no stylesheet or script is needed.
+    </p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;Team Name &mdash; Project Proposal&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Team Name &mdash; Project Proposal&lt;/h1&gt;
+
+&lt;p&gt;Replace this paragraph with your first proposal section.&lt;/p&gt;
+
+&lt;p&gt;Replace this paragraph with your next proposal section, and keep
+adding headings and paragraphs until all eight sections are here.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    <p class="callout outcome">
+      <strong>You should see</strong> the file open correctly if you
+      double-click it on your own laptop before committing it &mdash; a
+      heading and your text, unstyled.
+    </p>
+
+    <h3>Commit and push it</h3>
+    <p>
+      Use the same loop from Part 1: the file is listed under Changes in
+      GitHub Desktop, write a one-line commit summary, click
+      <strong>Commit to main</strong>, then click <strong>Push origin</strong>.
+    </p>
+    <p class="callout outcome">
+      <strong>You should see</strong> the History tab show your commit, and
+      the button change to <strong>Fetch origin</strong>, same as any other
+      push.
+    </p>
+
+    <h3>Read the live address</h3>
+    <ol>
+      <li>Wait a minute or two &mdash; the first build takes time.</li>
+      <li>Reload the Settings &rsaquo; Pages screen.</li>
+      <li>
+        Read the address shown there and add <code>docs/</code> to the end:
+        <code>https://&lt;owner&gt;.github.io/&lt;repo&gt;/docs/</code>
+      </li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> a live address listed on the Pages
+      settings screen.
+    </p>
+
+    <h3>Check it</h3>
+    <ol>
+      <li>
+        Open <code>https://&lt;owner&gt;.github.io/&lt;repo&gt;/docs/</code> in a
+        browser.
+      </li>
+      <li>
+        Check it again from a phone, off the campus network &mdash; on phone
+        data, not KU wifi.
+      </li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> your proposal's content load at that
+      address, from a network with no connection to the university at all.
+      "Reachable" means reachable by anyone.
+    </p>
+
+    <h3>When it goes wrong</h3>
+    <div class="callout bad">
+      <p><strong>What actually goes wrong, and what to do:</strong></p>
+      <ul>
+        <li>
+          <strong>The address returns a 404 for the first minute or two
+          after the first push.</strong> That is normal. Wait, then reload.
+        </li>
+        <li>
+          <strong>The folder was left at <code>/docs</code> instead of
+          <code>/ (root)</code>.</strong> The proposal page then lands at the
+          bare repository address instead of under <code>/docs/</code>. Go
+          back to Settings &rsaquo; Pages and set the folder to
+          <code>/ (root)</code>.
+        </li>
+        <li>
+          <strong>The file is named something other than
+          <code>index.html</code>.</strong> Rename it &mdash; GitHub Pages
+          only serves <code>index.html</code> automatically.
+        </li>
+        <li>
+          <strong>The address still shows nothing new.</strong> The change
+          was committed but never pushed &mdash; check that GitHub Desktop
+          says <strong>Fetch origin</strong>, not <strong>Push origin</strong>,
+          before you assume it is live.
+        </li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <p>
+        The team repository is public, so anything committed to it can be
+        read by anyone. Never put a password, a key, or a client's private
+        data in it.
+      </p>
+    </div>
+
+    <p>
+      "Delivered" means both things: the file in the repository, and the
+      page reachable at its address. One without the other is not delivered.
+    </p>
+
+    <p class="verified">
+      Written 12&nbsp;September&nbsp;2026. GitHub and GitHub Desktop change
+      their screens from time to time. If what you see does not match this
+      description, follow the screen in front of you, finish the step, and
+      tell the instructor what changed so this page can be corrected.
+    </p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Team roles &mdash; ISOM 472</title>
+<meta name="description" content="The six standing roles in an ISOM 472 team, the artifact each one owns, how each uses AI, and the rotating Phase Lead.">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -23,34 +24,686 @@
     </nav>
 
     <p class="lead">
-      One section per role: what it owns, the artifact it produces, and what is
-      expected of whoever holds it.
+      Each member of a team holds one standing role for the whole semester and
+      owns exactly one artifact. On top of that, one member leads each phase.
+      This page says what each role owns, what it produces, how it uses the two
+      AI tools, and what it is expected to catch in other people's work.
     </p>
 
-    <div class="wip">
-      <p><strong>Being written.</strong> The detail for each role is added in a later pass.</p>
+    <div class="callout">
+      <p>
+        Owning an area does not mean doing all the work in it. It means being
+        the person the instructor asks when it is wrong, and the person whose
+        artifact is opened first.
+      </p>
     </div>
 
+    <p>
+      Teams choose their own roles at the setup session and record them on the
+      roster workbook. See <a href="../setup/">Setup</a> for how that session
+      runs, and <a href="../deliverables/">Deliverables</a> for what is due and
+      when.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <caption>The standing roles, the artifact each one owns, and where that artifact lives.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Role</th>
+            <th scope="col">Artifact</th>
+            <th scope="col">Where it lives</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Client Lead</th>
+            <td>The backlog: user stories with acceptance criteria</td>
+            <td>Issues on the team repository board</td>
+          </tr>
+          <tr>
+            <th scope="row">Design Lead</th>
+            <td>The HTML prototype and the screen list</td>
+            <td><code>prototype/</code></td>
+          </tr>
+          <tr>
+            <th scope="row">Data Lead</th>
+            <td>The schema and seed data</td>
+            <td>Supabase, with every change committed as a migration</td>
+          </tr>
+          <tr>
+            <th scope="row">Build Lead</th>
+            <td>The deployed system, plus release notes each sprint</td>
+            <td>The public address, and the repository</td>
+          </tr>
+          <tr>
+            <th scope="row">FinOps Lead</th>
+            <td>The Sprint FinOps Ledger</td>
+            <td><code>docs/finops-ledger.md</code></td>
+          </tr>
+          <tr>
+            <th scope="row">Quality Lead</th>
+            <td>Bug issues with steps to reproduce, tracked to a disposition</td>
+            <td>Issues on the team repository board</td>
+          </tr>
+          <tr>
+            <th scope="row">Phase Lead (rotates)</th>
+            <td>The phase delivery note</td>
+            <td><code>docs/delivery-notes/phase-1.md</code> &hellip; <code>phase-6.md</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="small">
+      Two tools, two jobs. Gemini Enterprise runs in the browser, works by
+      copy and paste, and cannot touch your files &mdash; use it for planning,
+      wording and prototypes. Antigravity runs on your machine, reads and
+      writes files, and drives the repository and the database without asking
+      first &mdash; use it for building, and read what it did.
+    </p>
+
     <h2>Client Lead</h2>
-    <p><span class="pending">being written</span></p>
+
+    <h3>What you own</h3>
+    <p>The client relationship and what the system must do.</p>
+
+    <h3>Your artifact, and where it lives</h3>
+    <p>
+      The backlog: user stories, each with acceptance criteria, kept as issues
+      on the team repository board. The requirements section of
+      <code>docs/proposal.md</code> is where the first version of it is written
+      &mdash; see the <a href="../templates/proposal.html">proposal template</a>.
+    </p>
+
+    <h3>Your rhythm through a sprint</h3>
+    <ul>
+      <li><strong>At the start</strong> &mdash; agree with the team which stories are in this sprint, and write acceptance criteria for each one before anybody builds it.</li>
+      <li><strong>During</strong> &mdash; answer questions about what the client meant. Talk to the client when the answer is not yours to give.</li>
+      <li><strong>At the delivery</strong> &mdash; accept or reject each story. You are expected to reject some. What is not finished goes back to the backlog and you decide where.</li>
+    </ul>
+
+    <div class="callout good">
+      <p><strong>Done means four things, all of them.</strong></p>
+      <ol>
+        <li>Built, so it runs.</li>
+        <li>Reviewed by a teammate who says what they checked.</li>
+        <li>Accepted by you.</li>
+        <li>Visible working, not on somebody's laptop.</li>
+      </ol>
+      <p>Miss any one and the story is not done. There is no partial done.</p>
+    </div>
+
+    <h3>Using AI for this role</h3>
+    <p>
+      This is planning and wording, so it is Gemini Enterprise work. Paste in
+      your raw notes from the client meeting, the stories already in the
+      backlog, and the wording of criteria the team accepted last sprint, so
+      the new ones come out in the same shape.
+    </p>
+    <p>
+      Ask for stories drawn from what the client actually said, and for each
+      criterion to name a screen, an action and a result someone else can
+      observe. Before you trust a criterion, read it as if you were the person
+      who has to check it at the delivery and did not write it. If you cannot
+      say what you would open and what you would look at, it is not a criterion
+      yet.
+    </p>
+    <pre><code>Here are my notes from the client meeting, unedited.
+Turn each request into a user story with acceptance criteria.
+Every criterion must name a screen, an action, and a result I can
+observe without reading the code. If a request is too vague to write
+a checkable criterion, list it as an open question instead of
+guessing what the client meant.</code></pre>
+
+    <div class="callout bad">
+      <p><strong>Three things the agent reliably gets wrong here</strong></p>
+      <ol>
+        <li><strong>Criteria nobody can check.</strong> "The system is easy to use." "The page loads quickly." "Data is handled securely." These read like requirements and settle nothing at the delivery. Rewrite until the criterion names what you open and what you see.</li>
+        <li><strong>Requirements the client never asked for.</strong> Asked to write a backlog, the model fills the gaps with features that sound reasonable for that kind of system. Anything you cannot trace back to something the client said is an open question, not a story.</li>
+        <li><strong>Criteria that restate the story.</strong> Story: a manager can export the roster. Criterion: the manager can export the roster. That is the same sentence twice and it tells you nothing about how you would know.</li>
+      </ol>
+    </div>
+
+    <h3>What you check on teammates' pull requests</h3>
+    <p>
+      That the merge names the story it belongs to, and that it does what that
+      story says &mdash; not a nearby thing that was easier. Watch for work
+      that quietly grows past its story, and for a pull request that closes a
+      story whose criteria are not all met.
+    </p>
+
+    <h3>What you are not responsible for</h3>
+    <p>
+      How it looks or how the screens flow &mdash; that is the Design Lead. Or
+      whether it is deployed &mdash; that is the Build Lead. You decide whether
+      it is the right thing, not whether it is the right build.
+    </p>
 
     <h2>Design Lead</h2>
-    <p><span class="pending">being written</span></p>
+
+    <h3>What you own</h3>
+    <p>What it looks like and how it flows.</p>
+
+    <h3>Your artifact, and where it lives</h3>
+    <p>
+      The HTML prototype and the screen list, in <code>prototype/</code>. It is
+      built in Gemini Enterprise, committed to the repository, and opened in a
+      browser. A prototype nobody can open is a description of a prototype.
+    </p>
+
+    <h3>Your rhythm through a sprint</h3>
+    <ul>
+      <li><strong>At the start</strong> &mdash; draw the screens the sprint's stories need, and agree with the Data Lead on anything that crosses between you.</li>
+      <li><strong>During</strong> &mdash; keep the interface consistent as other people add features. You are the one who notices that screen five stopped matching screen one.</li>
+      <li><strong>At the delivery</strong> &mdash; the prototype and the running system agree, or the difference is deliberate and written down.</li>
+    </ul>
+
+    <h3>Contracts</h3>
+    <p>
+      Where your screens meet someone else's data or someone else's code, write
+      the contract down. A boundary is a thing that passes, not a relationship
+      between two people, so the file is named for what passes:
+      <code>docs/contracts/&lt;name_of_what_passes&gt;.md</code>, one file per
+      boundary. Use the
+      <a href="../templates/interface-contract.html">interface contract card</a>.
+      The card arrives in a pull request, and the other party's review is the
+      agreement. A card nobody reviewed is a plan, not a contract.
+    </p>
+
+    <h3>Using AI for this role</h3>
+    <p>
+      Gemini Enterprise builds prototypes well and cannot touch your files, so
+      you paste the result in yourself and see exactly what you committed.
+      Paste in an existing page as the pattern to copy, the story and its
+      acceptance criteria, and the list of fields that actually exist. Ask for
+      one more page in the same markup and the same class names.
+    </p>
+    <p>
+      Before you trust a screen, check every field on it against the schema
+      with the Data Lead. A field the prototype shows and nothing stores is a
+      promise the team has to keep later.
+    </p>
+    <pre><code>Below is an existing page from our prototype. Follow it exactly:
+same markup, same class names, same spacing. Here is the next story
+and its acceptance criteria, and here is the full list of fields
+that exist. Produce one page. Use only fields from that list &mdash; if
+the screen needs something that is not on it, stop and name it
+rather than adding it. Include the empty state and the error state.</code></pre>
+
+    <div class="callout bad">
+      <p><strong>Three things the agent reliably gets wrong here</strong></p>
+      <ol>
+        <li><strong>A prototype that assumes data which does not exist.</strong> It adds an average rating, a "last active" time, a member count &mdash; fields nothing in your system records. The screen looks finished and is unbuildable.</li>
+        <li><strong>It restyles whatever it touches.</strong> New class names, a second button style, its own spacing. Each page is fine on its own and the set stops looking like one system.</li>
+        <li><strong>Only the state where everything went right.</strong> A full list, a valid form, a short name. No empty state, no error, no long value that breaks the layout, no view for someone who is not allowed to see it.</li>
+      </ol>
+    </div>
+
+    <h3>What you check on teammates' pull requests</h3>
+    <p>
+      Whether this merge invents a second way to do something the prototype
+      already solved, and whether the screens still match each other after it
+      lands. You are also the one likely to catch a field shown on a screen
+      that nothing stores, and a stored field no screen ever shows.
+    </p>
+
+    <h3>What you are not responsible for</h3>
+    <p>
+      Whether the data behind a screen is stored correctly or protected &mdash;
+      that is the Data Lead. Or whether the system is deployed &mdash; that is
+      the Build Lead.
+    </p>
 
     <h2>Data Lead</h2>
-    <p><span class="pending">being written</span></p>
+
+    <h3>What you own</h3>
+    <p>The data and its structure: what the app records, and who may see what.</p>
+
+    <h3>Your artifact, and where it lives</h3>
+    <p>
+      The schema and seed data in Supabase. Every change to it arrives as a
+      migration committed to the team repository, so the team can see what
+      changed and when. A change made by clicking in the Supabase console and
+      never committed did not happen as far as the rest of the team is
+      concerned.
+    </p>
+
+    <h3>Your rhythm through a sprint</h3>
+    <ul>
+      <li><strong>At the start</strong> &mdash; read the sprint's stories against the current schema. If it has to change, change it once, early, and tell everyone the new names.</li>
+      <li><strong>During</strong> &mdash; answer field questions, and keep seed data realistic enough to test with.</li>
+      <li><strong>At the delivery</strong> &mdash; check row-level security on every table this sprint touched. Every sprint, not once.</li>
+    </ul>
+
+    <h3>Using AI for this role</h3>
+    <p>
+      This is file and schema work, so it is Antigravity. It reads your
+      migrations and writes new ones, and it will act on the database without
+      asking. Tell it to read the current schema before proposing anything, and
+      read the migration it produces before you run it.
+    </p>
+    <p>
+      Verify three things every time: that every column it names exists and is
+      spelled the way your schema spells it, that the constraints you meant are
+      present, and that the new tables have policies saying who may read and
+      who may write.
+    </p>
+    <pre><code>Read the current schema before proposing anything.
+Write the migration for the story below. For every new table
+include the not-null and foreign-key constraints, a uniqueness
+constraint where duplicates would be wrong, and row-level security
+policies. In a comment, list which role may read and which may
+write each table. Do not use a column name that is not already in
+the schema &mdash; if you need a new one, add it in this migration.</code></pre>
+
+    <div class="callout bad">
+      <p><strong>Three things the agent reliably gets wrong here</strong></p>
+      <ol>
+        <li><strong>Invented column names.</strong> It writes code against <code>user_id</code> when your table says <code>member_id</code>. Sometimes that fails loudly. Sometimes a join just returns nothing and the screen shows an empty list that looks like a screen with no data yet.</li>
+        <li><strong>Missing constraints.</strong> Columns nullable that must never be null, no foreign key, nothing stopping two rows for the same person. It works on the day you test it and the data is wrong three sprints later.</li>
+        <li><strong>Forgotten row-level security.</strong> The agent writes a working table and does not mention that anyone can read it. It is not wrong &mdash; it answered the question that was asked. Checking it is your job. "It worked when we tested it" is exactly what an unprotected table looks like.</li>
+      </ol>
+    </div>
+
+    <h3>What you check on teammates' pull requests</h3>
+    <p>
+      Any query that touches a table you changed, any new table that arrives
+      without a policy, and seed data committed with something in it that
+      should not be in a repository. You are the one likely to catch that a
+      feature reads a table it should not be able to see at all.
+    </p>
+
+    <h3>What you are not responsible for</h3>
+    <p>
+      What a screen shows or how it flows &mdash; that is the Design Lead. Or
+      whether a story counts as done &mdash; that is the Client Lead.
+    </p>
 
     <h2>Build Lead</h2>
-    <p><span class="pending">being written</span></p>
+
+    <h3>What you own</h3>
+    <p>That it actually runs.</p>
+
+    <h3>Your artifact, and where it lives</h3>
+    <p>
+      The deployed system at its public address, plus release notes committed to
+      the repository, one short entry per sprint: what went out, and anything
+      known to be broken. How to publish and where the address comes from is in
+      <a href="../reference/publishing/">the publishing guide</a>.
+    </p>
+
+    <h3>Your rhythm through a sprint</h3>
+    <ul>
+      <li><strong>At the start</strong> &mdash; make sure every member can run the system on their own machine. A teammate who cannot start it cannot deliver a story.</li>
+      <li><strong>During</strong> &mdash; keep the main branch deployable. A branch that cannot deploy on the day of the delivery becomes everyone's problem.</li>
+      <li><strong>At the delivery</strong> &mdash; deploy, open the public address on a device that is not yours, and write the release note.</li>
+    </ul>
+
+    <h3>Using AI for this role</h3>
+    <p>
+      Antigravity, because this is files, configuration and commands. Paste in
+      the full build log when something fails &mdash; unedited, including the
+      lines you think are noise. Ask which line first shows the failure, and
+      ask for one change at a time with a way to tell whether it worked.
+    </p>
+    <p>
+      Verify by running it. The only evidence that the system runs is the
+      system running at its public address, opened by you. Also read every
+      configuration file the agent edited, line by line: this is where keys and
+      addresses get written into places that are committed.
+    </p>
+    <pre><code>The deploy failed. Here is the complete build log, unedited.
+Tell me which line first shows the failure and what caused it.
+Do not change any file yet. Propose one change, and tell me exactly
+what I should see if it worked.</code></pre>
+
+    <div class="callout bad">
+      <p><strong>Three things the agent reliably gets wrong here</strong></p>
+      <ol>
+        <li><strong>Claiming something works without having run it.</strong> "The build now passes." "Deployed successfully." Written from what the change was supposed to do, not from output. Treat every such sentence as a claim until you have opened the address yourself.</li>
+        <li><strong>Environment and secrets.</strong> It writes a key straight into a file that gets committed, or invents the name of an environment variable nothing sets &mdash; so it runs on the machine where it was written and fails everywhere else.</li>
+        <li><strong>Fixing the symptom, in the wrong place.</strong> It silences the error, deletes the failing check, or pins a version at random. The build goes green and the defect is still there, now harder to find.</li>
+      </ol>
+    </div>
+
+    <h3>What you check on teammates' pull requests</h3>
+    <p>
+      Anything that changes how the system starts, builds or deploys. A
+      credential or key that should never be committed. A new dependency added
+      to solve one small thing. You are the one likely to catch that a merge
+      runs on the author's machine and nowhere else.
+    </p>
+
+    <h3>What you are not responsible for</h3>
+    <p>
+      Whether a feature is the right feature or meets its criteria &mdash; that
+      is the Client Lead. Or finding the defects in it &mdash; that is the
+      Quality Lead.
+    </p>
 
     <h2>FinOps Lead</h2>
-    <p><span class="pending">being written</span></p>
+
+    <h3>What you own</h3>
+    <p>What the AI work costs, and what the team changed as a result.</p>
+
+    <h3>Your artifact, and where it lives</h3>
+    <p>
+      The Sprint FinOps Ledger, at <code>docs/finops-ledger.md</code>, one
+      section per sprint. It lives in the repository and is committed. It is
+      never kept in a spreadsheet somewhere else and copied in later.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <caption>The columns of the Sprint FinOps Ledger. One section per sprint, one row per story.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Column</th>
+            <th scope="col">What goes in it</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Story ID</th>
+            <td>The story this work belongs to</td>
+          </tr>
+          <tr>
+            <th scope="row">Model chosen</th>
+            <td>Which model was actually used</td>
+          </tr>
+          <tr>
+            <th scope="row">Why that model</th>
+            <td>The reason at the time, not a reason invented afterwards</td>
+          </tr>
+          <tr>
+            <th scope="row">Observed cost signal</th>
+            <td>What you could actually see &mdash; usage shown, time taken, how many attempts it took</td>
+          </tr>
+          <tr>
+            <th scope="row">Context tactics used</th>
+            <td>What was pasted in, what was deliberately left out, what was summarised first</td>
+          </tr>
+          <tr>
+            <th scope="row">What we would do differently</th>
+            <td>One concrete change for next sprint</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p>
+        <strong>How the ledger is graded: present, current, and plausible
+        against the git log, or nothing.</strong> There is no accuracy target
+        and no variance arithmetic to do. A ledger written the night before,
+        describing work the commit history does not show, fails on all three.
+      </p>
+    </div>
+
+    <h3>Your rhythm through a sprint</h3>
+    <ul>
+      <li><strong>At the start</strong> &mdash; say what the team is going to watch this sprint, so people notice it while it happens.</li>
+      <li><strong>During</strong> &mdash; record rows as the work happens. This is the whole job, and it is the part that gets skipped.</li>
+      <li><strong>At the delivery</strong> &mdash; write the sprint's section, including what the team would do differently, and commit it.</li>
+    </ul>
+
+    <h3>Using AI for this role</h3>
+    <p>
+      There is nothing to generate here. This role observes. Every other role
+      asks a model to produce something; you read what actually happened and
+      write it down. The ledger's value is that it is a record, and a record
+      that was generated is not one.
+    </p>
+    <p>
+      What you may use a tool for: asking Antigravity to list the commits in a
+      sprint so you can see which stories the work landed under, or asking
+      Gemini Enterprise to tighten the wording of a row you wrote. What you may
+      not do is ask either tool what a story cost, which model was used, or
+      what the team should say it would do differently.
+    </p>
+
+    <div class="callout bad">
+      <p><strong>The one thing the agent gets wrong here, and it is fatal</strong></p>
+      <p>
+        Asked for a ledger entry, a model will write you a complete, confident,
+        well-formatted one. It has no access to what your team spent, which
+        model anyone chose, or why. Every number in it will be invented and
+        most of them will look reasonable. A ledger that does not match the git
+        log is worth nothing, and this is the fastest way to produce one.
+      </p>
+      <p>Read what happened. Write that.</p>
+    </div>
+
+    <h3>What you check on teammates' pull requests</h3>
+    <p>
+      That AI use is declared, and that the declaration matches the change. You
+      are also the one likely to notice the expensive habits: the whole
+      codebase pasted in to answer a one-file question, the same failed attempt
+      repeated six times with no change of approach, the largest model reached
+      for by reflex.
+    </p>
+
+    <h3>What you are not responsible for</h3>
+    <p>
+      Making the technical choice &mdash; that belongs to whoever is building,
+      and to the Build Lead. You record the choice, the reason, and what it
+      cost.
+    </p>
 
     <h2>Quality Lead</h2>
-    <p><span class="pending">being written</span></p>
+
+    <h3>What you own</h3>
+    <p>Finding defects in the running application.</p>
+
+    <h3>Your artifact, and where it lives</h3>
+    <p>
+      Bug issues in the team repository &mdash; issues on the board, not files
+      in a folder. Each one carries steps to reproduce and is tracked to a
+      disposition: fixed, deferred, or not a defect. All three are acceptable
+      endings. None of them is leaving it open. A list of open bugs nobody
+      closed is not quality work.
+    </p>
+
+    <h3>Your rhythm through a sprint</h3>
+    <ul>
+      <li><strong>At the start</strong> &mdash; read the sprint's stories and their acceptance criteria, so you are testing against what was promised.</li>
+      <li><strong>During</strong> &mdash; test the running application, not the plan. File issues as you find them, with steps someone else can follow.</li>
+      <li><strong>At the delivery</strong> &mdash; every issue you filed has a disposition, and the deferred ones say who deferred them.</li>
+    </ul>
+
+    <h3>Using AI for this role</h3>
+    <p>
+      Antigravity writes tests against real files. Gemini Enterprise turns a
+      rough note into a report someone else can follow. Paste in the acceptance
+      criterion in the client's words, then the code &mdash; in that order, and
+      say the tests come from the criterion.
+    </p>
+    <p>
+      Before you trust a test, ask what would have to break for it to fail. If
+      nothing would, it is not a test. Before you trust a bug report, follow
+      your own steps on a fresh start and see the defect again.
+    </p>
+    <pre><code>Here is the acceptance criterion, in the client's words.
+Here is the function that is supposed to satisfy it.
+Write the tests from the criterion, not from the code. Include the
+empty case, the duplicate case, and the case where the user is not
+allowed. If the code does something the criterion does not require,
+do not assert it &mdash; list it separately as a question for me.</code></pre>
+
+    <div class="callout bad">
+      <p><strong>Three things the agent reliably gets wrong here</strong></p>
+      <ol>
+        <li><strong>Tests that assert what the code does, not what it should do.</strong> Given the implementation, the model reads the current output and writes it in as the expected value. The bug becomes the specification and the test passes forever.</li>
+        <li><strong>The happy path only.</strong> Valid input, one record, the right permissions. No empty list, no duplicate, no missing field, no user who should be refused &mdash; which is where the defects live.</li>
+        <li><strong>Tests that pass without testing anything.</strong> The thing under test is replaced by a stand-in and the stand-in is what gets checked; or the test has no assertion in it at all. Green, and meaningless.</li>
+      </ol>
+    </div>
+
+    <h3>What you check on teammates' pull requests</h3>
+    <p>
+      Whether this merge breaks something that already worked, and whether a
+      pull request that closes a bug issue says how you would see it fixed. You
+      are the one likely to catch tests added alongside a feature that assert
+      nothing, and a fix that was never reproduced in the first place.
+    </p>
+
+    <h3>What you are not responsible for</h3>
+    <p>
+      Fixing what you find. Whoever owns the story fixes it, and the Client
+      Lead decides whether it is worth fixing now or goes back to the backlog.
+    </p>
+
+    <h2>How the roles fit a team of four, five or six</h2>
+    <p>
+      A team of four takes the first four roles. A fifth member takes a
+      combined <strong>Quality and FinOps Lead</strong>, owning both the ledger
+      and the bug issues. At six, that combined role splits into a
+      <strong>FinOps Lead</strong> and a <strong>Quality Lead</strong>. The
+      fifth role arrives whole and splits at six, so a team never carries a
+      role with nothing in it.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <caption>How the standing roles are held at each team size.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Team size</th>
+            <th scope="col">Standing roles held</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Four</th>
+            <td>Client Lead &middot; Design Lead &middot; Data Lead &middot; Build Lead</td>
+          </tr>
+          <tr>
+            <th scope="row">Five</th>
+            <td>The four, plus a combined Quality and FinOps Lead</td>
+          </tr>
+          <tr>
+            <th scope="row">Six</th>
+            <td>The four, plus a FinOps Lead and a Quality Lead</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p>
+        <strong>In a team of four there is no dedicated FinOps or Quality
+        Lead.</strong> Whoever is Phase Lead that phase also keeps that phase's
+        ledger entry and files that phase's bug tickets. Both duties rotate
+        with the lead, so neither artifact goes missing and neither lands on
+        one person for the whole semester.
+      </p>
+    </div>
 
     <h2>Phase Lead &mdash; the rotating role</h2>
-    <p><span class="pending">being written</span></p>
+
+    <h3>What you own</h3>
+    <p>
+      The phase. You run it: keep the board current, make sure the delivery
+      lands on time, and act as the instructor's point of contact for that
+      phase. You hold this on top of your standing role, which does not pause
+      while you lead.
+    </p>
+
+    <h3>Your artifact, and where it lives</h3>
+    <p>
+      The phase delivery note, at
+      <code>docs/delivery-notes/phase-1.md</code> through
+      <code>phase-6.md</code>, one file per phase. It says what was delivered,
+      who did what, and links to the stories. Written by the lead of that
+      phase, committed in that phase &mdash; not reconstructed later by
+      somebody else.
+    </p>
+    <p>
+      You also cut that phase's tag. At the due date the repository is tagged
+      <code>phase-1</code> through <code>phase-6</code>, and the tag is what is
+      graded &mdash; so work pushed after you cut it is not in it. The
+      <a href="../reference/repository/">repository page</a> has the wording.
+    </p>
+
+    <h3>The rotation</h3>
+    <p>
+      There are six phases. A team of six has everyone lead once. A team of
+      five means one member leads twice. A team of four means two members do.
+      Decide the whole rotation at the setup session, not one phase at a time
+      &mdash; the roster workbook asks for all six.
+    </p>
+    <p>
+      Teams choose their own roles and their own rotation and record both on
+      the <a href="../forms/isom472-team-roster.xlsx">team roster workbook
+      (.xlsx)</a>. The Phase 1 Lead emails the completed workbook to the
+      instructor at
+      <a href="mailto:mo.almarzouq@ku.edu.kw">mo.almarzouq@ku.edu.kw</a>. The
+      instructor then creates the team repository. Nothing else starts until
+      that happens, so it is the Phase 1 Lead's first job.
+    </p>
+
+    <h3>Using AI for this role</h3>
+    <p>
+      The delivery note is a record of what happened, like the ledger, so the
+      same rule holds: read the repository, then write. Antigravity can list
+      the commits and the closed stories in the phase, which is a faster way to
+      see what landed than asking teammates to remember. What it cannot tell
+      you is who did what and whether the delivery was actually on time. Do not
+      ask a model to write the note; ask it to show you the phase.
+    </p>
+
+    <h3>What you are not responsible for</h3>
+    <p>
+      Doing the phase's work. You are not the manager of your teammates and you
+      do not own their artifacts. You own that the phase is delivered and that
+      the note says truthfully what happened in it.
+    </p>
+
+    <h2>What holds for everyone</h2>
+    <p>
+      Whatever role you hold, these apply. They are the reason a role is a lens
+      and not a job description.
+    </p>
+    <ul>
+      <li>
+        <strong>Take at least two named stories off the backlog every
+        sprint</strong>, and build each one end to end: agree with the Client
+        Lead what done means, follow the Design Lead's pattern, follow the Data
+        Lead's rules, build it, get a teammate to review the merge, and show it
+        at the delivery. That means every member does requirements, design,
+        data and building every sprint, by construction.
+      </li>
+      <li>
+        <strong>Review teammates' pull requests.</strong> Nobody approves their
+        own. A review says what you checked, not that you looked.
+      </li>
+      <li>
+        <strong>Commit under your own account.</strong> Work that is invisible
+        in the repository did not happen. See
+        <a href="../reference/repository/">the repository rules</a>.
+      </li>
+      <li>
+        <strong>Declare AI use on every pull request</strong> &mdash; the tool,
+        what it produced, and what you changed &mdash; or
+        <code>AI-Assisted: none</code>. Both are legitimate. Not declaring is
+        the offence.
+      </li>
+      <li>
+        <strong>A role is what you own, not the only thing you do.</strong>
+      </li>
+    </ul>
+
+    <h3>Where to go next</h3>
+    <ul class="links">
+      <li><a href="../setup/">Setup</a> &mdash; accounts, tools, and the setup session</li>
+      <li><a href="../deliverables/">Deliverables</a> &mdash; what is due, and when</li>
+      <li><a href="../reference/repository/">Repository rules</a> &mdash; branches, pull requests, what gets committed</li>
+      <li><a href="../reference/publishing/">Publishing guide</a> &mdash; getting the system to a public address</li>
+      <li><a href="../templates/proposal.html">Proposal template</a></li>
+      <li><a href="../templates/interface-contract.html">Interface contract card</a></li>
+      <li><a href="../forms/isom472-team-roster.xlsx">Team roster workbook (.xlsx)</a></li>
+    </ul>
 
   </div>
 </main>
