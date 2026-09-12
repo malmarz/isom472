@@ -22,7 +22,6 @@ HERE = Path(__file__).resolve().parent
 OUT = HERE / "isom472-team-roster.xlsx"
 
 TOKEN = "mo.almarzouq@ku.edu.kw"
-DEADLINE = "Wednesday 16 September 2026"
 
 STANDING_ROLES = [
     "Client Lead",
@@ -125,7 +124,7 @@ def build_roster(ws):
     merge_put(ws, "C4:D4", None, BODY, LEFT_MID, border=BOX)
     merge_put(ws, "A5:B5", "Date submitted", LABEL, LEFT_MID)
     merge_put(ws, "C5:D5", None, BODY, LEFT_MID, border=BOX)
-    put(ws, "E5", "Format: 16/09/2026", NOTE, LEFT_MID)
+    put(ws, "E5", "Format: DD/MM/YYYY", NOTE, LEFT_MID)
 
     merge_put(
         ws, "A7:F7", "Team members", SECTION, LEFT_MID, fill=SECTION_FILL, height=18
@@ -422,7 +421,8 @@ def build_how(ws):
     merge_put(
         ws,
         f"A{row}:B{row}",
-        "Before you leave the setup session on " + DEADLINE + ".",
+        "Before you leave the setup session. Exact dates are announced in "
+        "class and on the course site.",
         BODY,
         LEFT_TOP,
         height=17,

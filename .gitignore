@@ -1,0 +1,5 @@
+# Office lock files, created when a workbook is open
+~$*
+
+# macOS
+.DS_Store
