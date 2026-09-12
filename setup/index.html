@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setup Guide — ISOM 472</title>
+<meta name="description" content="ISOM 472 setup guide: install Antigravity and GitHub Desktop on Windows or macOS, create the KU, GitHub and Supabase accounts, and arrive at the setup session ready to work.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="eyebrow">ISOM 472 &middot; Fall 2026/2027</p>
+    <h1>Setup guide</h1>
+    <p class="tagline">Install the software and create the accounts before the setup session.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../">ISOM 472</a> &rsaquo; Setup guide
+    </nav>
+
+    <p class="lead">
+      Everything on this page must be finished before the setup session on
+      <strong>Wednesday 16 September 2026, 08:00, in Room 1001</strong>. The
+      session confirms that the software runs on your own laptop, so it has to be
+      installed when you arrive.
+    </p>
+
+    <div class="callout">
+      <p>
+        <strong>Do this at home, on home wifi.</strong> The download is large and
+        the classroom wifi is shared by the whole class. It will not complete on
+        the morning of the session.
+      </p>
+    </div>
+
+    <p>
+      There are two parts: software to install, and accounts to create. Work
+      through them in order. Each step says what you should see when it has
+      worked.
+    </p>
+
+    <h2>Part 1 — Software to install</h2>
+
+    <h3>Antigravity</h3>
+    <p>
+      Go to <a href="https://antigravity.google/download">https://antigravity.google/download</a>
+      and download the entry named <strong>Antigravity&nbsp;2.0</strong> —
+      version 2.13.0 as of 12 September 2026.
+    </p>
+    <p>
+      Further down the same page there is a separate, older entry called
+      "Antigravity IDE". That is <strong>not</strong> the one used in this course.
+      Check the name before you download.
+    </p>
+
+    <h3>Installing on Windows</h3>
+    <ol>
+      <li>
+        On the download page, choose the <strong>x64</strong> Windows download.
+        Choose ARM64 only if you know the laptop has an ARM processor.
+      </li>
+      <li>Open the downloaded <code>.exe</code> file from the Downloads folder.</li>
+      <li>
+        If a blue box appears saying "Windows protected your PC", choose
+        <strong>More info</strong>, then <strong>Run anyway</strong>. This appears
+        because the application is new, not because anything is wrong.
+      </li>
+      <li>Follow the installer and let it finish.</li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> Antigravity listed in the Start menu, and it
+      should open in its own window.
+    </p>
+
+    <h3>Installing on macOS</h3>
+    <ol>
+      <li>
+        On the download page, choose <strong>Apple Silicon</strong> unless you
+        know the Mac has an Intel processor. To check: Apple menu, then
+        <strong>About This Mac</strong>, which names the chip.
+      </li>
+      <li>Open the downloaded <code>.dmg</code> file.</li>
+      <li>
+        Drag the Antigravity icon onto the <strong>Applications</strong> folder
+        shown in the same window.
+      </li>
+      <li>Open the Applications folder and double-click Antigravity.</li>
+      <li>
+        If macOS says the developer cannot be verified, open
+        <strong>System Settings</strong>, then <strong>Privacy &amp; Security</strong>,
+        scroll down, and choose <strong>Open Anyway</strong>.
+      </li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> Antigravity open in its own window.
+    </p>
+
+    <h3>Macs with an Intel processor</h3>
+    <p>
+      Google's documentation states that Antigravity supports Apple Silicon only,
+      while its download page offers an Intel build and lists "Apple Silicon or
+      Intel". These two Google pages contradicted each other on 12 September 2026,
+      and the contradiction is unresolved.
+    </p>
+    <p>
+      If your Mac is Intel, download the Intel build and try it. If it does not
+      install or does not open, stop and bring the laptop to the setup session.
+    </p>
+
+    <h3>GitHub Desktop</h3>
+    <p>
+      Install GitHub Desktop as well, from
+      <a href="https://desktop.github.com/">https://desktop.github.com/</a>.
+      It is how you will move work between your laptop and the team repository
+      without using a terminal.
+    </p>
+    <p class="callout outcome">
+      <strong>You should see</strong> GitHub Desktop open and ask you to sign in
+      to GitHub. Signing in can wait until you have created the account in Part 2.
+    </p>
+
+    <h3>What the laptop needs</h3>
+    <div class="table-wrap">
+      <table>
+        <caption>Minimum operating system, as published by Google on 12 September 2026.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Requirement</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">macOS</th>
+            <td>macOS 12 (Monterey) or later</td>
+          </tr>
+          <tr>
+            <th scope="row">Windows</th>
+            <td>Windows 10 64-bit or later</td>
+          </tr>
+          <tr>
+            <th scope="row">Memory and disk</th>
+            <td>
+              No figure is published on Google's pages. As a practical margin from
+              this course, and not from Google, keep a few gigabytes of free disk
+              space before you start.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      If the laptop is older than the minimum operating system, say so before the
+      setup session rather than on the day.
+    </p>
+
+    <h2>Part 2 — Accounts</h2>
+    <p>
+      Three accounts are involved, and they do not all work the same way. Read the
+      difference carefully: one is issued to you, one is individual, and one is
+      shared by the whole team.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <caption>Who holds each account.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Account</th>
+            <th scope="col">How many</th>
+            <th scope="col">Used for</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">KU account</th>
+            <td>The one you already have</td>
+            <td>Signs in to both Gemini Enterprise and Antigravity</td>
+          </tr>
+          <tr>
+            <th scope="row">GitHub</th>
+            <td><strong>One per student</strong></td>
+            <td>The team repository, and the record of your own work</td>
+          </tr>
+          <tr>
+            <th scope="row">Supabase</th>
+            <td><strong>One per team, shared</strong></td>
+            <td>The team's database and its sign-ins</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>KU account</h3>
+    <p>
+      Your Kuwait University account signs you in to both Gemini Enterprise and
+      Antigravity. It is the only Google account needed for this course. Do not
+      create a personal Gmail account for it.
+    </p>
+    <ol>
+      <li>Open Antigravity.</li>
+      <li>Choose <strong>Continue with Google</strong>.</li>
+      <li>Sign in with your KU account and finish the short setup.</li>
+    </ol>
+    <p class="callout outcome">
+      <strong>You should see</strong> the main Antigravity window with its chat
+      panel. Close it. On the evening before the session, open it once more and
+      confirm it is still signed in.
+    </p>
+
+    <h3>GitHub — one account each</h3>
+    <p>
+      Every student needs an individual GitHub account. Sign up at
+      <a href="https://github.com/signup">https://github.com/signup</a>.
+    </p>
+    <p>
+      When the account exists, <strong>write down your GitHub username</strong> —
+      the username, not the email address. Your username is what identifies your
+      work in the team repository for the whole semester, so bring it with you.
+    </p>
+    <p class="callout outcome">
+      <strong>You should see</strong> your username at the top of
+      <a href="https://github.com/">github.com</a> when signed in, and the same
+      account signed in inside GitHub Desktop.
+    </p>
+
+    <h3>Supabase — one account per team</h3>
+    <p>
+      Supabase is the database. <strong>Each team creates a single Supabase
+      account and shares it.</strong> This is not one account per student. Decide
+      within the team who creates it, then make sure every member can sign in to
+      it.
+    </p>
+    <p>
+      Sign up at
+      <a href="https://supabase.com/dashboard/sign-up">https://supabase.com/dashboard/sign-up</a>.
+      It is free, it works in Kuwait, and it does not ask for a card.
+    </p>
+
+    <h3>The team repository</h3>
+    <p>
+      Each team creates its own repository on GitHub. Once it exists, add as
+      collaborators, by GitHub username:
+    </p>
+    <ul>
+      <li>every member of the team;</li>
+      <li>the instructor, <strong>@malmarz</strong>;</li>
+      <li>the teaching assistant, whose username will be announced in class.</li>
+    </ul>
+    <p>
+      A repository the instructor and the teaching assistant cannot open counts as
+      no repository at all, so check the collaborator list after you create it.
+    </p>
+
+    <div class="callout">
+      <p>
+        <strong>Nothing in this course requires a purchase, a paid plan or a
+        credit card.</strong> If a screen asks for payment, stop and ask before
+        continuing — you are on the wrong page or the wrong plan.
+      </p>
+    </div>
+
+    <h2>What to bring</h2>
+    <ul>
+      <li>Your laptop, <strong>charged</strong>, and its charger. Room 1001 does not have enough outlets for everyone.</li>
+      <li>Antigravity and GitHub Desktop already installed.</li>
+      <li>Sign-in details for all three accounts, reachable <strong>from the laptop you bring</strong> — not saved only on a phone, and not a password that would have to be reset during the session.</li>
+      <li>Your GitHub username, written down.</li>
+      <li>A few gigabytes of free disk space.</li>
+    </ul>
+
+    <h2>Troubleshooting</h2>
+    <div class="table-wrap">
+      <table>
+        <caption>Common problems and what to do about them.</caption>
+        <thead>
+          <tr>
+            <th scope="col">What you see</th>
+            <th scope="col">What to do</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Windows: a blue "Windows protected your PC" box</th>
+            <td>Choose <strong>More info</strong>, then <strong>Run anyway</strong>. Expected for a new application.</td>
+          </tr>
+          <tr>
+            <th scope="row">macOS: the developer cannot be verified</th>
+            <td>Open <strong>System Settings</strong>, then <strong>Privacy &amp; Security</strong>, scroll down, and choose <strong>Open Anyway</strong>.</td>
+          </tr>
+          <tr>
+            <th scope="row">The download stalls or fails partway</th>
+            <td>Start it again on home wifi rather than on phone data or campus wifi. Do not retry it during the session.</td>
+          </tr>
+          <tr>
+            <th scope="row">It installs but will not open, or closes immediately</th>
+            <td>Restart the laptop and try once more. If it fails again, stop and bring the laptop to the session.</td>
+          </tr>
+          <tr>
+            <th scope="row">The Mac has an Intel processor</th>
+            <td>Google's own pages disagree about Intel support. Try the Intel build; if it fails, bring the laptop to the session.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>If it will not install</h2>
+    <p>In this order:</p>
+    <ol>
+      <li>
+        <strong>Bring it to the setup session.</strong> Fixing installations that
+        failed is a planned part of the session, not an interruption of it.
+      </li>
+      <li>
+        <strong>Pair with a teammate</strong> for that session and get your own
+        machine working afterwards.
+      </li>
+      <li>
+        <strong>Take the browser-based route.</strong> Every part of this course
+        can be done in a browser, with no installed software at all. It is a full
+        route through the course, not a reduced one.
+      </li>
+    </ol>
+    <p>
+      The one thing to avoid is arriving at the session having tried nothing.
+    </p>
+
+    <p class="verified">
+      The details on this page were verified against Google's own pages on
+      12&nbsp;September&nbsp;2026. Antigravity is a preview product and changes
+      often. If the download page looks different from this description, follow
+      the page and report what changed.
+    </p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><a href="../">ISOM 472 course site</a></p>
+    <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
+  </div>
+</footer>
+
+</body>
+</html>
