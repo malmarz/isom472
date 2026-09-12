@@ -24,7 +24,8 @@
     </nav>
 
     <p class="lead">
-      Everything on this page must be finished before the setup session on
+      The software and the accounts on this page must be ready before the setup
+      session on
       <strong>Wednesday 16 September 2026, 08:00, in Room 1001</strong>. The
       session confirms that the software runs on your own laptop, so it has to be
       installed when you arrive.
@@ -39,9 +40,11 @@
     </div>
 
     <p>
-      There are two parts: software to install, and accounts to create. Work
-      through them in order. Each step says what you should see when it has
-      worked.
+      There are three parts: software to install, accounts to create, and the
+      roles the team divides between its members. Work through them in order.
+      The first two are done at home, before the session. The third is settled
+      with your team and sent to the instructor during the session itself. Each
+      step says what you should see when it has worked.
     </p>
 
     <h2>Part 1 — Software to install</h2>
@@ -244,18 +247,43 @@
 
     <h3>The team repository</h3>
     <p>
-      Each team creates its own repository on GitHub. Once it exists, add as
-      collaborators, by GitHub username:
+      The instructor creates the repository for each team. Teams do not create
+      their own, and there is nothing to set up on GitHub beyond your individual
+      account. The order is:
     </p>
-    <ul>
-      <li>every member of the team;</li>
-      <li>the instructor, <strong>@malmarz</strong>;</li>
-      <li>the teaching assistant, whose username will be announced in class.</li>
-    </ul>
+    <ol>
+      <li>
+        Every student creates a GitHub account and notes the username, as in the
+        step above.
+      </li>
+      <li>
+        The team fills in the team roster workbook: one row per member, giving
+        each member's role and the team's Phase Lead rotation. The roles are
+        described in Part 3 below.
+      </li>
+      <li>
+        The team's Phase 1 Lead emails the completed workbook to the instructor
+        at <strong>mo.almarzouq@ku.edu.kw</strong>. One email per team, not one per
+        student.
+      </li>
+      <li>The instructor creates the team repository and gives the team access.</li>
+      <li>
+        All work for the rest of the semester happens in that repository.
+      </li>
+    </ol>
     <p>
-      A repository the instructor and the teaching assistant cannot open counts as
-      no repository at all, so check the collaborator list after you create it.
+      Download the workbook here:
+      <a href="../forms/isom472-team-roster.xlsx">isom472-team-roster.xlsx</a>.
+      It opens in Excel, Numbers or Google Sheets.
     </p>
+    <div class="callout">
+      <p>
+        <strong>The workbook is due before you leave the setup session on
+        Wednesday 16 September 2026.</strong> Filled in and emailed, not
+        finished later at home. Until it arrives the team has no repository, so
+        nothing else in the course can start.
+      </p>
+    </div>
 
     <div class="callout">
       <p>
@@ -264,6 +292,98 @@
         continuing — you are on the wrong page or the wrong plan.
       </p>
     </div>
+
+    <h2>Part 3 — Team roles</h2>
+    <p>
+      Every team divides the same work between its members. Each role owns one
+      part of the system and produces one artifact, so at any point in the
+      semester it is clear who is answerable for what. Settle the roles with your
+      team at the setup session and record them in the roster workbook.
+    </p>
+
+    <h3>Standing roles</h3>
+    <p>
+      A team of four takes the first four roles. A fifth member takes a combined
+      Quality and FinOps Lead. At six, that combined role splits into a FinOps
+      Lead and a Quality Lead.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <caption>The standing roles, what each one owns, and the artifact it produces.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Role</th>
+            <th scope="col">Owns</th>
+            <th scope="col">Artifact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Client Lead</th>
+            <td>The client relationship and what the system must do</td>
+            <td>The backlog: user stories with acceptance criteria</td>
+          </tr>
+          <tr>
+            <th scope="row">Design Lead</th>
+            <td>What it looks like and how it flows</td>
+            <td>The HTML prototype and screen list</td>
+          </tr>
+          <tr>
+            <th scope="row">Data Lead</th>
+            <td>The data and its structure</td>
+            <td>The schema and seed data in Supabase</td>
+          </tr>
+          <tr>
+            <th scope="row">Build Lead</th>
+            <td>That it actually runs</td>
+            <td>The deployed system at its public address, plus release notes</td>
+          </tr>
+          <tr>
+            <th scope="row">FinOps Lead</th>
+            <td>What the AI work costs, and what changed as a result</td>
+            <td>The Sprint FinOps Ledger</td>
+          </tr>
+          <tr>
+            <th scope="row">Quality Lead</th>
+            <td>Finding defects in the running application</td>
+            <td>Bug issues with steps to reproduce, tracked to a disposition</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>The Phase Lead — the rotating role</h3>
+    <p>
+      Alongside the standing role each member keeps all semester, one named
+      person leads each phase. There are six phases, so a team of six has
+      everyone lead once, a team of five means one member leads twice, and a team
+      of four means two members do.
+    </p>
+    <p>
+      The Phase Lead runs the phase: keeps the board current, makes sure the
+      delivery lands on time, and is the instructor's point of contact for that
+      phase. The artifact is the phase delivery note. In a team of four, the
+      Phase Lead also keeps that phase's ledger and files that phase's bug
+      tickets, so both responsibilities rotate with the lead.
+    </p>
+    <p>
+      Decide the whole rotation at the setup session, not one phase at a time.
+      The roster workbook asks for all six.
+    </p>
+
+    <h3>What holds for everyone</h3>
+    <p>Two rules apply regardless of role:</p>
+    <ul>
+      <li>
+        <strong>Every member delivers stories end to end.</strong> A role is
+        what you own, not the only thing you do.
+      </li>
+      <li>
+        <strong>Every member reviews teammates' pull requests.</strong> Nobody
+        approves their own.
+      </li>
+    </ul>
 
     <h2>What to bring</h2>
     <ul>
