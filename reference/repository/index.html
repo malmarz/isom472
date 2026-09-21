@@ -189,7 +189,8 @@
         pull request is <code>#2</code>. The shape is identical. You can open
         and read the whole loop &mdash; one issue, one branch, one pull request,
         one review, one merge &mdash; at
-        <a href="https://github.com/malmarz/isom472-demo-team">https://github.com/malmarz/isom472-demo-team</a>.
+        <a href="../../example/">the worked example</a>. The screenshots were taken in
+        an earlier copy of it, so the numbers differ; the shape does not.
         The rest of the loop on screen, from the pull request through the review
         to the merge, is in the
         <a href="../publishing/">publishing guide</a>.
@@ -441,16 +442,24 @@ case where the earlier order was cancelled</code></pre>
       <a href="../../deliverables/">deliverables page</a>.
     </p>
     <p>
-      Tags are made in Antigravity. Open the team repository there and ask the agent,
-      in these words:
+      <strong>The Phase Lead creates the tag on github.com</strong>, after the last
+      pull request of the phase is merged:
     </p>
-
-<pre><code>Tag the current commit on main as phase-1 and push the tag.</code></pre>
-
+    <ol>
+      <li><strong>Releases &rsaquo; Draft a new release</strong>.</li>
+      <li>In <em>Choose a tag</em>, type <code>phase-1</code> and choose <strong>Create new tag</strong>.</li>
+      <li>Target: <strong>main</strong>.</li>
+      <li><strong>Publish release</strong>.</li>
+    </ol>
+    <p>
+      <strong>Never ask the agent to tag.</strong> Creating and pushing a tag is one of
+      the acts your marks are read from, so it is yours, and the agent is instructed to
+      refuse it.
+    </p>
     <p class="callout outcome">
       <strong>You should see</strong> the tag listed on the repository's tags page on
-      GitHub, pointing at the commit you meant it to point at. Check this. A tag made
-      and not pushed exists only on one laptop.
+      GitHub, pointing at the commit you meant it to point at. Check this. If it is not
+      on that page, it does not exist.
     </p>
 
     <div class="callout bad">
@@ -466,13 +475,21 @@ case where the earlier order was cancelled</code></pre>
     <h2>The folder layout</h2>
 
     <p>
-      Your repository has this shape. Create it in the first phase and keep it. Files
-      that are somewhere else are files nobody finds.
+      Your repository arrived with this shape. Keep it &mdash; files that are somewhere
+      else are files nobody finds.
     </p>
 
 <pre><code>your-team-repository/
-├── README.md
+├── README.md                         the team's front page, kept current
+├── AGENTS.md                         the same working rules, for your AI assistant
+├── .github/                          the pull request and issue templates
 ├── docs/
+│   ├── setup.md                      your laptop, your identity, the page, Supabase
+│   ├── how-we-work.md                the loop, the phases, when you are stuck
+│   ├── team-agreement.md             signed by every member in Phase 1
+│   ├── personas.md                   who the system is for
+│   ├── backlog.md                    the open stories, saved at each tag
+│   ├── prompts.md                    prompts to copy into your assistant
 │   ├── index.html                    the published proposal page
 │   ├── proposal.md                   the judged proposal
 │   ├── finops-ledger.md              one section per sprint
@@ -582,6 +599,8 @@ case where the earlier order was cancelled</code></pre>
     <p><a href="../../">ISOM 472</a> &middot;
       <a href="../../setup/">Setup</a> &middot;
       <a href="../../slides/">Slides</a> &middot;
+      <a href="../../walkthrough/">First change</a> &middot;
+      <a href="../../example/">Example</a> &middot;
       <a href="../../deliverables/">Deliverables</a> &middot;
       <strong>Repository</strong> &middot;
       <a href="../../reference/publishing/">Publishing</a> &middot;

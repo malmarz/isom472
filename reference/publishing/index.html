@@ -359,8 +359,9 @@
         <code>#2</code>. You can open the worked example and read the whole loop
         for yourself &mdash;
         one issue, one branch, one pull request, one review, one merge &mdash;
-        at
-        <a href="https://github.com/malmarz/isom472-demo-team">https://github.com/malmarz/isom472-demo-team</a>.
+        on <a href="../../example/">the worked example</a>. The screenshots on this
+        page were taken in an earlier copy of it, so the numbers differ; the shape does
+        not.
       </p>
     </div>
 
@@ -508,6 +509,13 @@
           alone until it has been sorted out.
         </li>
         <li>
+          <strong>GitHub refused your push to <code>main</code>.</strong> That is the
+          rule working, not a fault: nothing reaches <code>main</code> without a pull
+          request and a review. Make a branch, push that, and open a pull request. Do
+          not force anything, and if you cannot get your work onto a branch, tell the
+          instructor.
+        </li>
+        <li>
           <strong>The Create Pull Request button does nothing, or GitHub
           Desktop asks you to publish first.</strong> The branch was never
           published. Go back to step 4, click
@@ -550,9 +558,9 @@
 
     <p>
       The address for the proposal page is
-      <code>https://&lt;owner&gt;.github.io/&lt;repo&gt;/docs/</code>, where
-      <code>&lt;owner&gt;</code> and <code>&lt;repo&gt;</code> are the two
-      parts of your repository's address on github.com. The bare repository
+      <code>https://isom472-fall2026.github.io/&lt;your-repo&gt;/docs/</code>, where
+      <code>&lt;your-repo&gt;</code> is your team number &mdash; <code>team1</code>,
+      <code>team2</code>, and so on. The bare repository
       address &mdash; the one without <code>/docs/</code> &mdash; is not blank:
       GitHub builds a page from your repository's <code>README.md</code>
       automatically, so that address serves your README rendered as a web page.
@@ -564,36 +572,21 @@
 
     <h3>Edit docs/index.html on a branch</h3>
     <p>
-      The file is already in your repository, with placeholder text in it and the
-      eight headings in the right order. Start with step&nbsp;1 of Part 2: make a
-      branch. It has no story number, so name it for the work &mdash;
-      <code>proposal-public-page</code>. Then open <code>docs/index.html</code> and
-      replace the placeholder text with your eight proposal sections, keeping the
-      headings as they are. It is not graded on how it looks &mdash; no stylesheet
-      or script is needed, and the skeleton below is what is already there.
+      The file is already in your repository. It has the eight headings in the right
+      order and a <code>TODO</code> paragraph under each one. Start with step&nbsp;1 of
+      Part 2: make a branch. It has no story number, so name it for the work &mdash;
+      <code>proposal-public-page</code>.
     </p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-&lt;meta charset="utf-8"&gt;
-&lt;title&gt;Team Name &mdash; Project Proposal&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-&lt;h1&gt;Team Name &mdash; Project Proposal&lt;/h1&gt;
-
-&lt;p&gt;Replace this paragraph with your first proposal section.&lt;/p&gt;
-
-&lt;p&gt;Replace this paragraph with your next proposal section, and keep
-adding headings and paragraphs until all eight sections are here.&lt;/p&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
+    <p>
+      Then open <code>docs/index.html</code> and <strong>replace every
+      <code>TODO</code></strong> with your own text. Leave the headings and the small
+      style block at the top alone. It is not graded on how it looks, and it needs no
+      stylesheet, no script and no images.
+    </p>
     <p class="callout outcome">
-      <strong>You should see</strong> the file open correctly if you
-      double-click it on your own laptop before committing it &mdash; a
-      heading and your text, unstyled.
+      <strong>You should see</strong> the file open correctly if you double-click it on
+      your own laptop before committing it &mdash; your headings and your text, with no
+      <code>TODO</code> left anywhere.
     </p>
 
     <h3>Get it onto main through the loop</h3>
@@ -603,7 +596,7 @@ adding headings and paragraphs until all eight sections are here.&lt;/p&gt;
       exception to it.
     </p>
     <ol>
-      <li>Commit the new file to your branch (step&nbsp;3).</li>
+      <li>Commit the edited file to your branch (step&nbsp;3).</li>
       <li>Publish the branch (step&nbsp;4).</li>
       <li>
         Open a pull request, with the <code>AI-Assisted:</code> line filled in
@@ -615,9 +608,9 @@ adding headings and paragraphs until all eight sections are here.&lt;/p&gt;
       </li>
     </ol>
     <p class="callout outcome">
-      <strong>You should see</strong> <code>docs/index.html</code> listed in
-      the repository's files on github.com while looking at
-      <code>main</code> &mdash; not only on your branch.
+      <strong>You should see</strong> your own text, and no <code>TODO</code>, when you
+      open <code>docs/index.html</code> on github.com while looking at <code>main</code>
+      &mdash; not only on your branch.
     </p>
 
     <h3>Check the address</h3>
@@ -703,6 +696,8 @@ adding headings and paragraphs until all eight sections are here.&lt;/p&gt;
     <p><a href="../../">ISOM 472</a> &middot;
       <a href="../../setup/">Setup</a> &middot;
       <a href="../../slides/">Slides</a> &middot;
+      <a href="../../walkthrough/">First change</a> &middot;
+      <a href="../../example/">Example</a> &middot;
       <a href="../../deliverables/">Deliverables</a> &middot;
       <a href="../../reference/repository/">Repository</a> &middot;
       <strong>Publishing</strong> &middot;
