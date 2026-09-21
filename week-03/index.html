@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Week 3 &mdash; ISOM 472</title>
-<meta name="description" content="ISOM 472 week 3: sprints, user stories, acceptance criteria and interface contracts; then tables, keys, row-level security and token economics.">
+<meta name="description" content="ISOM 472 week 3: sprints, user stories and acceptance criteria, and how a team builds at the same time; then tables, keys, row-level security and token economics.">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
   <div class="wrap">
     <p class="eyebrow">ISOM 472 &middot; Fall 2026/2027</p>
     <h1>Week 3</h1>
-    <p class="tagline">Stories and interface contracts; data, schema, and what the work costs.</p>
+    <p class="tagline">Stories and acceptance criteria; data, schema, and what the work costs.</p>
   </div>
 </header>
 
@@ -119,7 +119,7 @@ So that nothing is lost before closing</code></pre>
       in the way.
     </p>
 
-    <h3>The contracts between you</h3>
+    <h3>Building at the same time</h3>
     <p>Here is what goes wrong without an agreement.</p>
     <div class="callout">
       <p>
@@ -130,49 +130,49 @@ So that nothing is lost before closing</code></pre>
       </p>
     </div>
     <p>
-      An <strong>interface contract</strong> is what one member promises another, in
-      writing, before either starts. If A builds the screen and B builds the data behind
-      it, they agree the shape of what passes between them first. Then neither has to
-      wait for the other.
+      With an agent on each side, both halves now appear in an afternoon &mdash; which
+      makes the mismatch more likely, not less. Speed is no longer the constraint.
+      Agreement is.
     </p>
-    <p>A contract fixes four things and deliberately leaves one open.</p>
+    <p>
+      You already have the two places where that agreement is written down, and there is
+      no third document to produce.
+    </p>
     <ul>
-      <li><strong>Fixed:</strong> the name &middot; the fields &middot; what is required &middot; what comes back when it fails.</li>
-      <li><strong>Left open:</strong> how either side builds it. That is nobody else's business. A contract that dictates implementation is not a contract.</li>
+      <li>
+        <strong>The schema is the agreement.</strong> The table, its columns, and which
+        of them may not be empty &mdash; that is what passes between you.
+        <code>customer_full_name</code> is a column, not a preference. The Data Lead
+        writes it, and it changes only in a pull request both of you have read.
+      </li>
+      <li>
+        <strong>The acceptance criteria carry the rest.</strong> What the other half is
+        handed, and what it does when something is missing, belongs in the story before
+        anybody builds. <em>An order with no customer shows as &ldquo;unassigned&rdquo;,
+        it is not hidden.</em>
+      </li>
     </ul>
     <p>The order you work in:</p>
     <ol>
       <li><strong>User story</strong> &mdash; what someone needs, in their words.</li>
-      <li><strong>Acceptance criteria</strong> &mdash; how you will know it is done.</li>
+      <li><strong>Acceptance criteria</strong> &mdash; how you will know it is done, including what happens when a value is missing.</li>
       <li><strong>Schema</strong> &mdash; the nouns in the stories become tables.</li>
-      <li><strong>Contracts</strong> &mdash; for the boundaries the schema does not settle.</li>
       <li><strong>Screens and code</strong> &mdash; both consume everything above.</li>
     </ol>
     <p>
-      Schema before screens. Nobody starts at step 5. The schema is itself a contract
-      &mdash; the biggest one.
+      Schema before screens. Nobody starts at step 4. Ten minutes on the schema and the
+      criteria, before either of you starts, saves a day &mdash; and it is the best prompt
+      either of you can give an assistant, because it says exactly what to produce.
     </p>
     <p>
-      A contract is written at the start of a sprint, when stories are assigned, and
-      always before either person builds. It is written by the two whose work meets,
-      together, not by one and handed over. <strong>The contract is a file in the
-      repository. It arrives in a pull request, and the other party's review is the
-      agreement.</strong>
-    </p>
-    <p>
-      One contract per boundary, not one per pair. A boundary is a thing that passes, not
-      a relationship. Expect three to six in a sprint. If you cannot name who consumes
-      it, you do not need a contract for it.
-    </p>
-    <p>
-      This is the whole reason the split works. Without contracts the work serialises and
-      one person becomes the bottleneck. <strong>Every student takes at least two named
-      stories per sprint and builds each one end to end</strong>, and that only holds if
-      the boundaries were agreed first.
+      This is the whole reason the split works. Without an agreed shape the work
+      serialises and one person becomes the bottleneck. <strong>Every student takes at
+      least two named stories per sprint and builds each one end to end</strong>, and that
+      only holds if the shape was agreed first.
     </p>
 
     <ul class="links">
-      <li><a href="../slides/week-03-sprints-and-contracts.html">Slides &mdash; Sprints, and the contracts between you</a></li>
+      <li><a href="../slides/week-03-sprints-and-stories.html">Slides &mdash; Sprints, and building at the same time</a></li>
     </ul>
 
     <h2>Before the second class</h2>
@@ -345,7 +345,7 @@ So that nothing is lost before closing</code></pre>
     <h3>For the first class</h3>
     <div class="table-wrap">
       <table>
-        <caption>Required reading before the first class: sprints, stories and contracts.</caption>
+        <caption>Required reading before the first class: sprints, stories and acceptance criteria.</caption>
         <thead>
           <tr>
             <th scope="col">Reading</th>
@@ -374,7 +374,7 @@ So that nothing is lost before closing</code></pre>
             <td>12 min</td>
           </tr>
           <tr>
-            <td><a href="../templates/interface-contract.html">The interface contract card</a> &mdash; the required shape</td>
+            <td>Atlassian &mdash; <a href="https://www.atlassian.com/work-management/project-management/acceptance-criteria">Acceptance criteria</a></td>
             <td>10 min</td>
           </tr>
         </tbody>
@@ -428,9 +428,8 @@ So that nothing is lost before closing</code></pre>
 
     <h2>Use</h2>
     <ul class="links">
-      <li><a href="../templates/interface-contract.html">The interface contract card</a> &mdash; the required shape, with worked examples.</li>
       <li><a href="../roles/">Team roles</a> &mdash; who owns the backlog, the schema, and the ledger.</li>
-      <li><a href="../reference/repository/">Your repository</a> &mdash; where contracts, schema and the plan live.</li>
+      <li><a href="../reference/repository/">Your repository</a> &mdash; where the schema, the stories and the plan live.</li>
       <li><a href="../deliverables/">Deliverables</a> &mdash; the dates, the weights, and the Phase 2 checklist.</li>
     </ul>
 
@@ -453,12 +452,12 @@ So that nothing is lost before closing</code></pre>
   <div class="wrap">
     <p><a href="../">ISOM 472</a> &middot;
       <a href="../setup/">Setup</a> &middot;
+      <a href="../slides/">Slides</a> &middot;
       <a href="../deliverables/">Deliverables</a> &middot;
       <a href="../reference/repository/">Repository</a> &middot;
       <a href="../reference/publishing/">Publishing</a> &middot;
       <a href="../roles/">Roles</a> &middot;
-      <a href="../templates/proposal.html">Proposal</a> &middot;
-      <a href="../templates/interface-contract.html">Contract card</a></p>
+      <a href="../templates/proposal.html">Proposal</a></p>
     <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
   </div>
 </footer>

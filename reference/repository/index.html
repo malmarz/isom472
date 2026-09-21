@@ -419,9 +419,10 @@ case where the earlier order was cancelled</code></pre>
       Lead. A story is not done because the person who built it says so.
     </p>
     <p>
-      <a href="../../templates/interface-contract.html">Interface contracts</a> are
-      agreed the same way. The card arrives in a pull request and the other party's
-      review is the agreement &mdash; a card nobody reviewed is a plan, not a contract.
+      A change to the <strong>schema</strong> is agreed the same way. It arrives in a pull
+      request, and the review by the member on the other side of it is the agreement
+      &mdash; a column renamed without that review is how two halves stop fitting
+      together.
     </p>
 
     <h2>Phase tags</h2>
@@ -475,8 +476,6 @@ case where the earlier order was cancelled</code></pre>
 │   ├── index.html                    the published proposal page
 │   ├── proposal.md                   the judged proposal
 │   ├── finops-ledger.md              one section per sprint
-│   ├── contracts/
-│   │   └── &lt;name_of_what_passes&gt;.md  one file per boundary
 │   └── delivery-notes/
 │       ├── phase-1.md
 │       └── … through phase-6.md
@@ -515,11 +514,6 @@ case where the earlier order was cancelled</code></pre>
             <th scope="row"><code>docs/finops-ledger.md</code></th>
             <td>One section per sprint. It lives in the repository and is committed, never kept elsewhere.</td>
             <td>FinOps Lead</td>
-          </tr>
-          <tr>
-            <th scope="row"><code>docs/contracts/&lt;name&gt;.md</code></th>
-            <td>One file per boundary, named after the thing that passes, agreed by the other party's review.</td>
-            <td>The two members whose work meets</td>
           </tr>
           <tr>
             <th scope="row"><code>docs/delivery-notes/phase-N.md</code></th>
@@ -587,12 +581,12 @@ case where the earlier order was cancelled</code></pre>
   <div class="wrap">
     <p><a href="../../">ISOM 472</a> &middot;
       <a href="../../setup/">Setup</a> &middot;
+      <a href="../../slides/">Slides</a> &middot;
       <a href="../../deliverables/">Deliverables</a> &middot;
       <strong>Repository</strong> &middot;
       <a href="../../reference/publishing/">Publishing</a> &middot;
       <a href="../../roles/">Roles</a> &middot;
-      <a href="../../templates/proposal.html">Proposal</a> &middot;
-      <a href="../../templates/interface-contract.html">Contract card</a></p>
+      <a href="../../templates/proposal.html">Proposal</a></p>
     <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
   </div>
 </footer>

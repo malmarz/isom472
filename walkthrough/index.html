@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your first change, twice &mdash; ISOM 472</title>
+<meta name="description" content="One small change to your team repository, done two ways: by hand with GitHub Desktop, and with Antigravity. Plus what to install on Windows.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="eyebrow">ISOM 472 &middot; Fall 2026/2027</p>
+    <h1>Your first change, twice</h1>
+    <p class="tagline">The same small change &mdash; once by hand, once with Antigravity.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../">ISOM 472</a> &rsaquo; Your first change
+    </nav>
+
+    <p class="lead">
+      Do this once by hand before you let an agent do it. Not because the manual
+      way is better &mdash; because when the agent does something strange in week
+      7, you need to know what it was supposed to do.
+    </p>
+
+    <div class="callout">
+      <p>
+        <strong>The task, both times:</strong> add your own name to the team table
+        in <code>README.md</code>. It is one line. The point is the loop around
+        it, not the change.
+      </p>
+    </div>
+
+    <h2>Before either route</h2>
+    <ul>
+      <li>
+        <strong>Accept the invitation to your repository.</strong> It is in your
+        email and in your GitHub notifications. Until you accept, nothing you do
+        can be pushed.
+      </li>
+      <li>
+        <strong>Tell git who you are.</strong> If the email on your commits is not
+        on your GitHub account, GitHub cannot tell the commit is yours, and work
+        it cannot see does not count towards your individual mark. The steps are
+        in <code>docs/setup.md</code> in your own repository.
+      </li>
+    </ul>
+
+    <h2>Route A &mdash; by hand, with GitHub Desktop</h2>
+    <p>
+      The full version of this, with screenshots of every button, is on
+      <a href="../reference/publishing/">publishing from your repository</a>. In
+      short:
+    </p>
+    <ol>
+      <li><strong>Clone</strong> the team repository so it is a folder on your laptop.</li>
+      <li><strong>Create a branch.</strong> Name it after what you are doing: <code>add-fatima-to-readme</code>.</li>
+      <li><strong>Edit <code>README.md</code></strong> in any editor. Add your name to the table.</li>
+      <li><strong>Commit</strong> with a message that says what changed: <code>docs(readme): add Fatima to the team table</code>.</li>
+      <li><strong>Publish the branch</strong>, then <strong>open a pull request</strong>.</li>
+      <li><strong>Ask a teammate to review it.</strong> They open <em>Files changed &rsaquo; Review changes</em>, write what they checked, and choose <em>Approve</em>.</li>
+      <li><strong>Merge.</strong> Your change is now part of <code>main</code>.</li>
+    </ol>
+    <div class="callout">
+      <p>
+        You cannot push straight to <code>main</code> &mdash; GitHub refuses it.
+        Every change goes through a branch, a pull request and somebody else's
+        approval. That is set once for every team repository and it is not a
+        fault in your setup.
+      </p>
+    </div>
+
+    <h2>Route B &mdash; with Antigravity</h2>
+    <p>
+      Open the same folder in Antigravity. Everything below happens in the chat
+      panel, with the repository open.
+    </p>
+
+    <h3>1. Tell it what it is looking at</h3>
+    <p>
+      Your repository contains a file called <code>AGENTS.md</code>. Antigravity
+      reads it, and it already says how this course works: the commit format, the
+      comment rules, the fact that it may commit but must not push, merge, tag or
+      open pull requests. You do not need to repeat any of that.
+    </p>
+
+    <h3>2. Ask for the change</h3>
+<pre><code>Add me to the team table in README.md. My name is Fatima and my
+standing role is Client Lead.
+
+Make a branch named after the change first. Commit with a message in
+the form the AGENTS.md file describes. Do not push.</code></pre>
+
+    <h3>3. Read what it did, before anything else</h3>
+    <ul>
+      <li>Which files did it touch? It should be one. If it &ldquo;tidied&rdquo; something else, undo that.</li>
+      <li>Is the branch name sensible, and are you on it?</li>
+      <li>Does the commit message carry the right form?</li>
+    </ul>
+
+    <h3>4. Push, and open the pull request yourself</h3>
+    <p>
+      Push from Antigravity or from GitHub Desktop, then open the pull request on
+      GitHub. Fill in the template, including the <strong>AI-Assisted</strong>
+      line:
+    </p>
+<pre><code>AI-Assisted: Antigravity / wrote the table row and the commit message /
+I fixed the role, which it guessed wrong</code></pre>
+    <p>
+      Then the same as Route A: a teammate reviews, and the reviewer merges.
+    </p>
+
+    <div class="callout bad">
+      <p>
+        <strong>What the agent must never do for you:</strong> open the pull
+        request, approve it, merge it, or create a phase tag. Those are the acts
+        the marks are read from. An agent doing them is the one thing that makes
+        a repository unreadable as evidence of who did what.
+      </p>
+    </div>
+
+    <h2>What to install &mdash; Windows</h2>
+    <div class="table-wrap">
+      <table>
+        <caption>Windows 10 or 11, 64-bit.</caption>
+        <thead>
+          <tr><th scope="col">What</th><th scope="col">Why</th><th scope="col">Where</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Google Antigravity</strong></td>
+            <td>Where you build. It also drives GitHub and the database for you.</td>
+            <td><a href="https://antigravity.google/download">antigravity.google/download</a></td>
+          </tr>
+          <tr>
+            <td><strong>Git for Windows</strong></td>
+            <td>The program underneath everything else. Install it before Antigravity, and accept the defaults.</td>
+            <td><a href="https://git-scm.com/download/win">git-scm.com/download/win</a></td>
+          </tr>
+          <tr>
+            <td><strong>GitHub Desktop</strong></td>
+            <td>Buttons instead of typed commands, for the loop. This is what the walkthrough screenshots show.</td>
+            <td><a href="https://desktop.github.com/">desktop.github.com</a></td>
+          </tr>
+          <tr>
+            <td><strong>Google Chrome</strong></td>
+            <td>What the class demonstrates in, and what your own page is checked in.</td>
+            <td><a href="https://www.google.com/chrome/">google.com/chrome</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li>
+        <strong>Install in that order</strong> &mdash; git first. If Antigravity
+        cannot find git, it will say so when you try to commit, and reinstalling
+        git fixes it.
+      </li>
+      <li>
+        <strong>You need nothing else.</strong> No Node, no Python, no database
+        on your laptop. This course has no build step: the pages you write are
+        opened directly, and the database lives in Supabase.
+      </li>
+      <li>
+        <strong>If your laptop cannot run Antigravity,</strong> say so. There is a
+        browser-only route through the whole course with the same deliverables
+        and the same marks.
+      </li>
+    </ul>
+
+    <h2>See it finished</h2>
+    <p>
+      The <a href="../example/">worked example</a> is a real repository with a
+      finished Phase 1 in it &mdash; including one pull request that was written,
+      reviewed and merged exactly this way.
+    </p>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><a href="../">ISOM 472</a> &middot;
+      <a href="../syllabus/">Syllabus</a> &middot;
+      <a href="../setup/">Setup</a> &middot;
+      <a href="../slides/">Slides</a> &middot;
+      <a href="../slides/">Slides</a> &middot;
+      <a href="../deliverables/">Deliverables</a> &middot;
+      <a href="../reference/repository/">Repository</a> &middot;
+      <a href="../reference/publishing/">Publishing</a> &middot;
+      <a href="../roles/">Roles</a> &middot;
+      <a href="../templates/proposal.html">Proposal</a></p>
+    <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
+  </div>
+</footer>
+
+</body>
+</html>
