@@ -28,7 +28,7 @@
       It is not where finished work is filed at the end. It is where the work is done,
       and it is what is read when the work is graded. This page describes its shape:
       how branches and commits are named, what a pull request must contain, what a
-      review is, where story IDs come from, which tags are graded, and which file
+      review is, where story numbers come from, which tags are graded, and which file
       goes where.
     </p>
 
@@ -168,13 +168,13 @@
       backlog is those issues in order.
     </p>
     <p>
-      <strong>The story ID is <code>S-</code> plus the issue number.</strong> Issue
-      #14 is story S-14. GitHub gives the number when the issue is opened, so there is
-      nothing to maintain and no two stories can carry the same ID.
+      <strong>The story number is the issue number.</strong> Issue #14 is story 14.
+      GitHub gives it when the issue is opened, so there is nothing to maintain and no
+      two stories can carry the same number.
     </p>
-    <p>The issue title starts with the ID, then the story:</p>
+    <p>The issue title is the story itself. No prefix, no number typed in front:</p>
 
-<pre><code>S-14 As a sales clerk I want a duplicate order refused so that the client is not billed twice</code></pre>
+<pre><code>As a sales clerk I want a duplicate order refused so that the client is not billed twice</code></pre>
 
     <figure>
       <img src="../../assets/img/gh-issue-story.jpg" alt="An open GitHub issue numbered 1, titled &ldquo;S-1 As a shop owner I want a duplicate order refused so that a customer is not billed twice&rdquo;. The body states the rule and lists two acceptance criteria, and a line underneath reads &ldquo;linked a pull request that will close this issue&rdquo;, pointing at pull request #2.">
@@ -184,9 +184,11 @@
     <div class="callout">
       <p>
         <strong>This screenshot comes from a worked example repository</strong>,
-        so the numbers in it differ from the <code>S-14</code> example used
-        throughout this page &mdash; there the story is <code>S-1</code> and the
-        pull request is <code>#2</code>. The shape is identical. You can open
+        so the numbers in it differ from the <code>#14</code> example used
+        throughout this page &mdash; there the story is <code>#1</code> and the
+        pull request is <code>#2</code>. The title in the image also carries an
+        <code>S-</code> prefix, from an earlier version of these instructions;
+        titles carry no prefix now. The shape is identical. You can open
         and read the whole loop &mdash; one issue, one branch, one pull request,
         one review, one merge &mdash; at
         <a href="../../example/">the worked example</a>. The screenshots were taken in
@@ -215,15 +217,15 @@
 
     <p>The number then carries through everything else on this page:</p>
 
-<pre><code>Issue #14        S-14, the story
-branch           s-14-duplicate-order-check
-commit           feat(orders): add duplicate-order check  [S-14]
+<pre><code>Issue #14        story 14
+branch           14-duplicate-order-check
+commit           feat(orders): add duplicate-order check  [#14]
 pull request     Closes #14</code></pre>
 
     <p>
       <code>Closes #14</code> in the pull request is the link back: when the pull
       request is merged, GitHub closes the issue. That is how the work traces back to
-      the board, and it is why the branch and the commit carry the ID.
+      the board, and it is why the branch and the commit carry the number.
     </p>
 
     <h2>Branches</h2>
@@ -235,22 +237,22 @@ pull request     Closes #14</code></pre>
     </p>
     <p>The name has a fixed form, so nobody has to think about it:</p>
 
-<pre><code>&lt;story-id&gt;-&lt;short-name-of-the-task&gt;</code></pre>
+<pre><code>&lt;story-number&gt;-&lt;short-name-of-the-task&gt;</code></pre>
 
     <p>
       Lower case, hyphens between words, no spaces, no capital letters, and the story
-      ID first. Three or four words after the ID is enough. The point of the name is
+      number first. Three or four words after the number is enough. The point of the name is
       that a teammate scanning the branch list can tell what is in flight and which
       story it belongs to, without opening anything.
     </p>
 
     <div class="callout good">
       <p>
-        <code>s-14-duplicate-order-check</code><br>
-        <code>s-27-order-history-screen</code>
+        <code>14-duplicate-order-check</code><br>
+        <code>27-order-history-screen</code>
       </p>
       <p>
-        Story ID first, then what the work is. Both are readable in the branch list
+        Story number first, then what the work is. Both are readable in the branch list
         and both trace back to an issue on the board.
       </p>
     </div>
@@ -258,7 +260,7 @@ pull request     Closes #14</code></pre>
     <div class="callout bad">
       <p><code>Duplicate Order Check FINAL</code></p>
       <p>
-        Spaces, capitals, no story ID, and &ldquo;FINAL&rdquo; means nothing to anyone
+        Spaces, capitals, no story number, and &ldquo;FINAL&rdquo; means nothing to anyone
         else. Nothing about this name says which story it delivers, so the work cannot
         be traced back to the board &mdash; which is the one thing the name is for.
       </p>
@@ -269,17 +271,17 @@ pull request     Closes #14</code></pre>
     <p>
       A commit is a saved point, carrying your name and a message. Commit often and in
       small pieces. A commit message has a type, a scope, and what changed &mdash;
-      then the story ID, so the work traces back to the board.
+      then the story number, so the work traces back to the board.
     </p>
 
     <p>This is the form, and it is the only worked example you need:</p>
 
-<pre><code>feat(orders): add duplicate-order check  [S-14]</code></pre>
+<pre><code>feat(orders): add duplicate-order check  [#14]</code></pre>
 
     <p>
       <code>feat</code> is the type. <code>(orders)</code> is the scope &mdash; the part
-      of the system this touches. Then, in plain words, what changed. Then the story ID
-      in brackets.
+      of the system this touches. Then, in plain words, what changed. Then the story
+      number in brackets.
     </p>
     <p>
       The specification for the type and scope is <strong>Conventional Commits</strong>.
@@ -291,7 +293,7 @@ pull request     Closes #14</code></pre>
     <div class="callout bad">
       <p><code>fixed stuff</code></p>
       <p>
-        No type, no scope, no statement of what changed, and no story ID. Six months of
+        No type, no scope, no statement of what changed, and no story number. Six months of
         these is a repository nobody can read, including the team that wrote it. Teams
         have been marked down for exactly this message.
       </p>
@@ -314,7 +316,7 @@ pull request     Closes #14</code></pre>
     <ul>
       <li>
         <strong>A title in the same form as a commit message</strong>, carrying the
-        story ID.
+        story number.
       </li>
       <li>
         <strong>What changed</strong>, in two or three lines of plain words.
@@ -353,7 +355,7 @@ pull request     Closes #14</code></pre>
 
     <h3>A worked pull request</h3>
 
-<pre><code>feat(orders): add duplicate-order check  [S-14]
+<pre><code>feat(orders): add duplicate-order check  [#14]
 
 What changed
 - A second order for the same customer in the same month is now refused.
@@ -395,7 +397,7 @@ case where the earlier order was cancelled</code></pre>
 
     <div class="callout good">
       <p>
-        &ldquo;I checked this against the acceptance criteria on S-14. I placed two
+        &ldquo;I checked this against the acceptance criteria on #14. I placed two
         orders for the same customer in the same month and the second was refused,
         with the first order's date in the message. An order for the next month went
         through. I did not test a customer with no earlier orders at all. The

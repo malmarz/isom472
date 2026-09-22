@@ -203,9 +203,10 @@
         <strong>New Branch</strong>.
       </li>
       <li>
-        Name it <code>&lt;story-id&gt;-&lt;short-name&gt;</code> &mdash; lower
-        case, hyphens between words, no spaces and no capitals. For example
-        <code>s-14-duplicate-order-check</code>.
+        Name it <code>&lt;story-number&gt;-&lt;short-name&gt;</code> &mdash; lower
+        case, hyphens between words, no spaces and no capitals. The story number is
+        the issue number, so story #14 gives
+        <code>14-duplicate-order-check</code>.
       </li>
       <li>Click <strong>Create Branch</strong>.</li>
     </ol>
@@ -248,7 +249,7 @@
     <ol>
       <li>
         In the box at the bottom left, write the summary line. It carries a
-        type, a scope, what changed, and the story ID &mdash; for example:
+        type, a scope, what changed, and the story number &mdash; for example:
         <pre><code>docs(proposal): add section 2, what happens today</code></pre>
       </li>
       <li>
@@ -271,7 +272,7 @@
 
     <p>
       The full rules for a commit message &mdash; the types, the scope, and
-      where the story ID goes &mdash; are on the
+      where the story number goes &mdash; are on the
       <a href="../repository/">repository page</a>. Read them before your
       team's first commit. Commit often, in small pieces, rather than once at
       the end of the week.
@@ -314,7 +315,7 @@
       </li>
       <li>
         Write the title in the same form as a commit message, carrying the
-        story ID.
+        story number.
       </li>
       <li>
         Fill in the body. The repository ships with a pull request template, so
@@ -353,10 +354,12 @@
         repositories</strong> &mdash; the GitHub Desktop ones from the team
         repository template, the github.com ones from a worked example &mdash;
         so the repository name changes partway down this page while the shape
-        stays identical. The numbers in them differ from the <code>S-14</code>
-        example used in the text: there the stories are <code>S-1</code> and
-        <code>S-2</code>, and the merged pull request is
-        <code>#2</code>. You can open the worked example and read the whole loop
+        stays identical. The numbers in them differ from the <code>#14</code>
+        example used in the text: there the story is <code>#2</code> and the
+        merged pull request is <code>#3</code>. The branch names and titles in
+        the images also carry an <code>s-</code> or <code>S-</code> prefix, from
+        an earlier version of these instructions; the story number is now used on
+        its own. You can open the worked example and read the whole loop
         for yourself &mdash;
         one issue, one branch, one pull request, one review, one merge &mdash;
         on <a href="../../example/">the worked example</a>. The screenshots on this
@@ -372,7 +375,7 @@
 
     <figure>
       <img src="../../assets/img/gh-pull-request.jpg" alt="An open pull request titled &ldquo;Add section 2 of the proposal [S-1] #2&rdquo;, merging the branch s-1-duplicate-order-check into main. The body is written under the template headings: What this changes, The story it closes with &ldquo;Closes #1&rdquo;, AI-Assisted naming the tool and what the author rewrote, and For the reviewer.">
-      <figcaption>The pull request as it opens: the story ID in the title, <code>Closes&nbsp;#1</code>, the <code>AI-Assisted:</code> line, and what the reviewer is asked to check.</figcaption>
+      <figcaption>The pull request as it opens: the story number in the title, <code>Closes&nbsp;#1</code>, the <code>AI-Assisted:</code> line, and what the reviewer is asked to check.</figcaption>
     </figure>
 
     <h3>6. Ask a teammate to review</h3>
