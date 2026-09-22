@@ -298,6 +298,52 @@
       account signed in inside GitHub Desktop.
     </p>
 
+    <h3>Tell git who you are</h3>
+    <p>
+      This is the step people skip, and it is the one that costs marks. Every
+      commit carries a name and an email address. <strong>If that address is not
+      on your GitHub account, GitHub cannot tell the commit is yours</strong> — it
+      shows a grey icon and no name, the work does not appear in your record, and
+      it does not count towards your individual mark.
+    </p>
+    <p>Set it in GitHub Desktop, once, before your first commit:</p>
+    <ol>
+      <li>
+        Open <strong>Settings</strong> &mdash; on Windows it is
+        <strong>File &rsaquo; Options</strong>, on a Mac
+        <strong>GitHub&nbsp;Desktop &rsaquo; Settings</strong>.
+      </li>
+      <li>Choose <strong>Git</strong> down the left, then the <strong>Author</strong> tab.</li>
+      <li>Put your own name in <strong>Name</strong>.</li>
+      <li>
+        Choose your <strong>KU email address</strong> in <strong>Email</strong>.
+        It must be an address that is already on your GitHub account &mdash; add
+        it first under <strong>Settings &rsaquo; Emails</strong> on github.com if
+        it is not there.
+      </li>
+      <li>Click <strong>Save</strong>.</li>
+    </ol>
+
+    <figure>
+      <img src="../assets/img/gd-settings-git-author.png" alt="GitHub Desktop&rsquo;s Settings window with Git selected in the left-hand list and the Author tab open. It has a Name field holding a full name, an Email field below it with a dropdown arrow, and a line underneath saying these preferences will edit your global Git config file.">
+      <figcaption>Settings &rsaquo; Git &rsaquo; Author. The line underneath says what it is really doing: writing your global git config file, the same file the two commands below write.</figcaption>
+    </figure>
+
+    <p>
+      Antigravity and the terminal read the same settings, so doing it here does
+      it everywhere. If you would rather type it, these two lines are exactly
+      equivalent:
+    </p>
+<pre><code>git config --global user.name  "Your Name"
+git config --global user.email "you@ku.edu.kw"</code></pre>
+
+    <p class="callout outcome">
+      <strong>You should see</strong>, on the first commit you make, your own
+      photo and username beside it on github.com. <strong>A grey icon means the
+      email is wrong</strong> &mdash; fix it here and commit again. Commits already
+      made with the wrong address stay wrong; they are not rewritten.
+    </p>
+
     <h3>Supabase &mdash; one account per team</h3>
     <p>
       Supabase is the database. <strong>Each team creates a single Supabase

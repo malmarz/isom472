@@ -72,9 +72,11 @@
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-paginate="true" data-footer="ISOM 472: Project in IS — Kuwait University" data-theme="ku" lang="en-US" data-marpit-pagination="5" style="--paginate:true;--footer:ISOM 472: Project in IS — Kuwait University;--theme:ku;" data-marpit-pagination-total="17" data-size="16:9">
 <h2 id="first-is-this-commit-yours">First: is this commit yours?</h2>
 <p>Every commit carries an email address. <strong>If it is not the one on your GitHub account, GitHub cannot tell the commit is yours.</strong></p>
+<p><strong>In GitHub Desktop:</strong> <strong>Settings › Git › Author</strong> — on Windows, <em>File › Options</em>. Your name, your <strong>KU email</strong>, <strong>Save</strong>.</p>
 <pre><code>git config --global user.name  &quot;Your Name&quot;
 git config --global user.email &quot;you@ku.edu.kw&quot;
 </code></pre>
+<p><strong>Or type those two lines. Same file either way</strong> — and the email must already be on your GitHub account.</p>
 <div class="note">
 <p>A grey icon next to your commit means it did not count. Your individual mark is read out of work GitHub can see is yours.</p>
 </div>
@@ -270,8 +272,14 @@ negotiable, because everything else keys off it.</p></div><div class="bespoke-ma
 any explanation, and it makes the Wednesday deliverable concrete: the page is not
 something they build, it is something that is already running and that they edit.</p></div><div class="bespoke-marp-note" data-index="4" tabindex="0"><p>This is the single most expensive five minutes of the semester and it is invisible
 if it goes wrong — the student works all term and the record shows a stranger.
-Have them run both lines now, then check the avatar on the commit they make in
-the next ten minutes. Steps are written out in docs/setup.md in their repository.</p></div><div class="bespoke-marp-note" data-index="5" tabindex="0"><p>The change is trivial on purpose: each student adds their own name to the team
+Do it from the front in GitHub Desktop, on the projector: Settings, Git, Author
+tab, name, pick the KU address, Save. The dialog says so itself — &quot;these
+preferences will edit your global Git config file&quot; — which is the whole reason
+the two commands are the same act. Then check the avatar on the commit they make
+in the next ten minutes. A student whose KU address is not in the Email dropdown
+has not added it on github.com yet; that is Settings › Emails, and it needs the
+confirmation mail. Steps and the screenshot are on the setup page and in
+docs/setup.md in their repository.</p></div><div class="bespoke-marp-note" data-index="5" tabindex="0"><p>The change is trivial on purpose: each student adds their own name to the team
 table in README.md. Trivial content, real mechanics. Do not allow anyone to run
 ahead; the point is that all five steps happen once with help available.</p></div><div class="bespoke-marp-note" data-index="6" tabindex="0"><p>Expect at least one student to have already hit this last night and assumed
 their access was broken. Name it early. The rule is what makes the individual
