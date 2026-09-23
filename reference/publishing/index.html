@@ -381,7 +381,10 @@
     <h3>6. Ask a teammate to review</h3>
     <ol>
       <li>
-        On the pull request page, find <strong>Reviewers</strong> on the right.
+        You may find this already done: the repository names every member as an
+        owner of every file, so GitHub requests the review from your teammates the
+        moment the pull request opens, and leaves you out of it. To ask one person
+        in particular, find <strong>Reviewers</strong> on the right.
       </li>
       <li>
         Click it and choose one teammate. Not yourself &mdash; GitHub will not
@@ -442,6 +445,23 @@
       <img src="../../assets/img/gh-review-approve-disabled.jpg" alt="A &ldquo;Finish your review&rdquo; panel open over the diff, with an empty comment box above three choices. Comment is selected; Approve is greyed out and cannot be chosen, with the note &ldquo;Pull request authors can&rsquo;t approve their own pull requests.&rdquo;">
       <figcaption>On your own pull request <strong>Approve</strong> is greyed out &mdash; GitHub will not let the author approve it.</figcaption>
     </figure>
+
+    <div class="callout bad">
+      <p>
+        <strong>Approve greyed out on a pull request that is <em>not</em> yours means you
+        have not accepted the repository invitation.</strong> Until you accept it, GitHub
+        treats you as a visitor to a public repository: you can read the code and write a
+        <strong>Comment</strong> review, and <strong>Approve</strong> and
+        <strong>Request changes</strong> stay out of reach &mdash; so your review cannot
+        unblock anybody's merge.
+      </p>
+      <p>
+        Accept the invitation &mdash; it is in your email and at
+        <a href="https://github.com/notifications">github.com/notifications</a> &mdash;
+        reload the pull request, and the choice is there. This is the single most common
+        reason a team sits stuck on <strong>Review required</strong>.
+      </p>
+    </div>
 
     <h3>8. Merge &mdash; the reviewer merges, never the author</h3>
     <p>
