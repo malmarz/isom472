@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent safety and the sandbox &mdash; reading &mdash; ISOM 472</title>
+<meta name="description" content="ISOM 472 week 4 reading: why an agent that acts needs a boundary, indirect prompt injection, CVE-2025-54135, what the Antigravity sandbox does and does not do, the approval prompt, and why you still own what shipped.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="eyebrow">ISOM 472 &middot; Fall 2026/2027</p>
+    <h1>Agent safety and the sandbox</h1>
+    <p class="tagline">Why the tool you build with is allowed to touch some things and not others.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../">ISOM 472</a> &rsaquo; <a href="../">Week 4</a> &rsaquo; Reading
+    </nav>
+
+    <div class="callout">
+      <p>
+        <strong>Read this before Wednesday 7 October.</strong> It replaces the week 4
+        lecture on the same topic &mdash; the first class of week 4 now covers a
+        different subject, and this page is where the agent-safety material moved.
+      </p>
+    </div>
+
+    <p class="lead">
+      One topic: why the tool you build with is allowed to touch some things and not
+      others, and why that is your problem, not the vendor's.
+    </p>
+
+    <h2>Why a boundary exists</h2>
+    <p>
+      You already met the reason in week 1. Gemini Enterprise lives in a browser. It
+      cannot reach a file on your machine. Antigravity runs on your laptop: it reads
+      and writes your files, and it drives GitHub and the database &mdash; and it can
+      take those steps without asking you first.
+    </p>
+    <p>
+      <strong>A tool that acts needs a boundary. A chat window does not.</strong> A
+      browser tab that can only answer needs no wall around it, because nothing it
+      says reaches your disk. The moment a tool can run a command, the question
+      &ldquo;what is it allowed to touch&rdquo; has to have an answer.
+    </p>
+
+    <h2>Untrusted text can become instructions</h2>
+    <p>The agent is constantly reading text nobody on your team wrote:</p>
+    <ul>
+      <li>A <strong>README</strong> in a repository you cloned.</li>
+      <li>An <strong>issue</strong> or a comment someone else wrote.</li>
+      <li>A <strong>web page</strong> you pointed it at.</li>
+      <li>A <strong>data file</strong> you did not create.</li>
+    </ul>
+    <p>
+      None of that text came from you. All of it arrives as words the agent reads, and
+      it cannot always tell the difference between text to answer from and text to
+      obey.
+    </p>
+    <p>
+      That is <strong>indirect prompt injection</strong>: instructions hidden inside
+      content the agent reads, which it may follow as if you had typed them. You never
+      see the instruction &mdash; you see the result. It is called indirect because the
+      attacker never talks to you. They write something, and wait for an agent to read
+      it. A team told to &ldquo;read the client's website and build the booking
+      form&rdquo; is pointing an agent at text written by someone else, and that is not
+      a hypothetical for this course.
+    </p>
+
+    <h2>One documented case: CVE-2025-54135, in Cursor</h2>
+    <p>
+      Injected content caused the agent to write a configuration file. That file was
+      then executed automatically. The result was remote code execution on the
+      developer's machine.
+    </p>
+    <div class="callout">
+      <p>
+        Scored <strong>CVSS 8.6</strong>. Fixed in Cursor v1.3.9. Checked
+        12&nbsp;September&nbsp;2026.
+        <a href="https://github.com/cursor/cursor/security/advisories/GHSA-4cxx-hrm3-49rm">github.com/cursor/cursor/security/advisories/GHSA-4cxx-hrm3-49rm</a>
+      </p>
+    </div>
+    <p>
+      This case is worth studying because it is fixed and fully documented &mdash;
+      every claim above can be checked. Read the shape, not the product:
+    </p>
+    <ul>
+      <li>Nothing was <strong>broken into</strong>. The agent did what it was told.</li>
+      <li>The instruction arrived in <strong>content</strong>, not from the user.</li>
+      <li>The damage came from a step that ran <strong>without a human</strong>.</li>
+    </ul>
+    <p>
+      Cursor patched this one. The shape it belongs to is not a bug that gets patched
+      once &mdash; it is a property of agents that read untrusted text and act, not a
+      property of one vendor. This is also the argument the OWASP reading below makes.
+    </p>
+
+    <h2>What is on your laptop</h2>
+    <p>
+      The abstract version of this threat does not move anyone; the fact that the agent
+      runs on the same machine as your other four courses does.
+    </p>
+    <ul>
+      <li><strong>SSH keys</strong> &mdash; your access to every repository you can push to.</li>
+      <li><strong>Environment files</strong> &mdash; database passwords and API keys, in plain text.</li>
+      <li><strong>Cloud tokens</strong> &mdash; signed-in sessions for services that hold real data.</li>
+      <li><strong>Your coursework</strong> &mdash; every other course you are taking, on the same disk.</li>
+    </ul>
+
+    <h2>What the sandbox does</h2>
+    <p>Inside the wall, the documented boundaries are these:</p>
+    <ul>
+      <li>Sandboxed commands write only to <strong>project, temp and build-cache</strong> paths.</li>
+      <li>Anything <strong>not mounted</strong> is invisible from inside &mdash; a stronger claim than &ldquo;refused&rdquo;. A path that was never mounted does not appear to exist, so an agent cannot even enumerate it.</li>
+      <li>System directories such as <code>/usr</code> and <code>/etc</code> are <strong>read-only</strong>.</li>
+    </ul>
+    <p>Two paths are called out by name in the documentation, because they are the two that matter most and they are exactly the two on the list above:</p>
+    <ul>
+      <li><code>~/.ssh</code> &mdash; your keys. Blocked.</li>
+      <li><code>.env</code> &mdash; your secrets. Blocked.</li>
+    </ul>
+    <p>
+      Network access is limited to <strong>approved domains</strong>. The boundary is
+      not only about the disk.
+    </p>
+    <p class="small">
+      Source for the three items above: <a href="https://antigravity.google/docs/sandbox/">antigravity.google/docs/sandbox/</a>, checked 12&nbsp;September&nbsp;2026.
+    </p>
+    <div class="callout bad">
+      <p>
+        <strong>Windows, said plainly.</strong> The Windows sandbox mechanism is not
+        documented. Treat it as unverified. The macOS and Linux mechanisms are
+        documented; do not assume Windows behaves the same way. If you are on Windows,
+        verify more, not less &mdash; you are the one who can produce genuinely new
+        information about your own platform.
+      </p>
+    </div>
+    <p>
+      <strong>The sandbox limits what a command can reach. It does not judge whether
+      the instruction was a good idea.</strong> A perfectly sandboxed agent will still
+      cheerfully delete your own project files if it is told to. Containment is not
+      judgement.
+    </p>
+
+    <h2>The approval prompt is the feature</h2>
+    <p>
+      The prompt appears exactly when an action crosses the boundary. It is the one
+      moment a person is in the loop. Clicking through it without reading is the whole
+      defence, discarded. The modal is not friction in your way &mdash; it is the
+      design working.
+    </p>
+    <p>
+      <strong>Approval fatigue is real.</strong> The twentieth prompt of the morning
+      gets the same click as the first, and by then you are approving a category, not
+      an action. An agent that asks a hundred times has trained you to say yes &mdash;
+      that is the cost. Too few prompts and the agent acts unsupervised; too many and
+      supervision becomes reflex. The practical rule: slow down when the prompt names
+      something outside your project. The path in the modal is the signal worth
+      reading, and it takes two seconds.
+    </p>
+
+    <h2>Verify the boundary, do not trust it</h2>
+    <p>Three checks, run on your own machine rather than watched on a teammate's:</p>
+    <ol>
+      <li><strong>Write inside</strong> your workspace &mdash; expect it to succeed.</li>
+      <li><strong>Read something outside</strong> it &mdash; expect a refusal or a prompt.</li>
+      <li><strong>Trigger one crossing action</strong> &mdash; read the modal, and describe what it says.</li>
+    </ol>
+    <p>Then, on what you saw:</p>
+    <ul>
+      <li>A refusal you <strong>expected and did not get</strong> is a <strong>finding</strong> &mdash; tell the instructor.</li>
+      <li>A refusal you <strong>did not expect</strong> is normal; read the path in the message.</li>
+      <li>Do <strong>not</strong> disable the sandbox to make an error go away.</li>
+    </ul>
+    <div class="callout good">
+      <p>
+        Nobody is graded on their machine misbehaving. You are on record for what you
+        shipped, not for what your laptop did during a check.
+      </p>
+    </div>
+
+    <h2>Who owns what ships</h2>
+    <p>
+      <strong>The agent acted without asking. You still own what shipped.</strong> This
+      is why every pull request declares AI use:
+    </p>
+    <ul>
+      <li>The <strong>tool</strong>, what it produced, and what you changed.</li>
+      <li>Or <code>AI-Assisted: none</code> &mdash; <strong>equally legitimate</strong>.</li>
+      <li><strong>Not declaring is the offence.</strong></li>
+    </ul>
+    <p>
+      The declaration is not a confession. It is the record of who checked what, and it
+      is the only one that exists. The connection worth holding onto: the declaration
+      is the mechanism by which &ldquo;you own what you ship&rdquo; stops being a
+      slogan and becomes something visible in the repository.
+    </p>
+    <p class="callout outcome">
+      <strong>Know where the wall is. Read the modal. Own what you ship.</strong>
+    </p>
+
+    <h2>Phase 2, due at the end of this week</h2>
+    <p>
+      Stories, the schema and acceptance criteria, the split, the environment, and your
+      token plan &mdash; 10 marks. The delivery contains:
+    </p>
+    <ul>
+      <li>A <strong>backlog</strong> at or above the floor, ordered, with acceptance criteria.</li>
+      <li><strong>Acceptance criteria</strong> for every boundary between members, checked against the schema.</li>
+      <li><strong>The split</strong> &mdash; who holds which named stories this sprint.</li>
+      <li>Your <strong>schema</strong>, with keys marked and <strong>row-level security enabled</strong> on every table.</li>
+      <li>A <strong>verified environment</strong>, working for every member.</li>
+      <li>Your <strong>token plan</strong>, and the first <strong>ledger</strong> entry.</li>
+    </ul>
+    <p>
+      Presented to the room, with questions from the room. See
+      <a href="../../deliverables/">deliverables</a> for the date and the checklist.
+    </p>
+
+    <h2>Required reading</h2>
+    <div class="table-wrap">
+      <table>
+        <caption>Required reading for this page.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Reading</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://antigravity.google/docs/sandbox/">Antigravity Docs &mdash; <em>Terminal Sandbox</em></a></td>
+            <td>15 min</td>
+          </tr>
+          <tr>
+            <td><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">OWASP GenAI &mdash; <em>LLM01:2025 Prompt Injection</em></a></td>
+            <td>20 min</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">
+      For the OWASP page, read the Description and Prevention sections only. Skip the
+      reference list. The Antigravity page documents the mechanism the three checks
+      above test on your own machine &mdash; verify first, then read what you verified.
+    </p>
+
+    <h2>Optional reading</h2>
+    <div class="table-wrap">
+      <table>
+        <caption>Optional reading. Not required, and not assessed.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Reading</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://simonwillison.net/2023/Apr/14/worst-that-can-happen/">Simon Willison &mdash; <em>Prompt injection: what's the worst that can happen?</em></a></td>
+            <td>15 min</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">
+      The clearest short argument that there is no complete fix. Read it if you want to
+      argue about this one &mdash; it is also the best answer to &ldquo;why doesn't
+      someone just fix it&rdquo;.
+    </p>
+
+    <h2>Keeping the agent inside the course's stack</h2>
+    <p>
+      Every team repository carries an <code>AGENTS.md</code>, written for the AI
+      assistant rather than for students. It says the same things as
+      <code>docs/how-we-work.md</code>, in the form an assistant needs, and it has to
+      stay in the repository.
+    </p>
+    <p>
+      It exists because the boundaries in this reading are about what an agent can
+      <em>reach</em>. <code>AGENTS.md</code> is the other kind of boundary: what an
+      agent operating well inside the sandbox is still expected, or not expected, to
+      build. It enforces the stack the course is built on:
+    </p>
+    <ul>
+      <li>
+        <strong>Plain HTML, CSS and JavaScript. No framework, no npm, no build step, no
+        bundler.</strong> If a task seems to need one, the agent is instructed to say
+        so and stop rather than scaffold it.
+      </li>
+      <li>
+        <strong>Supabase for data and logins, loaded from a CDN <code>&lt;script&gt;</code>
+        tag</strong> &mdash; not installed as a package.
+      </li>
+      <li>
+        <strong>Only the <code>anon</code> key.</strong> The project URL and the
+        <code>anon</code> key are public and belong in <code>js/config.js</code>,
+        committed to the repository &mdash; that is correct and safe. The
+        <code>service_role</code> key is never used in this course; if a task appears
+        to need it, the design is wrong, and the agent is instructed to say so and
+        stop rather than use it.
+      </li>
+      <li>
+        <strong>Row Level Security stays on, for every table.</strong> The agent is
+        instructed never to suggest turning it off to make something work.
+      </li>
+    </ul>
+    <p>
+      Two more rules keep an agent that can act from acting past what was asked:
+    </p>
+    <ul>
+      <li>
+        <strong>Ask the agent for a plan before it writes code.</strong> An agent that
+        states what it is about to do, and why, is one whose actions you can check
+        against the acceptance criteria before they happen &mdash; not only after, in
+        review.
+      </li>
+      <li>
+        <strong>Keep each pull request to one story.</strong> One branch, one story,
+        one thing a teammate can review and a Client Lead can accept. An agent asked to
+        do one thing produces a pull request a human can actually check.
+      </li>
+    </ul>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><a href="../../">ISOM 472</a> &middot;
+      <a href="../../setup/">Setup</a> &middot;
+      <a href="../../slides/">Slides</a> &middot;
+      <a href="../../walkthrough/">First change</a> &middot;
+      <a href="../../example/">Example</a> &middot;
+      <a href="../../deliverables/">Deliverables</a> &middot;
+      <a href="../../reference/repository/">Repository</a> &middot;
+      <a href="../../reference/publishing/">Publishing</a> &middot;
+      <a href="../../roles/">Roles</a> &middot;
+      <a href="../../templates/proposal.html">Proposal</a></p>
+    <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
+  </div>
+</footer>
+
+</body>
+</html>
