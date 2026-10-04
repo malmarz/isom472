@@ -36,8 +36,11 @@
 
     <h2>The first class</h2>
     <p>
-      Who does what, and one story from start to finish, then team work for the rest of
-      the period. <strong>Quiz 2</strong> runs at the end of the class.
+      Who does what, and one story from start to finish &mdash; the merge done by the
+      reviewer who approved, never the author. Then Phase 2: the delivery note and what a
+      good one looks like, the checklist below, how the phase is read, and ten minutes on
+      your own team's repository against the checklist, one laptop per team.
+      <strong>Quiz 2</strong> runs at the end of the class.
     </p>
 
     <ul class="links">
@@ -59,8 +62,15 @@
     <h2>Before the second class</h2>
     <ul>
       <li>
-        Finish Phase 2 and <strong>tag it in the repository</strong>. The tag is what gets
-        graded.
+        Finish Phase 2 and <strong>tag it in the repository</strong> &mdash; exactly
+        <code>phase-2</code>, lowercase. The tag is what gets graded.
+      </li>
+      <li>
+        Finish <code>docs/delivery-notes/phase-2.md</code>. <strong>You present from it.</strong>
+      </li>
+      <li>
+        Every story has an <strong>assignee</strong>, set with the control on the right of the
+        issue, and every member has at least two. Both schema files are on <code>main</code>.
       </li>
       <li>
         Have your system reachable at its <strong>public address</strong>. You present
@@ -78,28 +88,42 @@
       is, how to avoid most of them, and one resolved live in the example repository.
     </p>
     <ul>
-      <li><a href="../slides/week-04-merge-conflict-clinic.html">Slides &mdash; Merge conflicts, a fifteen-minute clinic</a></li>
+      <li><a href="../slides/week-04-merge-conflict-clinic.html">Slides &mdash; Merge conflicts, a fifteen-minute clinic, and the delivery format</a></li>
     </ul>
     <p>
-      Then the Phase 2 delivery. It is not a queue of
+      Then the Phase 2 delivery: five teams, twelve minutes each, presented from the
+      repository at the tag with the delivery note as the script. It is not a queue of
       private meetings: all teams are in the room, each team presents, and the rest of the
       class is the audience and the question pool. You take questions from the room, and
-      you ask them. Every delivery is presented from a public address.
+      you ask them. The minute-by-minute format is on the
+      <a href="../deliverables/#delivery-session">deliverables page</a>.
     </p>
 
     <h2>Due this week</h2>
     <p>
-      <strong>Phase 2 &mdash; stories, the schema, the split, the environment, and your
-      token plan. 10 marks.</strong> The delivery contains:
+      <strong>Phase 2 &mdash; personas, stories, the schema, the split, the environment, and
+      your token plan. 10 marks. Due Wed 7 Oct 2026, before class.</strong> The full
+      checklist &mdash; where each item lives, who owns it, and what done means &mdash; is on
+      the <a href="../deliverables/#phase-2">deliverables page</a>. The eleven items:
     </p>
     <ul>
-      <li>A <strong>backlog</strong> at or above the floor, ordered, with acceptance criteria.</li>
-      <li><strong>Acceptance criteria</strong> that say what one member's work hands to another's, using the column names in the schema.</li>
-      <li><strong>The split</strong> &mdash; who holds which named stories this sprint.</li>
-      <li>The <strong>schema</strong>, with keys marked and row-level security enabled on every table.</li>
-      <li>A <strong>verified environment</strong>, working for every member.</li>
-      <li>The <strong>token plan</strong>, and the first <strong>ledger</strong> entry.</li>
+      <li><strong>Personas</strong> &mdash; <code>docs/personas.md</code>, two to four named roles; example deleted.</li>
+      <li><strong>Stories with acceptance criteria</strong> &mdash; the Issues tab, at or above the floor, none outside proposal &sect;6.</li>
+      <li><strong>The split</strong> &mdash; the assignee on every story; every member holds at least two.</li>
+      <li><strong>Boundaries</strong> &mdash; criteria on the stories that share data, naming the schema columns that pass and what happens when one is missing.</li>
+      <li><strong>Schema, the SQL</strong> &mdash; <code>db/schema.sql</code>, runs on an empty project, keys, RLS on and a policy on every table.</li>
+      <li><strong>Schema, the document</strong> &mdash; <code>docs/schema.md</code>: what a row means, how tables relate, who may read and write and why. No column lists.</li>
+      <li><strong>Backlog copy</strong> &mdash; <code>docs/backlog.md</code>, the open stories at the tag.</li>
+      <li><strong>Token plan and first ledger entry</strong> &mdash; <code>docs/finops-ledger.md</code>.</li>
+      <li><strong>Environment</strong> &mdash; every member has one own-account commit this phase.</li>
+      <li><strong>Delivery note</strong> &mdash; <code>docs/delivery-notes/phase-2.md</code>, five headings; a <a href="../deliverables/#delivery-note-example">worked example</a> is on the deliverables page.</li>
+      <li><strong>Tag</strong> &mdash; exactly <code>phase-2</code>, on <code>main</code>, after the last merge.</li>
     </ul>
+    <p>
+      How it is read &mdash; three levels per row, the ledger binary, workflow slips as
+      warnings &mdash; is in the <a href="../deliverables/#rubrics">rubric</a>. The peer
+      review form for Phase 2 is due Sun 11 Oct 2026, 23:59.
+    </p>
     <p>
       The phase is <strong>tagged in the repository at its due date, and the tag is what
       gets graded</strong> &mdash; not a submitted document and not a slide deck. See

@@ -69,7 +69,7 @@
           <tr>
             <th scope="row">Data Lead</th>
             <td>The schema and seed data</td>
-            <td>Supabase, with every change committed as a migration</td>
+            <td>Supabase, plus <code>db/schema.sql</code> and <code>docs/schema.md</code> in the repository, changed only in a reviewed pull request</td>
           </tr>
           <tr>
             <th scope="row">Build Lead</th>
@@ -266,9 +266,12 @@ rather than adding it. Include the empty state and the error state.</code></pre>
 
     <h3>Your artifact, and where it lives</h3>
     <p>
-      The schema and seed data in Supabase. Every change to it arrives as a
-      migration committed to the team repository, so the team can see what
-      changed and when. A change made by clicking in the Supabase console and
+      The schema and seed data in Supabase, and two files in the repository that must
+      always agree: <code>db/schema.sql</code> (the tables, keys, row level security and
+      policies, runnable on an empty project) and <code>docs/schema.md</code> (what a row in
+      each table means, how the tables relate, who may read and write and why &mdash; no
+      column lists). Every change to a table arrives as a reviewed pull request that edits
+      both, so the team can see what changed and when. A change made by clicking in the Supabase console and
       never committed did not happen as far as the rest of the team is
       concerned.
     </p>
@@ -292,11 +295,12 @@ rather than adding it. Include the empty state and the error state.</code></pre>
 
     <h3>Using AI for this role</h3>
     <p>
-      This is file and schema work, so it is Antigravity. It reads your
-      migrations and writes new ones, and it will act on the database without
-      asking inside your project folder, prompting you only when an action
-      crosses outside it. Tell it to read the current schema before proposing
-      anything, and read the migration it produces before you run it.
+      This is file and schema work, so it is Antigravity. It reads
+      <code>db/schema.sql</code> and proposes changes to it, and it will act on the
+      database without asking inside your project folder, prompting you only when an
+      action crosses outside it. Tell it to read the current schema before proposing
+      anything, read the SQL it produces before you run it, and update
+      <code>docs/schema.md</code> yourself.
     </p>
     <p>
       Verify three things every time: that every column it names exists and is
@@ -305,12 +309,13 @@ rather than adding it. Include the empty state and the error state.</code></pre>
       who may write.
     </p>
     <pre><code>Read the current schema before proposing anything.
-Write the migration for the story below. For every new table
+Write the change to db/schema.sql for the story below. For every new table
 include the not-null and foreign-key constraints, a uniqueness
 constraint where duplicates would be wrong, and row-level security
 policies. In a comment, list which role may read and which may
 write each table. Do not use a column name that is not already in
-the schema &mdash; if you need a new one, add it in this migration.</code></pre>
+the schema &mdash; if you need a new one, add it in db/schema.sql and tell
+me, so docs/schema.md is updated in the same pull request.</code></pre>
 
     <div class="callout bad">
       <p><strong>Three things the agent reliably gets wrong here</strong></p>
@@ -420,7 +425,7 @@ what I should see if it worked.</code></pre>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">Story ID</th>
+            <th scope="row">Story number</th>
             <td>The story this work belongs to</td>
           </tr>
           <tr>
