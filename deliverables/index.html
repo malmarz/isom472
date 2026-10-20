@@ -64,7 +64,7 @@
             <td>Sprint 1: the first working increment</td>
             <td>15%</td>
             <td>Week 6</td>
-            <td>Wed 21 Oct 2026</td>
+            <td>Mon 26 Oct 2026</td>
           </tr>
           <tr>
             <th scope="row">4</th>
@@ -339,47 +339,75 @@
     <h2 id="delivery-session">How a delivery session works</h2>
     <p>
       A delivery session is not a queue of private meetings. All teams are in the room.
-      Each team presents, and the rest of the class is the audience and the question pool.
+      Each team delivers, and the rest of the class is the audience and the question pool.
       Teams arrive with their own questions prepared &mdash; questions for the teams
-      presenting, about what they decided and the choices behind it, never about marks.
-      Arriving without them is itself a failure of the session. Every delivery is presented
-      from the team's public repository at the phase tag, not from a slide deck and not from
-      a laptop folder.
+      delivering, about what they decided and the choices behind it, never about marks.
+      Every delivery is shown from the team's public repository at the phase tag and its
+      running system, not from a slide deck and not from a laptop folder.
     </p>
     <p>
-      <strong>Phase 2, Wed 7 Oct 2026.</strong> 75 minutes: 15 for the merge-conflict clinic,
-      then five teams, <strong>twelve minutes each: eight presenting, four of questions from
-      the room</strong>. Order is team 1 to team 5 unless drawn at the start. The instructor
-      keeps time; a team that runs over loses its question time, not the next team's. The
-      delivery note is the script:
+      <strong>Phase 3, Mon 26 Oct 2026.</strong> Order: Team 2, Team 3, Team 4, Team 5,
+      Team 1. The same format is used at every later delivery; the Phase 6 demo keeps it and
+      adds to it.
+    </p>
+
+    <h3 id="delivery-ten-minutes">Ten minutes per team</h3>
+    <p>
+      A delivery session answers three questions for the people paying for the work:
+      <em>what works now, what is next, and what is in the way.</em> Ten minutes is enough if
+      you come ready. It is not enough if you spend four of them finding the right browser tab.
     </p>
     <div class="table-wrap">
       <table>
-        <caption>The twelve minutes, from the delivery note.</caption>
-        <thead>
-          <tr>
-            <th scope="col">Minute</th>
-            <th scope="col">On the screen</th>
-            <th scope="col">Who speaks</th>
-          </tr>
-        </thead>
+        <caption>The ten minutes.</caption>
+        <thead><tr><th scope="col">Minute</th><th scope="col">What</th></tr></thead>
         <tbody>
-          <tr><td>0&ndash;1</td><td><code>docs/delivery-notes/phase-2.md</code>, heading 1: what was decided</td><td>Phase Lead</td></tr>
-          <tr><td>1&ndash;3</td><td><code>docs/personas.md</code>, then the Issues tab: <strong>three</strong> stories with their criteria, including one pair that share data</td><td>Client Lead</td></tr>
-          <tr><td>3&ndash;5</td><td><code>docs/schema.md</code> on screen, <code>db/schema.sql</code> open beside it; one policy explained in words</td><td>Data Lead</td></tr>
-          <tr><td>5&ndash;6</td><td>Heading 2 of the note: who wrote what, who builds what in Phase 3</td><td>Phase Lead</td></tr>
-          <tr><td>6&ndash;7</td><td><code>docs/finops-ledger.md</code>: the plan's five lines, one row of the Phase 2 entry</td><td>FinOps Lead (or Quality and FinOps Lead; at four, the Phase Lead)</td></tr>
-          <tr><td>7&ndash;8</td><td>Heading 5: not finished and where it went; the tag page</td><td>Phase Lead</td></tr>
-          <tr><td>8&ndash;12</td><td>Questions from the room</td><td>The member whose area the question is about; the Phase Lead chooses nobody twice in a row</td></tr>
+          <tr><td>0&ndash;1</td><td><strong>Where we are.</strong> The sprint goal in one sentence. The board on screen: stories done, in progress, not started. Say the numbers.</td></tr>
+          <tr><td>1&ndash;6</td><td><strong>Show it working</strong> at your public address, not on a laptop's localhost. Walk at least one finished story through its acceptance criteria. Then break it on purpose: leave a required field empty, enter one wrong value, and show the message.</td></tr>
+          <tr><td>6&ndash;7&frac12;</td><td><strong>Who did what.</strong> Each delivered story by issue number and its Assignee, read from the board or the delivery note.</td></tr>
+          <tr><td>7&frac12;&ndash;8&frac12;</td><td><strong>What is in the way.</strong> Blockers, risks, anything that will slip, and what you need &mdash; from a teammate, the client, or the instructor.</td></tr>
+          <tr><td>8&frac12;&ndash;10</td><td><strong>Questions</strong> from the instructor and the room.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 id="delivery-who-speaks">Who speaks</h3>
+    <p>
+      <strong>One or two members speak.</strong> Ten minutes is too short for everyone. The
+      speakers <strong>rotate</strong>: pick different speakers each phase, so that by the end
+      of the course every member has delivered at least once. The speakers must be able to
+      answer about any story you show, including stories they did not build. Prepare them
+      together.
+    </p>
+
+    <h3 id="delivery-come-ready">Come ready</h3>
+    <ul>
+      <li>The public address is open in a browser tab, logged in if it needs a login, with test data in it.</li>
+      <li>The project board is open in a second tab, and it is <strong>true</strong>: every card is where its pull request says it is.</li>
+      <li>You have chosen which stories to show, and the speakers have walked them through once.</li>
+      <li>You have picked the missing value and the wrong value you will enter.</li>
+      <li>The speakers know each delivered story's number and Assignee.</li>
+    </ul>
+    <p>No slides. The board, the app and the repository are the slides.</p>
+
+    <h3 id="delivery-what-good-looks-like">What good looks like</h3>
+    <div class="table-wrap">
+      <table>
+        <caption>The delivery session, read at three levels. It is part of row A of the sprint rubric.</caption>
+        <thead><tr><th scope="col"></th><th scope="col">Not yet</th><th scope="col">Getting there</th><th scope="col">Meets</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Ready and on time</th><td>Setup eats the slot, or the team overruns badly</td><td>Starts late or runs over by a minute or two</td><td>Starts within a minute, ends by ten</td></tr>
+          <tr><th scope="row">Shows it working</th><td>Nothing shown live, or only localhost</td><td>One story shown, no bad input tried</td><td>At least one finished story walked through its criteria at the public address, missing and wrong value shown</td></tr>
+          <tr><th scope="row">Says what is true</th><td>The numbers spoken do not match the board</td><td>Close, with a gap or two</td><td>The numbers spoken match the board and the delivery note</td></tr>
+          <tr><th scope="row">Speakers know the work</th><td>Speakers cannot answer about stories they show</td><td>Speakers answer about their own stories only</td><td>Speakers answer about any story shown</td></tr>
+          <tr><th scope="row">Names what is in the way</th><td>&ldquo;No blockers&rdquo; while work is stuck</td><td>Blockers named, no ask or plan</td><td>Each blocker named with who it needs and what happens next</td></tr>
         </tbody>
       </table>
     </div>
     <p>
-      Every member speaks at least once; a team of four spreads the rows. Each team asks at
-      least one question during the session; the instructor asks last. What is recorded for
-      each team: presented from the note or not; every member spoke or not; asked a question
-      or not. The same format, with &ldquo;what works now&rdquo; in place of &ldquo;what was
-      decided&rdquo; and the running system on the screen, is used at every later delivery.
+      It is not a sales pitch: saying &ldquo;this does not work yet&rdquo; plainly is better
+      than hiding it. It is not the same person every time. And it does not replace the
+      delivery note, which is read on its own.
     </p>
 
     <h2 id="delivery-note-example">The Phase 2 delivery note &mdash; a worked example</h2>
@@ -465,30 +493,69 @@
     </div>
 
     <h3 id="rubric-sprints">Phases 3, 4, 5 and the Phase 6 sprint &mdash; every coding sprint</h3>
-    <p>The same rubric after every coding sprint: Wed 21 Oct, Wed 4 Nov, Wed 18 Nov and Wed 9 Dec 2026.</p>
+    <blockquote><p><strong>The marks are not for how many features you ship. They are for how you build: knowing who the work is for, agreeing it with them, and showing the value it creates. A small system the client asked for is worth more than a large one they did not.</strong></p></blockquote>
+    <p>
+      The same rubric after every coding sprint. Phase 3 is read at the <code>phase-3</code>
+      tag at <strong>8:00 am on Mon 26 Oct 2026</strong>, the delivery day; later dates are in
+      the table at the top of this page, and any change is announced in General. You may move
+      the tag before the cutoff. Work after the tag is not marked, but it is still required.
+      With no tag, we read <code>main</code> as it stood at the cutoff.
+    </p>
+    <p>
+      Each row is made of the requirements written in it. Every requirement counts: one you
+      leave out costs part of the row, even when the rest is done. Using AI is fine for
+      everything, reviews included, but a review must say what you <strong>ran</strong>, what
+      you <strong>read</strong> and what you <strong>clicked</strong>.
+    </p>
     <div class="table-wrap">
       <table>
         <caption>A coding sprint, the group part.</caption>
         <thead><tr><th scope="col">Row</th><th scope="col">Not there</th><th scope="col">There, with gaps</th><th scope="col">Meets</th></tr></thead>
         <tbody>
-          <tr><th scope="row">A working increment at the public address</th><td>Nothing new runs at the address; or runs only on a laptop</td><td>Some accepted stories run; one fails its own criteria when a stranger tries it; or bad input crashes it</td><td>Every story marked done this sprint can be done by a stranger at the public address, and bad input gets a message, not a crash. Phase 5: includes the analytics feature on the team's own data</td></tr>
-          <tr><th scope="row">Reviewed merges</th><td>Own-merges; or approvals with no text on most pull requests; or one member did all the reviews</td><td>Reviews exist, but a sampled review says only &ldquo;looks good&rdquo;; or two members have no review activity; or merges by someone other than the approver</td><td>On a sample of pull requests, the review says what was run, read and clicked; the approving reviewer merged; every member has reviewed; nobody merged their own; every pull request carries the AI-Assisted line</td></tr>
-          <tr><th scope="row">The board is true</th><td>Board stale by more than a column on most stories; or note is the template; or no tag</td><td>Board matches except for a few cards; note filled but a link is dead or a member missing</td><td>Every card in the column that matches its pull request state at the tag; <code>docs/backlog.md</code> saved; the note's five headings filled, everybody appears; <code>docs/schema.md</code> and <code>db/schema.sql</code> still agree; tag lowercase on <code>main</code> after the last merge</td></tr>
-          <tr><th scope="row">The Client Lead accepted</th><td>No criteria ticked in any issue; builders closed their own stories</td><td>Criteria ticked, but nothing was ever sent back; or bug issues open with no disposition</td><td>Criteria ticked by the Client Lead in the issue before merge; at least one story sent back with the failing criterion named; every bug issue has a disposition (fixed, deferred, not a defect)</td></tr>
-          <tr><th scope="row">The ledger &mdash; binary</th><td>Section for this sprint empty; rows cite stories not in this sprint; dates after the tag; example rows present; generated text</td><td>&mdash;</td><td>A row per story that used an assistant; story numbers and dates agree with the git log; from Phase 4, the plan revisited and &ldquo;did it hold&rdquo; answered</td></tr>
+          <tr><th scope="row">A. It runs</th><td>Nothing new runs at the address; or runs only on a laptop; or the team does not deliver</td><td>Some stories run; one fails its own criteria when a stranger tries it; or bad input crashes it; or the delivery session falls short of the guide</td><td>Every story marked done this sprint can be done by a stranger at your public address. A missing or wrong value gets a clear message, not a crash or a database error. The team uses its <a href="#delivery-session">ten-minute delivery session</a> as described: on time, the app shown working at the public address, numbers that match the board, one or two speakers who can answer on any story shown (speakers rotate so everyone has delivered by the end of the course), and blockers named. Phase 5: includes the analytics feature on the team's own data</td></tr>
+          <tr><th scope="row">B. Reviewed merges</th><td>Two or more members have no review on a teammate's pull request</td><td>One member has no review on a teammate's pull request</td><td>Every member reviews teammates' pull requests. Every pull request has the <code>AI-Assisted:</code> line. (In Phase 3 a missing <code>AI-Assisted:</code> line is a warning; from Phase 4 it costs points. Merging your own pull request and approving without reading are warnings this phase, not scored.)</td></tr>
+          <tr><th scope="row">C. The board is true</th><td>Note is the template; or no tag; or the schema file does not run</td><td>Some of the requirements met: a card in the wrong column, a dead link, a member missing, a table without a policy, or one member with fewer than two stories</td><td>Every card is in the column that matches its pull request. <code>docs/backlog.md</code> has this phase's section, and it matches the issues. <code>docs/delivery-notes/phase-N.md</code> is filled in: checklist true, every link works, every member appears, unfinished work listed. The tag is <code>phase-N</code>, exactly, lowercase, on <code>main</code> after the last merge. <code>db/schema.sql</code> runs on an empty Supabase project, with row level security and a policy on every table, and <code>docs/schema.md</code> agrees with it. Every member is Assignee on at least 2 stories, and nobody on more than half</td></tr>
+          <tr><th scope="row">D. The Client Lead accepted</th><td>No criteria ticked in any issue; builders closed their own stories</td><td>Some of the requirements met: nothing sent back, a bug with no disposition, a story without a missing-value criterion, the backlog under the floor, or a story out of scope</td><td>The Client Lead ticks the acceptance criteria in the issue before merge. At least one story is sent back, with the failing criterion named. Every bug issue says fixed, deferred, or not a defect. Every story that takes input has a criterion for a missing value and one for a wrong value. The backlog has <strong>at least 32 stories for a team of four, 40 for a team of five, and 48 for a team of six</strong>. Every story is inside your proposal's &sect;6, or was added through the <a href="#scope-change">scope-change steps</a></td></tr>
+          <tr><th scope="row">E. The ledger &mdash; binary</th><td>This phase's section empty; rows cite stories not in this sprint; dates after the tag; example rows present</td><td>&mdash;</td><td><code>docs/finops-ledger.md</code> has this phase's rows, and the story numbers and dates agree with the git log. No example rows. From Phase 4, the plan revisited and &ldquo;did it hold&rdquo; answered</td></tr>
         </tbody>
       </table>
     </div>
+
+    <h4>New in Phase 3</h4>
+    <ul>
+      <li><strong>Building is now marked.</strong> &ldquo;2 stories per member&rdquo; means the stories you build &mdash; you are the Assignee &mdash; not the stories you wrote.</li>
+      <li><strong>Every phase, 2 stories each.</strong> Each member delivers 2 stories as Assignee in every phase. Stories you finished before Phase 3 count toward Phase 3 only. Phase 4, Phase 5 and the Phase 6 sprint each need 2 new stories per member, delivered within that phase.</li>
+      <li><strong>Security Advisor.</strong> Your instructor will go through the Supabase Security Advisor with each team as a consultation. It is not graded.</li>
+      <li><strong>Three things from Phase 2 are now required</strong>, inside rows C and D: <code>db/schema.sql</code> runs on an empty Supabase project, with a policy on every table that names who reads and who writes (an allow-everything policy does not count, and do not <code>ALTER</code> a policy the file never created &mdash; the file will not run); every story that takes input has a missing-value and a wrong-value criterion that names the message the user sees; and the split is fair.</li>
+    </ul>
+
+    <h4 id="scope-change">Adding a story outside your proposal</h4>
+    <p>A story outside &sect;6 of your proposal counts only if you do all four steps:</p>
+    <ol>
+      <li><strong>Ask the client first</strong>, and get the answer in writing (a message, an email, or meeting notes they confirm).</li>
+      <li><strong>Add a &ldquo;Scope change&rdquo; section to the issue</strong>: who asked or agreed, and the date; which persona it helps and what problem it solves; the link to the client's written answer.</li>
+      <li><strong>Say what it replaces.</strong> Name the story it pushes down or out. If nothing moves, say why you still have room.</li>
+      <li><strong>Log it</strong> in <code>docs/scope-changes.md</code>, one row per story: Date | Issue | Client evidence (link) | Replaces. If the file is not in your repo, create it.</li>
+    </ol>
+    <p>Without all four, the story is out of scope.</p>
+
     <div class="table-wrap">
       <table>
         <caption>A coding sprint, your own part.</caption>
-        <thead><tr><th scope="col">Row</th><th scope="col">Not there</th><th scope="col">There, with gaps</th><th scope="col">Meets</th></tr></thead>
+        <thead><tr><th scope="col">Row</th><th scope="col">Meets</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Your delivered work</th><td>No story merged under your account this sprint</td><td>One story merged; or two merged but one not accepted by the Client Lead; or commits under a grey icon</td><td>At least two stories of yours merged this sprint, accepted, commits under your own account, each pull request with the AI-Assisted line; you can show them running</td></tr>
-          <tr><th scope="row">Comprehension</th><td>Absent from the in-class check, or unable to explain your own merged change when asked</td><td>A partial answer</td><td>Answers a short question in class on your own work, or explains your own merged change when asked</td></tr>
+          <tr><th scope="row">Your delivered work (2 points)</th><td>You are Assignee on at least 2 stories delivered in the phase (for Phase 3, stories finished earlier count too). The Client Lead accepted each one. Your commits are under your own GitHub account. Each of your pull requests has the <code>AI-Assisted:</code> line.</td></tr>
+          <tr><th scope="row">Quizzes and comprehension checks (1.5 points)</th><td>Quizzes and comprehension checks are run in class. Expect short questions without warning.</td></tr>
+          <tr><th scope="row">Peer review (1.5 points)</th><td>Based on how your teammates rated your contribution. You must rate your teammates yourself to receive this row at all.</td></tr>
         </tbody>
       </table>
     </div>
+    <p>
+      Workflow slips &mdash; merging your own work, approving without reviewing, pushing
+      straight to <code>main</code>, signing for a teammate &mdash; are recorded as warnings,
+      not deductions. Each warning is explained with what went wrong because of it, and we
+      discuss it with the team or the class as a lesson.
+    </p>
 
     <h2>Templates a delivery uses</h2>
     <ul class="links">
