@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delivery note example &mdash; ISOM 472</title>
+<meta name="description" content="ISOM 472: a worked example of a Phase 2 delivery note, for a fictional team.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="eyebrow">ISOM 472 &middot; Deliverables</p>
+    <h1>Delivery note example</h1>
+    <p class="tagline">The Phase 2 delivery note &mdash; a worked example.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../">ISOM 472</a> &rsaquo; <a href="../">Deliverables</a> &rsaquo; Delivery note example
+    </nav>
+
+    <p class="lead">
+      The five headings are set out on the <a href="../phase-2/#delivery-note">Phase 2 page</a>.
+      This is what a filled-in note looks like.
+    </p>
+
+    <h2 id="example">The example <a class="anchor" href="#example" aria-label="Link to this section">#</a></h2>
+    <p class="small">Fictional team and system. Every line is a place or a name.</p>
+    <div class="callout">
+      <p><strong>Basket Register &mdash; Phase 2 delivery note</strong> <em>(a team of five)</em></p>
+      <p>
+        <strong>1. What was decided.</strong> Volunteers at the Jahra branch register families,
+        record a monthly basket collection, and are stopped from recording a second collection
+        for the same family in the same month. Two personas: the counter volunteer and the
+        branch coordinator. Four tables: <code>families</code>, <code>collections</code>,
+        <code>volunteers</code>, <code>areas</code>. RLS: volunteers read and insert; only the
+        coordinator updates or deletes. The coordinator's monthly count is read-only in Phase 3.
+      </p>
+      <p><strong>2. Who did what.</strong></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Name</th><th scope="col">Wrote</th><th scope="col">Assigned to build (Phase 3)</th></tr></thead>
+          <tbody>
+            <tr><td>Dana (Client Lead, Phase 2 Lead)</td><td>#12 #13 #14 #19 #20 #21 #22 #23</td><td>#12 #13</td></tr>
+            <tr><td>Lulwa (Design Lead)</td><td>#15 #16 #17 #18</td><td>#15 #16</td></tr>
+            <tr><td>Shaikha (Data Lead)</td><td>#24 #25 #26 #27 #28</td><td>#24 #25</td></tr>
+            <tr><td>Noura (Build Lead)</td><td>#29 #30 #31 #32 #33</td><td>#29 #30</td></tr>
+            <tr><td>Ghalia (Quality and FinOps Lead)</td><td>#34 #35 #36 #37 #38 #39 #40 #41</td><td>#34 #35</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        <strong>3. Where everything is.</strong> Personas &mdash; <code>docs/personas.md</code>.
+        Stories &mdash; the Issues tab, label <code>story</code>, 30 open; copy at the tag in
+        <code>docs/backlog.md</code>. Schema &mdash; <code>db/schema.sql</code> (four tables,
+        keys, RLS policies; runs on an empty project) and <code>docs/schema.md</code> (what each
+        table means, how they relate, who may read and write). Prototype &mdash;
+        <code>prototype/</code> (six screens, index in <code>prototype/README.md</code>). Token
+        plan and first entry &mdash; <code>docs/finops-ledger.md</code>, &ldquo;The plan&rdquo;
+        and &ldquo;Phase 2&rdquo;.
+      </p>
+      <p><strong>4. The tag.</strong> <code>phase-2</code>, created by Dana after pull request #44 merged.</p>
+      <p>
+        <strong>5. Not finished, and where it went.</strong> The floor for five is 40; we have 30
+        stories with criteria. Ten more are opened as #42&ndash;#51 without criteria and are the
+        Client Lead's first job in Phase 3. The &ldquo;export to spreadsheet&rdquo; story (#38)
+        was moved to Phase 5 because it depends on the monthly count. The proposal's SMS
+        reminder is dropped &mdash; the branch has no sender; recorded in proposal &sect;6.
+      </p>
+    </div>
+
+    <nav class="pager" aria-label="Deliverables pages">
+      <a class="prev" href="../delivery-session/" rel="prev"><span>Previous</span> Delivery session</a>
+      <a class="up" href="../">Back to Deliverables</a>
+      <a class="next" href="../sprint-rubric/" rel="next"><span>Next</span> Sprint rubric</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><a href="../../">ISOM 472</a> &middot;
+      <a href="../../setup/">Setup</a> &middot;
+      <a href="../../slides/">Slides</a> &middot;
+      <a href="../../walkthrough/">First change</a> &middot;
+      <a href="../../example/">Example</a> &middot;
+      <a href="../">Deliverables</a> &middot;
+      <a href="../../reference/repository/">Repository</a> &middot;
+      <a href="../../reference/publishing/">Publishing</a> &middot;
+      <a href="../../roles/">Roles</a> &middot;
+      <a href="../../templates/proposal.html">Proposal</a></p>
+    <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
+  </div>
+</footer>
+
+</body>
+</html>

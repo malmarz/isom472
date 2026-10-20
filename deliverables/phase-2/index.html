@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phase 2 &mdash; ISOM 472</title>
+<meta name="description" content="ISOM 472 Phase 2, the design sprint: due date, weight, the checklist, the delivery note and the Phase 2 rubric.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="eyebrow">ISOM 472 &middot; Deliverables</p>
+    <h1>Phase 2</h1>
+    <p class="tagline">Design sprint: personas, stories, schema, work split, token plan.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../">ISOM 472</a> &rsaquo; <a href="../">Deliverables</a> &rsaquo; Phase 2
+    </nav>
+
+    <dl class="facts">
+      <div><dt>Due</dt><dd>Wed 7 Oct 2026, before class</dd></div>
+      <div><dt>Weight</dt><dd>10% (10 marks)</dd></div>
+      <div><dt>Week</dt><dd>Week 4</dd></div>
+    </dl>
+
+    <p>
+      What is graded is your repository at the tag <code>phase-2</code>. Delivered to the
+      whole class, from the repository, with questions from the room.
+    </p>
+    <p>
+      <strong>The order things are decided in</strong>, and the order they are read in: the
+      personas; the stories and their acceptance criteria; the schema; then screens and code.
+      A team that has an app and no personas has done the last step first.
+    </p>
+
+    <nav class="on-this-page" aria-labelledby="otp-title">
+      <p id="otp-title">On this page</p>
+      <ol>
+        <li><a href="#checklist">1. The checklist</a></li>
+        <li><a href="#backlog-floor">2. The backlog floor</a></li>
+        <li><a href="#token-plan">3. The token plan</a></li>
+        <li><a href="#delivery-note">4. The delivery note</a></li>
+        <li><a href="#how-it-is-read">5. How Phase 2 is read</a></li>
+        <li><a href="#rubric-phase-2">6. The Phase 2 rubric</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="checklist">1. The checklist <a class="anchor" href="#checklist" aria-label="Link to this section">#</a></h2>
+    <p><strong>Every deliverable, where it lives, who owns it, and what done means.</strong></p>
+    <div class="table-wrap">
+      <table id="phase-2-checklist">
+        <caption>The Phase 2 checklist. The same table is on the week 4 slides.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Deliverable</th>
+            <th scope="col">Where</th>
+            <th scope="col">Owner</th>
+            <th scope="col">Done means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Personas</th>
+            <td><code>docs/personas.md</code></td>
+            <td>Client Lead</td>
+            <td>Two to four named roles from the client, one paragraph each: who, what they are trying to do, what makes it hard today. The example persona is deleted.</td>
+          </tr>
+          <tr>
+            <th scope="row">Stories with acceptance criteria</th>
+            <td>The Issues tab, label <code>story</code></td>
+            <td>Client Lead</td>
+            <td>At or above the <a href="#backlog-floor">floor</a> (below). Every story is one thing a user can do. Every criterion is something a teammate can check by doing it. No story outside proposal &sect;6 unless &sect;6 was changed in a reviewed pull request.</td>
+          </tr>
+          <tr>
+            <th scope="row">The split</th>
+            <td>The <strong>Assignee</strong> on every story issue</td>
+            <td>Client Lead</td>
+            <td>Every member is the assignee on at least two stories; nobody holds all of them. Set it with the Assignees control on the right of the issue &mdash; a name typed in the body is not a split.</td>
+          </tr>
+          <tr>
+            <th scope="row">Boundaries between members</th>
+            <td>Acceptance criteria on the stories that share data</td>
+            <td>The two builders</td>
+            <td>For every pair of stories where one saves what the other shows, a criterion names the schema columns that pass between them, and a criterion says what the user sees and what is <em>not</em> saved when a value is missing or wrong. There is no separate contract document.</td>
+          </tr>
+          <tr>
+            <th scope="row">Schema &mdash; the SQL</th>
+            <td><code>db/schema.sql</code> (a new file; create the folder)</td>
+            <td>Data Lead</td>
+            <td>Runs in the Supabase SQL editor on an empty project. Every table has a primary key and its foreign keys marked, <code>enable row level security</code>, and a policy naming who reads and who writes. No real data.</td>
+          </tr>
+          <tr>
+            <th scope="row">Schema &mdash; the document</th>
+            <td><code>docs/schema.md</code> (a new file)</td>
+            <td>Data Lead</td>
+            <td>Half a page that says what the SQL cannot: one line per table saying what a <em>row means</em> in the client's words; one line per relationship; one line per policy saying <em>who</em> may read and write and <em>why</em>. No column lists &mdash; the SQL has them. It agrees with the SQL at the tag. An ERD image may be linked; the image is not the deliverable.</td>
+          </tr>
+          <tr>
+            <th scope="row">Backlog copy</th>
+            <td><code>docs/backlog.md</code>, the &ldquo;Phase 2&rdquo; section</td>
+            <td>Client Lead</td>
+            <td>The open stories at the tag, one row each, with who is assigned. The example rows are deleted.</td>
+          </tr>
+          <tr>
+            <th scope="row">Token plan and first ledger entry</th>
+            <td><code>docs/finops-ledger.md</code></td>
+            <td>FinOps Lead</td>
+            <td>The plan's five lines (<a href="#token-plan">below</a>) answered specifically; at least one Phase 2 row per member who used an assistant; story numbers and dates agree with the git log; written by the team, not generated. Example rows deleted.</td>
+          </tr>
+          <tr>
+            <th scope="row">Environment</th>
+            <td>&mdash;</td>
+            <td>Build Lead</td>
+            <td>Every member has at least one commit in this phase that GitHub shows under their own account.</td>
+          </tr>
+          <tr>
+            <th scope="row">Delivery note</th>
+            <td><code>docs/delivery-notes/phase-2.md</code></td>
+            <td>Phase Lead</td>
+            <td>Five headings filled (<a href="#delivery-note">below</a>); every link resolves; everybody appears. Written during the phase, not on the last night.</td>
+          </tr>
+          <tr>
+            <th scope="row">Tag</th>
+            <td><code>phase-2</code></td>
+            <td>Phase Lead</td>
+            <td>Exactly <code>phase-2</code>: lowercase, a hyphen, no space, on <code>main</code>, created after the last pull request of the phase is merged. <code>Phase-2</code> is a different tag and is not graded.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="backlog-floor">2. The backlog floor <a class="anchor" href="#backlog-floor" aria-label="Link to this section">#</a></h2>
+    <p>Two stories per member per sprint, across four sprints.</p>
+
+    <div class="table-wrap">
+      <table>
+        <caption>The backlog floor by team size.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Team size</th>
+            <th scope="col">Backlog floor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Four</th>
+            <td>32 stories</td>
+          </tr>
+          <tr>
+            <th scope="row">Five</th>
+            <td>40 stories</td>
+          </tr>
+          <tr>
+            <th scope="row">Six</th>
+            <td>48 stories</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      It is a floor, not a scope target. Below it the individual mark has nothing to
+      attach to.
+    </p>
+
+    <h2 id="token-plan">3. The token plan <a class="anchor" href="#token-plan" aria-label="Link to this section">#</a></h2>
+    <p>It says five things.</p>
+    <ul>
+      <li>Where each kind of work happens &mdash; planned in the browser, built on the machine.</li>
+      <li>Which model for which task, and why that one.</li>
+      <li>The tactics the team will use to keep a run narrow.</li>
+      <li>What you will watch, and what you have no way of seeing.</li>
+      <li>What you do when the quota runs out, decided before it does.</li>
+    </ul>
+    <p>
+      It lives in the first section of <code>docs/finops-ledger.md</code>, committed like
+      everything else. Short and specific beats long and general. The first ledger entry
+      follows it: one row per story that used an assistant in Phase 2.
+    </p>
+
+    <h2 id="delivery-note">4. The delivery note <a class="anchor" href="#delivery-note" aria-label="Link to this section">#</a></h2>
+    <p><code>docs/delivery-notes/phase-2.md</code>, written by the Phase Lead during the phase. Five headings, in this order:</p>
+    <ol>
+      <li><strong>What was decided</strong> &mdash; the design in plain language: who the users are, the handful of things they can do, the tables that hold it. Five to eight lines. (From Phase 3 this heading reads &ldquo;what works now that did not work before&rdquo;; the file in your repository carries that wording. Write the Phase 2 version under it.)</li>
+      <li><strong>Who did what</strong> &mdash; one line per member: name, the stories they wrote, the ones they are assigned to build. Everybody appears.</li>
+      <li><strong>Where everything is</strong> &mdash; a link for each deliverable in the <a href="#checklist">checklist</a> above.</li>
+      <li><strong>The tag</strong> &mdash; <code>phase-2</code>, created after the last merge.</li>
+      <li><strong>Not finished, and where it went</strong> &mdash; what was planned and is not there: moved to Phase 3, dropped, or replaced. Say which.</li>
+    </ol>
+    <p>
+      A <a href="../delivery-note-example/">worked example</a> has its own page. On delivery
+      day you present from the note; the <a href="../delivery-session/">session format</a>
+      has its own page as well.
+    </p>
+
+    <h2 id="how-it-is-read">5. How Phase 2 is read <a class="anchor" href="#how-it-is-read" aria-label="Link to this section">#</a></h2>
+    <ul>
+      <li>The ledger is binary: present, current and plausible against the git log, or zero.</li>
+      <li>Every other row of the checklist is read at one of three levels &mdash; <strong>not there</strong>, <strong>there with gaps</strong>, <strong>meets</strong> &mdash; and &ldquo;meets&rdquo; is the done column of the <a href="#checklist">checklist</a>. Nothing above it earns extra. The <a href="#rubric-phase-2">full rubric</a> is below.</li>
+      <li>Whoever approves a pull request merges it. The reviewer can be anyone on the team and is never the author.</li>
+      <li>Workflow slips &mdash; approving without reading, merging your own work, signing for a teammate &mdash; are warnings, recorded privately. Repeats cost later.</li>
+      <li>The cutoff is the tag. Work that arrives after it is recorded, not marked, and still required.</li>
+    </ul>
+    <p><strong>Your own part</strong> is read from two things: your named stories and their criteria, written and assigned under your own account; and Quiz 3 on Mon 5 Oct.</p>
+
+    <h2 id="rubric-phase-2">6. The Phase 2 rubric <a class="anchor" href="#rubric-phase-2" aria-label="Link to this section">#</a></h2>
+    <p>
+      How every rubric is read &mdash; the three levels, and how marks reach you &mdash; is on
+      the <a href="../sprint-rubric/#levels">sprint rubric page</a>.
+    </p>
+    <h3 id="rubric-phase-2-group">The group part <a class="anchor" href="#rubric-phase-2-group" aria-label="Link to this section">#</a></h3>
+    <div class="table-wrap">
+      <table>
+        <caption>Phase 2, the group part.</caption>
+        <thead><tr><th scope="col">Row</th><th scope="col">Not there</th><th scope="col">There, with gaps</th><th scope="col">Meets</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Personas</th><td>Template or example persona still present; or personas are demographics, not roles</td><td>Two to four personas, but one is not a role the client named, or a paragraph does not say what is hard today</td><td>Two to four named roles from the client, one paragraph each: who, what they are trying to do, what makes it hard; example deleted</td></tr>
+          <tr><th scope="row">Backlog and acceptance criteria</th><td>Fewer than half the floor; or stories without criteria; or stories outside proposal &sect;6</td><td>At or near the floor, but some criteria are uncheckable (&ldquo;works well&rdquo;) or some stories are two things</td><td>At or above the floor; every story one thing a user can do; every criterion checkable by a teammate doing it; no story outside proposal &sect;6 unless &sect;6 was changed in a reviewed pull request</td></tr>
+          <tr><th scope="row">Schema &mdash; the SQL</th><td>Missing; or a picture only; or a table with RLS off or no policy</td><td>Runs, keys marked, RLS on every table, but a policy is missing or every policy is &ldquo;allow all&rdquo;</td><td>Runs in the Supabase SQL editor on an empty project; every table has its primary key and foreign keys marked; RLS enabled on every table; a policy on every table naming who reads and who writes; no real data</td></tr>
+          <tr><th scope="row">Schema &mdash; the document</th><td>Missing; or a paste of the SQL or of column lists</td><td>Every table present, but a meaning line only restates the table name, or a policy has no &ldquo;why&rdquo;, or it disagrees with the SQL at the tag</td><td>One line per table saying what a row means in the client's words; one line per relationship; one line per policy saying who may read and write and why; agrees with the SQL at the tag; no column lists; half a page</td></tr>
+          <tr><th scope="row">The split and the boundaries</th><td>Stories unassigned or a builder left blank; or one member holds all; or no criterion names what passes between two members</td><td>Every member assigned, but one member has fewer than two or one has more than half; or boundary criteria do not use the schema's column names</td><td>Every member is assignee on at least two stories and nobody on more than half; for every pair of stories that share data, a criterion names the columns that pass and what happens when one is missing</td></tr>
+          <tr><th scope="row">Delivery note, backlog copy, tag, presentation</th><td>Note is the template; or no tag; or tag not lowercase; or backlog copy not saved</td><td>Note filled, but a link is dead, a member is missing from &ldquo;who did what&rdquo;, or the backlog copy differs from the issues at the tag</td><td>Five headings filled; every link resolves; everybody appears; <code>docs/backlog.md</code> matches the issues at the tag; <code>phase-2</code> on <code>main</code> after the last merge; presented from the note in the <a href="../delivery-session/">delivery session format</a>, with questions taken</td></tr>
+          <tr><th scope="row">Token plan and first ledger entry &mdash; binary</th><td>Plan missing or an example row left; the Phase 2 section empty; rows naming stories that do not exist or dates after the tag; generated text</td><td>&mdash;</td><td>The plan's five lines answered specifically; at least one Phase 2 row per member who used an assistant; story numbers and dates agree with the git log; written by the team</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 id="rubric-phase-2-own">Your own part <a class="anchor" href="#rubric-phase-2-own" aria-label="Link to this section">#</a></h3>
+    <div class="table-wrap">
+      <table>
+        <caption>Phase 2, your own part.</caption>
+        <thead><tr><th scope="col">Row</th><th scope="col">Not there</th><th scope="col">There, with gaps</th><th scope="col">Meets</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Your stories and their criteria</th><td>No story written by you; or assigned to you but written by someone else with no edit of yours</td><td>Stories of yours exist, but the criteria are uncheckable or you are assigned fewer than two</td><td>At least two stories you opened or materially edited, assigned to you, with checkable criteria, under your own account</td></tr>
+          <tr><th scope="row">Quiz 3 (Mon 5 Oct)</th><td>Absent</td><td>&mdash;</td><td>Present and answered</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <nav class="pager" aria-label="Deliverables pages">
+      <a class="prev" href="../phase-1/" rel="prev"><span>Previous</span> Phase 1</a>
+      <a class="up" href="../">Back to Deliverables</a>
+      <a class="next" href="../phase-3/" rel="next"><span>Next</span> Phase 3</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><a href="../../">ISOM 472</a> &middot;
+      <a href="../../setup/">Setup</a> &middot;
+      <a href="../../slides/">Slides</a> &middot;
+      <a href="../../walkthrough/">First change</a> &middot;
+      <a href="../../example/">Example</a> &middot;
+      <a href="../">Deliverables</a> &middot;
+      <a href="../../reference/repository/">Repository</a> &middot;
+      <a href="../../reference/publishing/">Publishing</a> &middot;
+      <a href="../../roles/">Roles</a> &middot;
+      <a href="../../templates/proposal.html">Proposal</a></p>
+    <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
+  </div>
+</footer>
+
+</body>
+</html>

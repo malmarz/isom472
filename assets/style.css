@@ -536,3 +536,197 @@ figcaption {
   font-size: 0.88rem;
   color: #57606a;
 }
+
+/* ---- Deliverables: short linkable pages ---------------------------------- */
+
+/* Heading self-link: faint on touch screens, shown on hover where hover exists */
+h2[id], h3[id] {
+  scroll-margin-top: 1rem;
+}
+
+.anchor {
+  margin-left: 0.3rem;
+  padding: 0 0.2rem;
+  font-weight: 400;
+  color: var(--muted);
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+@media (hover: hover) {
+  .anchor {
+    opacity: 0;
+  }
+  h2:hover .anchor,
+  h3:hover .anchor {
+    opacity: 1;
+  }
+}
+
+.anchor:focus,
+.anchor:hover {
+  opacity: 1;
+  color: var(--gold);
+}
+
+.anchor:focus-visible,
+.cards a:focus-visible,
+.pager a:focus-visible,
+.on-this-page a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* "On this page" box with numbered section links */
+.on-this-page {
+  margin: 1.5rem 0 2rem;
+  padding: 0.85rem 1.1rem;
+  background: var(--tint);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+
+.on-this-page p {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.on-this-page ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.on-this-page li {
+  margin: 0 0 0.2rem;
+}
+
+/* Due / weight / week facts at the top of a phase page */
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.75rem;
+  margin: 0 0 1.75rem;
+  padding: 0.85rem 1.1rem;
+  background: var(--gold-soft);
+  border-left: 4px solid var(--gold);
+}
+
+.facts dt {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy-soft);
+}
+
+.facts dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--navy-deep);
+}
+
+/* Link cards on the Deliverables hub */
+.cards {
+  list-style: none;
+  margin: 1rem 0 1.5rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
+  gap: 0.7rem;
+}
+
+.cards li {
+  margin: 0;
+}
+
+.cards a {
+  display: block;
+  height: 100%;
+  padding: 0.75rem 0.9rem;
+  background: var(--tint);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--navy-soft);
+  border-radius: 3px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.cards a:hover,
+.cards a:focus {
+  border-left-color: var(--gold);
+  color: var(--ink);
+}
+
+.card-title {
+  display: block;
+  font-weight: 600;
+  color: var(--navy-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.card-text {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Previous / back / next at the foot of each page */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+
+.pager a,
+.pager span.prev,
+.pager span.next {
+  flex: 1 1 8rem;
+}
+
+.pager .up {
+  text-align: center;
+}
+
+.pager .next {
+  text-align: right;
+}
+
+.pager a span {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media print {
+  .anchor,
+  .pager,
+  .on-this-page {
+    display: none;
+  }
+}
+
+/* Hub phase table: keep "Phase N" on one line */
+tbody th[scope="row"] a[href^="phase-"] { white-space: nowrap; }
+
+/* Hub phase table: stack each phase as a card on narrow screens so the due date stays visible */
+@media (max-width: 600px) {
+  .phase-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .phase-table { min-width: 0; }
+  .phase-table caption, .phase-table tbody, .phase-table tr, .phase-table th, .phase-table td { display: block; width: auto; }
+  .phase-table caption { border-bottom: 1px solid var(--rule); }
+  .phase-table tr { padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--rule); }
+  .phase-table th[scope="row"], .phase-table td { padding: 0.15rem 0; border: 0; }
+  .phase-table th[scope="row"] { font-size: 1.05rem; }
+  .phase-table td::before { content: attr(data-label) ": "; font-weight: 600; }
+}

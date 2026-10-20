@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sprint rubric &mdash; ISOM 472</title>
+<meta name="description" content="ISOM 472: the rubric for every coding sprint - Phases 3, 4, 5 and the Phase 6 sprint.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="eyebrow">ISOM 472 &middot; Deliverables</p>
+    <h1>Sprint rubric</h1>
+    <p class="tagline">How Phases 3, 4, 5 and the Phase 6 sprint are read &mdash; every coding sprint.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../">ISOM 472</a> &rsaquo; <a href="../">Deliverables</a> &rsaquo; Sprint rubric
+    </nav>
+
+    <blockquote><p><strong>The marks are not for how many features you ship. They are for how you build: knowing who the work is for, agreeing it with them, and showing the value it creates. A small system the client asked for is worth more than a large one they did not.</strong></p></blockquote>
+
+    <nav class="on-this-page" aria-labelledby="otp-title">
+      <p id="otp-title">On this page</p>
+      <ol>
+        <li><a href="#levels">1. How a rubric is read</a></li>
+        <li><a href="#what-we-read">2. What we read, and when</a></li>
+        <li><a href="#group">3. The group part</a></li>
+        <li><a href="#new-in-phase-3">4. New in Phase 3</a></li>
+        <li><a href="#your-own-part">5. Your own part</a></li>
+        <li><a href="#workflow-slips">6. Workflow slips</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="levels">1. How a rubric is read <a class="anchor" href="#levels" aria-label="Link to this section">#</a></h2>
+    <p>
+      One rubric for every team. Each row is read at one of three levels from the repository
+      at the tag: <strong>not there</strong>, <strong>there with gaps</strong>,
+      <strong>meets</strong>. &ldquo;Meets&rdquo; is written so that you can check it
+      yourself before the tag. The ledger row is binary. Workflow slips are warnings, recorded
+      privately, not deductions in this phase. Marks are private: a team channel gets the
+      team's levels and its warnings count; your own rows reach you directly.
+    </p>
+
+    <h2 id="what-we-read">2. What we read, and when <a class="anchor" href="#what-we-read" aria-label="Link to this section">#</a></h2>
+    <p>
+      The same rubric after every coding sprint. Phase 3 is read at the <code>phase-3</code>
+      tag at <strong>8:00 am on Mon 26 Oct 2026</strong>, the delivery day; later dates are in
+      the <a href="../#phases">table of the six phases</a>, and any change is announced in General. You may move
+      the tag before the cutoff. Work after the tag is not marked, but it is still required.
+      With no tag, we read <code>main</code> as it stood at the cutoff.
+    </p>
+    <p>
+      Each row is made of the requirements written in it. Every requirement counts: one you
+      leave out costs part of the row, even when the rest is done. Using AI is fine for
+      everything, reviews included, but a review must say what you <strong>ran</strong>, what
+      you <strong>read</strong> and what you <strong>clicked</strong>.
+    </p>
+
+    <h2 id="group">3. The group part <a class="anchor" href="#group" aria-label="Link to this section">#</a></h2>
+    <div class="table-wrap">
+      <table>
+        <caption>A coding sprint, the group part.</caption>
+        <thead><tr><th scope="col">Row</th><th scope="col">Not there</th><th scope="col">There, with gaps</th><th scope="col">Meets</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">A. It runs</th><td>Nothing new runs at the address; or runs only on a laptop; or the team does not deliver</td><td>Some stories run; one fails its own criteria when a stranger tries it; or bad input crashes it; or the delivery session falls short of the guide</td><td>Every story marked done this sprint can be done by a stranger at your public address. A missing or wrong value gets a clear message, not a crash or a database error. The team uses its <a href="../delivery-session/">ten-minute delivery session</a> as described: on time, the app shown working at the public address, numbers that match the board, one or two speakers who can answer on any story shown (speakers rotate so everyone has delivered by the end of the course), and blockers named. Phase 5: includes the analytics feature on the team's own data</td></tr>
+          <tr><th scope="row">B. Reviewed merges</th><td>Two or more members have no review on a teammate's pull request</td><td>One member has no review on a teammate's pull request</td><td>Every member reviews teammates' pull requests. Every pull request has the <code>AI-Assisted:</code> line. (In Phase 3 a missing <code>AI-Assisted:</code> line is a warning; from Phase 4 it costs points. Merging your own pull request and approving without reading are warnings this phase, not scored.)</td></tr>
+          <tr><th scope="row">C. The board is true</th><td>Note is the template; or no tag; or the schema file does not run</td><td>Some of the requirements met: a card in the wrong column, a dead link, a member missing, a table without a policy, or one member with fewer than two stories</td><td>Every card is in the column that matches its pull request. <code>docs/backlog.md</code> has this phase's section, and it matches the issues. <code>docs/delivery-notes/phase-N.md</code> is filled in: checklist true, every link works, every member appears, unfinished work listed. The tag is <code>phase-N</code>, exactly, lowercase, on <code>main</code> after the last merge. <code>db/schema.sql</code> runs on an empty Supabase project, with row level security and a policy on every table, and <code>docs/schema.md</code> agrees with it. Every member is Assignee on at least 2 stories, and nobody on more than half</td></tr>
+          <tr><th scope="row">D. The Client Lead accepted</th><td>No criteria ticked in any issue; builders closed their own stories</td><td>Some of the requirements met: nothing sent back, a bug with no disposition, a story without a missing-value criterion, the backlog under the floor, or a story out of scope</td><td>The Client Lead ticks the acceptance criteria in the issue before merge. At least one story is sent back, with the failing criterion named. Every bug issue says fixed, deferred, or not a defect. Every story that takes input has a criterion for a missing value and one for a wrong value. The backlog has <strong>at least 32 stories for a team of four, 40 for a team of five, and 48 for a team of six</strong>. Every story is inside your proposal's &sect;6, or was added through the <a href="../scope-change/">scope-change steps</a></td></tr>
+          <tr><th scope="row">E. The ledger &mdash; binary</th><td>This phase's section empty; rows cite stories not in this sprint; dates after the tag; example rows present</td><td>&mdash;</td><td><code>docs/finops-ledger.md</code> has this phase's rows, and the story numbers and dates agree with the git log. No example rows. From Phase 4, the plan revisited and &ldquo;did it hold&rdquo; answered</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="new-in-phase-3">4. New in Phase 3 <a class="anchor" href="#new-in-phase-3" aria-label="Link to this section">#</a></h2>
+    <ul>
+      <li><strong>Building is now marked.</strong> &ldquo;2 stories per member&rdquo; means the stories you build &mdash; you are the Assignee &mdash; not the stories you wrote.</li>
+      <li><strong>Every phase, 2 stories each.</strong> Each member delivers 2 stories as Assignee in every phase. Stories you finished before Phase 3 count toward Phase 3 only. Phase 4, Phase 5 and the Phase 6 sprint each need 2 new stories per member, delivered within that phase.</li>
+      <li><strong>Security Advisor.</strong> Your instructor will go through the Supabase Security Advisor with each team as a consultation. It is not graded.</li>
+      <li><strong>Three things from Phase 2 are now required</strong>, inside rows C and D: <code>db/schema.sql</code> runs on an empty Supabase project, with a policy on every table that names who reads and who writes (an allow-everything policy does not count, and do not <code>ALTER</code> a policy the file never created &mdash; the file will not run); every story that takes input has a missing-value and a wrong-value criterion that names the message the user sees; and the split is fair.</li>
+    </ul>
+    <p>Adding a story outside your proposal: see <a href="../scope-change/">the four scope-change steps</a>.</p>
+
+    <h2 id="your-own-part">5. Your own part <a class="anchor" href="#your-own-part" aria-label="Link to this section">#</a></h2>
+    <div class="table-wrap">
+      <table>
+        <caption>A coding sprint, your own part.</caption>
+        <thead><tr><th scope="col">Row</th><th scope="col">Meets</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Your delivered work (2 points)</th><td>You are Assignee on at least 2 stories delivered in the phase (for Phase 3, stories finished earlier count too). The Client Lead accepted each one. Your commits are under your own GitHub account. Each of your pull requests has the <code>AI-Assisted:</code> line.</td></tr>
+          <tr><th scope="row">Quizzes and comprehension checks (1.5 points)</th><td>Quizzes and comprehension checks are run in class. Expect short questions without warning.</td></tr>
+          <tr><th scope="row">Peer review (1.5 points)</th><td>Based on how your teammates rated your contribution. You must rate your teammates yourself to receive this row at all.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="workflow-slips">6. Workflow slips <a class="anchor" href="#workflow-slips" aria-label="Link to this section">#</a></h2>
+    <p>
+      Workflow slips &mdash; merging your own work, approving without reviewing, pushing
+      straight to <code>main</code>, signing for a teammate &mdash; are recorded as warnings,
+      not deductions. Each warning is explained with what went wrong because of it, and we
+      discuss it with the team or the class as a lesson.
+    </p>
+
+    <nav class="pager" aria-label="Deliverables pages">
+      <a class="prev" href="../delivery-note-example/" rel="prev"><span>Previous</span> Delivery note example</a>
+      <a class="up" href="../">Back to Deliverables</a>
+      <a class="next" href="../scope-change/" rel="next"><span>Next</span> Scope change</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><a href="../../">ISOM 472</a> &middot;
+      <a href="../../setup/">Setup</a> &middot;
+      <a href="../../slides/">Slides</a> &middot;
+      <a href="../../walkthrough/">First change</a> &middot;
+      <a href="../../example/">Example</a> &middot;
+      <a href="../">Deliverables</a> &middot;
+      <a href="../../reference/repository/">Repository</a> &middot;
+      <a href="../../reference/publishing/">Publishing</a> &middot;
+      <a href="../../roles/">Roles</a> &middot;
+      <a href="../../templates/proposal.html">Proposal</a></p>
+    <p>ISOM 472 &middot; Department of Information Systems and Operations Management &middot; Kuwait University</p>
+  </div>
+</footer>
+
+</body>
+</html>
