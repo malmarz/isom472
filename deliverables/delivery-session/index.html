@@ -58,21 +58,36 @@
         <caption>The ten minutes.</caption>
         <thead><tr><th scope="col">Minute</th><th scope="col">What</th></tr></thead>
         <tbody>
-          <tr><td>0&ndash;1</td><td><strong>Where we are.</strong> The sprint goal in one sentence. The board on screen: stories done, in progress, not started. Say the numbers.</td></tr>
-          <tr><td>1&ndash;6</td><td><strong>Show it working</strong> at your public address, not on a laptop's localhost. Walk at least one finished story through its acceptance criteria. Then break it on purpose: leave a required field empty, enter one wrong value, and show the message.</td></tr>
-          <tr><td>6&ndash;7&frac12;</td><td><strong>Who did what.</strong> Each delivered story by issue number and its Assignee, read from the board or the delivery note.</td></tr>
+          <tr><td>0&ndash;1</td><td><strong>Where we are.</strong> The sprint goal in one sentence. Then, with the board on screen, say the numbers: stories done, in progress and not started, and what moves to the next phase. The numbers you say must match the board and the delivery note.</td></tr>
+          <tr><td>1&ndash;6</td><td><strong>Show it working.</strong> Demo one or two stories end to end at your public address, not on a laptop's localhost (see <a href="#delivery-demo">the demo</a> below).</td></tr>
+          <tr><td>6&ndash;7&frac12;</td><td><strong>Who did what.</strong> Each delivered story by issue number and its Assignee. Have it on screen from the board or the delivery note; do not read every row aloud.</td></tr>
           <tr><td>7&frac12;&ndash;8&frac12;</td><td><strong>What is in the way.</strong> Blockers, risks, anything that will slip, and what you need &mdash; from a teammate, the client, or the instructor.</td></tr>
-          <tr><td>8&frac12;&ndash;10</td><td><strong>Questions</strong> from the instructor and the room.</td></tr>
+          <tr><td>8&frac12;&ndash;10</td><td><strong>Questions</strong> from the instructor and the room, to any member of the team.</td></tr>
         </tbody>
       </table>
     </div>
 
+    <h3 id="delivery-demo">The demo</h3>
+    <p>
+      Pick the stories that matter most to your client, not the easiest ones. For each story:
+    </p>
+    <ol>
+      <li>Read the story and its acceptance criteria.</li>
+      <li>Do it as the user would, logged in as the right kind of user, with realistic test data already in place.</li>
+      <li>Show the result where the user would see it: the saved record, the updated list, the changed status.</li>
+      <li>Then break it on purpose: leave one required field empty and enter one wrong value. Show the message the user gets.</li>
+    </ol>
+
     <h2 id="delivery-who-speaks">2. Who speaks <a class="anchor" href="#delivery-who-speaks" aria-label="Link to this section">#</a></h2>
     <p>
-      <strong>One or two members speak.</strong> Ten minutes is too short for everyone. The
-      speakers <strong>rotate</strong>: pick different speakers each phase, so that by the end
-      of the course every member has delivered at least once. The speakers must be able to
-      answer about any story you show, including stories they did not build. Prepare them
+      <strong>The whole team comes up together. One or two members speak.</strong> Ten minutes
+      is too short for everyone to present. The speakers <strong>rotate</strong>: pick different
+      speakers each phase, so that by the end of the course every member has delivered at
+      least once.
+    </p>
+    <p>
+      Questions can go to <strong>any member</strong>, about any story shown, including stories
+      they did not build. Every member must know the work, not only the speakers. Prepare
       together.
     </p>
 
@@ -80,9 +95,9 @@
     <ul>
       <li>The public address is open in a browser tab, logged in if it needs a login, with test data in it.</li>
       <li>The project board is open in a second tab, and it is <strong>true</strong>: every card is where its pull request says it is.</li>
-      <li>You have chosen which stories to show, and the speakers have walked them through once.</li>
-      <li>You have picked the missing value and the wrong value you will enter.</li>
-      <li>The speakers know each delivered story's number and Assignee.</li>
+      <li>You have chosen the one or two stories to show, and rehearsed the demo once from start to finish.</li>
+      <li>You have picked the missing value and the wrong value you will enter, and the logins and test data are written down.</li>
+      <li>Every member knows each delivered story's number and Assignee.</li>
     </ul>
     <p>No slides. The board, the app and the repository are the slides.</p>
 
@@ -93,9 +108,9 @@
         <thead><tr><th scope="col"></th><th scope="col">Not yet</th><th scope="col">Getting there</th><th scope="col">Meets</th></tr></thead>
         <tbody>
           <tr><th scope="row">Ready and on time</th><td>Setup eats the slot, or the team overruns badly</td><td>Starts late or runs over by a minute or two</td><td>Starts within a minute, ends by ten</td></tr>
-          <tr><th scope="row">Shows it working</th><td>Nothing shown live, or only localhost</td><td>One story shown, no bad input tried</td><td>At least one finished story walked through its criteria at the public address, missing and wrong value shown</td></tr>
+          <tr><th scope="row">Shows it working</th><td>Nothing shown live, or only localhost</td><td>One story shown, no bad input tried</td><td>One or two finished stories shown end to end at the public address, missing and wrong value shown</td></tr>
           <tr><th scope="row">Says what is true</th><td>The numbers spoken do not match the board</td><td>Close, with a gap or two</td><td>The numbers spoken match the board and the delivery note</td></tr>
-          <tr><th scope="row">Speakers know the work</th><td>Speakers cannot answer about stories they show</td><td>Speakers answer about their own stories only</td><td>Speakers answer about any story shown</td></tr>
+          <tr><th scope="row">The team knows the work</th><td>Members cannot answer about stories shown</td><td>Members answer about their own stories only</td><td>Any member answers about any story shown</td></tr>
           <tr><th scope="row">Names what is in the way</th><td>&ldquo;No blockers&rdquo; while work is stuck</td><td>Blockers named, no ask or plan</td><td>Each blocker named with who it needs and what happens next</td></tr>
         </tbody>
       </table>
